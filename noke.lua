@@ -267,16 +267,17 @@ if game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) the
 				local NewFol2 = Instance.new("Folder")
 				NewFol2.Parent = Dumper
 				NewFol2.Name = "F-35 Missile"
-			CloneScript.Parent = ThirtyFolder
-			local FlareFolder = Dumper:FindFirstChild("Flare")
-			if not FlareFolder then
-				local NewFol = Instance.new("Folder")
-				NewFol.Parent = Dumper
-				NewFol.Name = "Flare"
-				FlareFolder = NewFol
-				local FlareCloneScript = Fthirt.Misc.Turrets["Lightning Weapons"]["Flares"].Settings:Clone()
-				FlareCloneScript.Parent = FlareFolder
-			end
+				CloneScript.Parent = ThirtyFolder
+				CloneScript2.Parent = NewFol2
+				local FlareFolder = Dumper:FindFirstChild("Flare")
+				if not FlareFolder then
+					local NewFol = Instance.new("Folder")
+					NewFol.Parent = Dumper
+					NewFol.Name = "Flare"
+					FlareFolder = NewFol
+					local FlareCloneScript = Fthirt.Misc.Turrets["Lightning Weapons"]["Flares"].Settings:Clone()
+					FlareCloneScript.Parent = FlareFolder
+				end
 			print("Success")
 			end
 		end
