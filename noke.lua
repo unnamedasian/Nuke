@@ -412,7 +412,7 @@ ThirtHind.MouseButton1Click:Connect(function()
 		local WContainer =  Vehicle.Misc.Turrets["Mi24 Weapons"]["Explosive Machine Guns"]
 		local WContainer2 = Vehicle.Misc.Turrets["Mi24 Weapons"]["Guided Rockets"]
 		local DScript = WContainer.Settings
-		local DScript2 = Wcontainer2.RocketSettings
+		local DScript2 = WContainer2.RocketSettings
 		local TrashCan = Dumper:FindFirstChild("TrashCan")
 		if not TrashCan then
 			local Box = Instance.new("Folder")
