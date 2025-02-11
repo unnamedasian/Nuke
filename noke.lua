@@ -197,12 +197,14 @@ Button1.MouseButton1Click:Connect(function()
 	end
 --HideUI--
 UIS.InputBegan:Connect(function(input)
+	if not UIS:GetFocusedTextBox() then
 	if input.KeyCode == Enum.KeyCode.P then
 		if Gui2.Enabled then
 			Gui2.Enabled = false
 			else
 				Gui2.Enabled = true
 		end
+	end
 	end
 end)
 --Buttons
