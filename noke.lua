@@ -432,7 +432,44 @@ ThirtHind.MouseButton1Click:Connect(function()
 		NewFlare.Parent = FlareContainer
 		OldFlare.Parent = TrashCan
 		print(TrashCan)
+		local PosFix = v:FindFirstChild("FixedPos")
+		if not PosFix then
+		local FixFol = Instance.new("Folder")
+		FixFol.Parent = v
+		FixFol.Name = "FixedPos"
+		for i,v in pairs(WContainer2:GetChildren()) do
+			if not v:IsA("ModuleScript") then
+				for i,v in pairs(v:GetChildren()) do
+					v.Name = "Missile"
+				end
+			end
 		end
+		for i,v in pairs(v.Functionality.Engine:GetChildren()) do
+			if v:IsA("WeldConstraint") then
+				if v.Part1.Name == "Missile"then
+					local TemMissile = v.Part1 
+					v.Part1 = nil
+					TemMissile.CFrame *= CFrame.Angles(0,math.rad(-90),0)
+					v.Part1 = TemMissile
+					elseif v.Part0.Name == "Missile" then
+						v.Part0 = nil									
+						local TemMissile = v.Part0
+						v.Part0 = nil
+						TemMissile.CFrame *= CFrame.Angles(0,math.rad(-90),0)
+						v.Part0 = TemMissile
+				end
+			end
+		end
+		task.wait()
+		for i,v in pairs(WContainer2:GetChildren()) do
+			if not v:IsA("ModuleScript") then
+				for i,v in pairs(v:GetChildren()) do
+					v.Name = "Rocket"
+				end
+			end
+		end
+		end
+	end
 	end
 end)
 ThirtLilBird.MouseButton1Click:Connect(function()
