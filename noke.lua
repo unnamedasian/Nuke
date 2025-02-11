@@ -91,6 +91,10 @@ Button1.MouseButton1Click:Connect(function()
 	HarrierUI.Parent = Frame2
 	HarrierUI.Visible = false
 	HarrierUI.Name = "HarrierUI"
+	local PGUI = MiGUI:Clone()
+	PGUI.Parent = Frame2
+	PGUI.Name = "PGUI"
+	PGUI.Visible = false
 	local CopyUI = MiGUI:Clone()
 	CopyUI.Parent = Frame2
 	CopyUI.Name = "CopyUI"
@@ -114,6 +118,9 @@ Button1.MouseButton1Click:Connect(function()
 	local Label6 = Label3:Clone()
 	Label6.Parent = HarrierUI
 	Label6.Text = "Insert Harrier"
+	local Label17 = Label13:Clone()
+	Label17.Parent = PGUI
+	Labek17.Text = "insert PG-02"
 	----MIG HIND BUTTON
 	MigHind = Instance.new("TextButton")
 	MigHind.Parent = MiGUI
@@ -150,6 +157,11 @@ Button1.MouseButton1Click:Connect(function()
 	HarrierSpit.Parent = HarrierUI
 	HarrierSpit.Name = "Spitfire"
 	HarrierSpit.Text = "Spitfire"
+	--PG douglas
+	PGDouglas = MigHind:Clone()
+	PGDouglas.Parent = PGUI
+	PGDouglas.Name = "Douglas"
+	PGDouglas.Text = "USS Douglas"
 	---F-35 steal----
 	print("PlrOwns")
 	ThirtButton = MigHind:Clone()
@@ -170,6 +182,11 @@ Button1.MouseButton1Click:Connect(function()
 	HarrierButton.Parent = CopyUI
 	HarrierButton.Name = "Harrier"
 	HarrierButton.Text = "Harrier"
+	--pg steal---
+	PGButton = ThirtButton:Clone()
+	PGButton.Parent = CopyUI
+	PGButton.Name = "PG-02"
+	PGButton.Text = "PG-02"
 --HideUI--
 UIS.InputBegan:Connect(function(input)
 	if input.KeyCode == Enum.KeyCode.P then
@@ -185,6 +202,7 @@ HarrierButton.MouseButton1Click:Connect(function()
 	if not HarrierUI.Visible then
 		MiGUI.Visible = false
 		ThirtUI.Visible = false
+		PGUI.Visible = false
 		HarrierUI.Visible = true
 	end
 	VehicleFolder = workspace["Game Systems"]["Plane Workspace"]
@@ -221,6 +239,7 @@ if game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) the
 	if not ThirtUI.Visible then
 		MiGUI.Visible = false
 		HarrierUI.Visible = false
+		PGUI.Visible = false
 		ThirtUI.Visible = true
 	end
 	VehicleFolder = workspace["Game Systems"]["Plane Workspace"]
@@ -261,6 +280,7 @@ MiGButton.MouseButton1Click:Connect(function()
 	if not MiGUI.Visible then
 		MiGUI.Visible = true
 		HarrierUI.Visible = false
+		PGUI.Visible = false
 		ThirtUI.Visible = false
 	end
 	VehicleFolder = workspace["Game Systems"]["Plane Workspace"]
@@ -290,6 +310,32 @@ MiGButton.MouseButton1Click:Connect(function()
 		local CheckFold = Dumper:FindFirstChild("MiG")
 		if CheckFold then
 			MiGButton.BackgroundColor3 = Color3.fromRGB(0,255,0)
+		end
+end)
+PGButton.MouseButton1Click:Connect(function()
+	if not PGUI.Visible then
+		MiGUI.Visible = false
+		ThirtUI.Visible = false
+		PGUI.Visible = false
+		HarrierUI.Visible = true
+	end
+	VehicleFolder = workspace["Game Systems"]["Boat Workspace"]
+		local Fthirt = VehicleFolder:FindFirstChild("PG-02")
+		if Fthirt then
+			local ThirtyFolder = Dumper:FindFirstChild("Harrier")
+			if not ThirtyFolder then
+				local NewFol = Instance.new("Folder")
+				NewFol.Parent = Dumper
+				NewFol.Name = "PG-02"
+				ThirtyFolder = NewFol
+				local CloneScript = Fthirt.Turrets["PG Weapons"]["Mounted Minigun"].Settings:Clone()
+			CloneScript.Parent = ThirtyFolder
+			print("Success")
+			end
+		end
+		local CheckFold = Dumper:FindFirstChild("PG-02")
+		if CheckFold then
+			HarrierButton.BackgroundColor3 = Color3.fromRGB(0,255,0)
 		end
 end)
 MigHind.MouseButton1Click:Connect(function()
@@ -459,7 +505,27 @@ HarrierSpit.MouseButton1Click:Connect(function()
 		end
 	end
 end)
-
+PGDouglas.MouseButton1Click:Connect(function()
+	VehicleFolder = workspace["Game Systems"]["Boat Workspace"]
+	for i, v in ipairs(VehicleFolder:GetChildren()) do
+		if v.Name == "USS Douglas" then
+		local Vehicle = v
+		local WContainer =  Vehicle.Turrets["Douglas Weapons"]["Front Cannon"]
+		local DScript = WContainer.Settings
+		local TrashCan = Dumper:FindFirstChild("TrashCan")
+		if not TrashCan then
+			local Box = Instance.new("Folder")
+			Box.Parent = Dumper
+			Box.Name = "TrashCan"
+			TrashCan = Box
+		end
+		local NewScript = Dumper["PG-02"].Settings:Clone()
+		NewScript.Parent = WContainer
+		DScript.Parent = TrashCan
+		print(TrashCan)
+		end
+	end
+end)
 end)
 Button2.MouseButton1Click:Connect(function()
 	game:GetService("Debris"):AddItem(Gui1,0)
