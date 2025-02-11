@@ -150,6 +150,9 @@ Button1.MouseButton1Click:Connect(function()
 	HarrierSpit.Parent = HarrierUI
 	HarrierSpit.Name = "Spitfire"
 	HarrierSpit.Text = "Spitfire"
+	---Harrier Lilbird
+	HarrierLilBird = ThirtLilBird:Clone()
+	HarrierLilBird.Parent = HarrierUI
 	---F-35 steal----
 	print("PlrOwns")
 	ThirtButton = MigHind:Clone()
@@ -455,6 +458,32 @@ HarrierSpit.MouseButton1Click:Connect(function()
 		local NewScript = Dumper["Harrier"].Settings:Clone()
 		NewScript.Parent = WContainer
 		DScript.Parent = TrashCan
+		print(TrashCan)
+		end
+	end
+end)
+HarrierLilBird.MouseButton1Click:Connect(function()
+	VehicleFolder = workspace["Game Systems"]["Helicopter Workspace"]
+	for i, v in ipairs(VehicleFolder:GetChildren()) do
+		if v.Name == "AH-6 Littlebird" then
+		local Vehicle = v
+		local WContainer =  Vehicle.Misc.Turrets["AH Weapons"]["Miniguns"]
+		local DScript = WContainer.Settings
+		local TrashCan = Dumper:FindFirstChild("TrashCan")
+		if not TrashCan then
+			local Box = Instance.new("Folder")
+			Box.Parent = Dumper
+			Box.Name = "TrashCan"
+			TrashCan = Box
+		end
+		local NewScript = Dumper["Harrier"].Settings:Clone()
+		NewScript.Parent = WContainer
+		DScript.Parent = TrashCan
+		local FlareContainer = Vehicle.Misc.Turrets["AH Weapons"]["Flares"]
+		local OldFlare = FlareContainer.Settings
+		local NewFlare = workspace.Dumper.Flare.Settings:Clone()
+		NewFlare.Parent = FlareContainer
+		OldFlare.Parent = TrashCan
 		print(TrashCan)
 		end
 	end
