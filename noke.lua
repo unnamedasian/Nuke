@@ -48,7 +48,7 @@ Button2.Text = "DEACTIVATE"
 Button1.MouseButton1Click:Connect(function()
 	game:GetService("Debris"):AddItem(Gui1,0)
 	local Gui2 = Instance.new("ScreenGui")
-	Gui2.Parent = plr.PlayerGui
+	Gui2.Parent =game:GetService("CoreGui")
 	Gui2.Name = "MAIN NUKE"
 	Gui2.ResetOnSpawn = false
 	local ListLayout = Instance.new("UIListLayout")
@@ -194,6 +194,11 @@ Button1.MouseButton1Click:Connect(function()
 	Nightom.Parent = NightUI
 	Nightom.Name = "F-4"
 	Nightom.Text = "F-4"
+	---F-117 B-29
+	Nightfortress = MigHind:Clone()
+	Nightfortress.Parent = NightUI
+	Nightfortress.Name = "B-29"
+	Nightfortress.Text = "B-29"
 	---F-35 steal----
 	print("PlrOwns")
 	ThirtButton = MigHind:Clone()
@@ -782,7 +787,38 @@ Nightom.MouseButton1Click:Connect(function()
 		end
 	end
 end)
-		
+Nightfortress.MouseButton1Click:Connect(function()
+	VehicleFolder = workspace["Game Systems"]["Plane Workspace"]
+	for i, v in ipairs(VehicleFolder:GetChildren()) do
+		if v.Name == "B-29 Superfortress" then
+		local Vehicle = v
+		local WContainer =  Vehicle.Misc.Turrets["Bomber Weapons"]["Bombs"]
+		local DScript = WContainer.RocketSettings
+		local TrashCan = Dumper:FindFirstChild("TrashCan")
+		if not TrashCan then
+			local Box = Instance.new("Folder")
+			Box.Parent = Dumper
+			Box.Name = "TrashCan"
+			TrashCan = Box
+		end
+		local NewScript = Dumper["F-117"].RocketSettings:Clone()
+		NewScript.Parent = WContainer
+		DScript.Parent = TrashCan
+		print(TrashCan)
+		local PosFix = v:FindFirstChild("FixedPos")
+		if not PosFix then
+			local FixFol = Instance.new("Folder")
+			FixFol.Parent = v
+			FixFol.Name = "FixedPos"
+			for i,v in pairs(WContainer.Bombs:GetChildren()) do
+				v.WeldConstraint.Part1 = nil
+				v.CFrame *= CFrame.Angles(0,math.rad(90),0)
+				v.WeldConstraint.Part1 = v
+			end
+		end
+		end
+	end
+end)
 end)
 Button2.MouseButton1Click:Connect(function()
 	game:GetService("Debris"):AddItem(Gui1,0)
