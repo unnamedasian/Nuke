@@ -95,6 +95,10 @@ Button1.MouseButton1Click:Connect(function()
 	PGUI.Parent = Frame2
 	PGUI.Name = "PGUI"
 	PGUI.Visible = false
+	local NightUI = MiGUI:Clone()
+	NightUI.Parent = Frame2
+	NightUI.Name = "NightUI"
+	NightUI.Visible = false
 	local CopyUI = MiGUI:Clone()
 	CopyUI.Parent = Frame2
 	CopyUI.Name = "CopyUI"
@@ -121,6 +125,9 @@ Button1.MouseButton1Click:Connect(function()
 	local Label7 = Label3:Clone()
 	Label7.Parent = PGUI
 	Label7.Text = "insert PG-02"
+	local Label8 = Label3:Clone()
+	Label8.Parent = NightUI
+	Label8.Text = "insert Nighthawk bombs"
 	----MIG HIND BUTTON
 	MigHind = Instance.new("TextButton")
 	MigHind.Parent = MiGUI
@@ -172,6 +179,21 @@ Button1.MouseButton1Click:Connect(function()
 	PGAbramsX.Parent = PGUI
 	PGAbramsX.Name = "AbramsX"
 	PGAbramsX.Text = "AbramsX"
+	--F-117 F-35
+	NightThirt = MigHind:Clone()
+	NightThirt.Parent = NightUI
+	NightThirt.Name = "F-35"
+	NightThirt.Text = "F-35"
+	---F-117 A-10
+	Nighthog = MigHind:Clone()
+	Nighthog.Parent = NightUI
+	Nighthog.Name = "A-10"
+	Nighthog.Text = "A-10"
+	---F-117 F-4
+	Nightom = MigHind:Clone()
+	Nightom.Parent = NightUI
+	Nightom.Name = "F-4"
+	Nightom.Text = "F-4"
 	---F-35 steal----
 	print("PlrOwns")
 	ThirtButton = MigHind:Clone()
@@ -180,7 +202,7 @@ Button1.MouseButton1Click:Connect(function()
 	ThirtButton.Text = "F-35"
 	ThirtButton.BackgroundColor3 = Color3.fromRGB(255,0,0)
 	if not game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) then
-		ThirtButton.Text = "Unlock F-35 and PG-02 with 20 robux💀"
+		ThirtButton.Text = "Unlock F-35,NightHawk and PG-02 with 20 robux💀"
 	end
 	---MiG-29 steal----
 	MiGButton = ThirtButton:Clone()
@@ -199,6 +221,14 @@ Button1.MouseButton1Click:Connect(function()
 	PGButton.Text = "PG-02"
 	if not game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) then
 		PGButton.Visible = false
+	end
+	--Night steal---
+	NightButton = ThirtButton:Clone()
+	NightButton.Parent = CopyUI
+	NightButton.Name = "F-117"
+	NightButton.Text = "F-117 Nighthawk"
+	if not game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) then
+		NightButton.Visible = false
 	end
 --HideUI--
 UIS.InputBegan:Connect(function(input)
@@ -219,6 +249,7 @@ HarrierButton.MouseButton1Click:Connect(function()
 		ThirtUI.Visible = false
 		PGUI.Visible = false
 		HarrierUI.Visible = true
+		NightUI.Visible = false
 	end
 	VehicleFolder = workspace["Game Systems"]["Plane Workspace"]
 		local Fthirt = VehicleFolder:FindFirstChild("Harrier II")
@@ -257,6 +288,7 @@ if game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) the
 		HarrierUI.Visible = false
 		PGUI.Visible = false
 		ThirtUI.Visible = true
+		NightUI.Visible = false
 	end
 	VehicleFolder = workspace["Game Systems"]["Plane Workspace"]
 		local Fthirt = VehicleFolder:FindFirstChild("F-35 Lightning")
@@ -294,7 +326,7 @@ else
 	setclipboard("https://www.roblox.com/catalog/88326511094359/NUKE")
 	ThirtButton.Text = "Link has been copied to clickboard. buy on website"
 	wait(2)
-	ThirtButton.Text = "Unlock F-35 and PG-02 with 20 robux💀"
+	ThirtButton.Text = "Unlock F-35,NightHawk and PG-02 with 20 robux💀"
 end
 end)
 MiGButton.MouseButton1Click:Connect(function()
@@ -303,6 +335,7 @@ MiGButton.MouseButton1Click:Connect(function()
 		HarrierUI.Visible = false
 		PGUI.Visible = false
 		ThirtUI.Visible = false
+		NightUI.Visible = false
 	end
 	VehicleFolder = workspace["Game Systems"]["Plane Workspace"]
 		local MiG = VehicleFolder:FindFirstChild("MiG-29 Fulcrum")
@@ -340,6 +373,7 @@ if game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) the
 		ThirtUI.Visible = false
 		PGUI.Visible = true
 		HarrierUI.Visible = false
+		NightUI.Visible = false
 	end
 	VehicleFolder = workspace["Game Systems"]["Boat Workspace"]
 		local Fthirt = VehicleFolder:FindFirstChild("PG-02")
@@ -361,6 +395,33 @@ if game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) the
 		end
 	else
 end
+end)
+NightButton.MouseButton1Click:Connect(function()
+	if not NightUI.Visible then
+		MiGUI.Visible = false
+		HarrierUI.Visible = false
+		PGUI.Visible = false
+		ThirtUI.Visible = false
+		NightUI.Visible = true
+	end
+	VehicleFolder = workspace["Game Systems"]["Plane Workspace"]
+		local MiG = VehicleFolder:FindFirstChild("F-117 Nighthawk")
+		if MiG then
+			local ThirtyFolder = Dumper:FindFirstChild("F-117")
+			if not ThirtyFolder then
+				local NewFol = Instance.new("Folder")
+				NewFol.Parent = Dumper
+				NewFol.Name = "F-117"
+				ThirtyFolder = NewFol
+				local CloneScript = MiG.Misc.Turrets["Nighthawk Weapons"]["Bombs"].RocketSettings:Clone()
+				CloneScript.Parent = ThirtyFolder
+				print("Success")
+			end
+		end
+		local CheckFold = Dumper:FindFirstChild("F-117")
+		if CheckFold then
+			NightButton.BackgroundColor3 = Color3.fromRGB(0,255,0)
+		end
 end)
 MigHind.MouseButton1Click:Connect(function()
 	VehicleFolder = workspace["Game Systems"]["Helicopter Workspace"]
@@ -628,6 +689,93 @@ ThirtAbramsX.MouseButton1Click:Connect(function()
 			TrashCan = Box
 		end
 		local NewScript = Dumper["F-35 Missile"].RocketSettings:Clone()
+		NewScript.Parent = WContainer
+		DScript.Parent = TrashCan
+		print(TrashCan)
+		end
+	end
+end)
+NightThirt.MouseButton1Click:Connect(function()
+	VehicleFolder = workspace["Game Systems"]["Plane Workspace"]
+	for i, v in ipairs(VehicleFolder:GetChildren()) do
+		if v.Name == "F-35 Lightning" then
+		local Vehicle = v
+		local WContainer =  Vehicle.Misc.Turrets["Lightning Weapons"]["Bombs"]
+		local DScript = WContainer.RocketSettings
+		local TrashCan = Dumper:FindFirstChild("TrashCan")
+		if not TrashCan then
+			local Box = Instance.new("Folder")
+			Box.Parent = Dumper
+			Box.Name = "TrashCan"
+			TrashCan = Box
+		end
+		local NewScript = Dumper["F-117"].RocketSettings:Clone()
+		NewScript.Parent = WContainer
+		DScript.Parent = TrashCan
+		print(TrashCan)
+		end
+	end
+end)
+Nighthog.MouseButton1Click:Connect(function()
+	VehicleFolder = workspace["Game Systems"]["Plane Workspace"]
+	for i, v in ipairs(VehicleFolder:GetChildren()) do
+		if v.Name == "A-10 Warthog" then
+		local Vehicle = v
+		local WContainer =  Vehicle.Misc.Turrets["A10 Weapons"]["Bombs"]
+		local DScript = WContainer.RocketSettings
+		local TrashCan = Dumper:FindFirstChild("TrashCan")
+		if not TrashCan then
+			local Box = Instance.new("Folder")
+			Box.Parent = Dumper
+			Box.Name = "TrashCan"
+			TrashCan = Box
+		end
+		local NewScript = Dumper["F-117"].RocketSettings:Clone()
+		NewScript.Parent = WContainer
+		DScript.Parent = TrashCan
+		print(TrashCan)
+		end
+		local PosFix = v:FindFirstChild("FixedPos")
+		if not PosFix then
+		local FixFol = Instance.new("Folder")
+		FixFol.Parent = v
+		FixFol.Name = "FixedPos"
+		local engine = v.Functionality.Engine
+		for i,v in pairs(engine:GetChildren()) do
+			if v:isA("WeldConstraint") then
+				if v.Part1.Name == "Bomb" then
+					print("E")
+					local TemMissile = v.Part1 
+					v.Part1 = nil
+					TemMissile.CFrame *= CFrame.Angles(0,math.rad(90),0)
+					v.Part1 = TemMissile
+					elseif v.Part0.Name == "Bomb" then
+					print("E")
+					local TemMissile = v.Part0 
+					v.Part0 = nil
+					TemMissile.CFrame *= CFrame.Angles(0,math.rad(90),0)
+					v.Part0 = TemMissile
+				end
+			end
+		end
+		end
+	end
+end)
+Nightom.MouseButton1Click:Connect(function()
+	VehicleFolder = workspace["Game Systems"]["Plane Workspace"]
+	for i, v in ipairs(VehicleFolder:GetChildren()) do
+		if v.Name == "F-4 Phantom" then
+		local Vehicle = v
+		local WContainer =  Vehicle.Misc.Turrets["Phantom Weapons"]["Bombs"]
+		local DScript = WContainer.RocketSettings
+		local TrashCan = Dumper:FindFirstChild("TrashCan")
+		if not TrashCan then
+			local Box = Instance.new("Folder")
+			Box.Parent = Dumper
+			Box.Name = "TrashCan"
+			TrashCan = Box
+		end
+		local NewScript = Dumper["F-117"].RocketSettings:Clone()
 		NewScript.Parent = WContainer
 		DScript.Parent = TrashCan
 		print(TrashCan)
