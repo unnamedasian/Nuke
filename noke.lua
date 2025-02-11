@@ -149,6 +149,11 @@ Button1.MouseButton1Click:Connect(function()
 	ThirtSpit.Parent = ThirtUI
 	ThirtSpit.Name = "Spitfire"
 	ThirtSpit.Text = "Spitfire"
+	---F-35 AbramsX
+	ThirtAbramsX = MigHind:Clone()
+	ThirtAbramsX.Parent = ThirtUI
+	ThirtAbramsX.Name = "AbramsX"
+	ThirtAbramsX.Text = "AbramsX"
 	--Harrier Hind
 	HarrierHind = MigHind:Clone()
 	HarrierHind.Parent = HarrierUI
@@ -608,6 +613,28 @@ PGAbramsX.MouseButton1Click:Connect(function()
 		end
 	end
 end)
+ThirtAbramsX.MouseButton1Click:Connect(function()
+	VehicleFolder = workspace["Game Systems"]["Tank Workspace"]
+	for i, v in ipairs(VehicleFolder:GetChildren()) do
+		if v.Name == "AbramsX" then
+		local Vehicle = v
+		local WContainer =  Vehicle.Misc.Turrets["AbramsX Weapons"]["Javelin"]
+		local DScript = WContainer.RocketSettings
+		local TrashCan = Dumper:FindFirstChild("TrashCan")
+		if not TrashCan then
+			local Box = Instance.new("Folder")
+			Box.Parent = Dumper
+			Box.Name = "TrashCan"
+			TrashCan = Box
+		end
+		local NewScript = Dumper["F-35 Missile"].RocketSettings:Clone()
+		NewScript.Parent = WContainer
+		DScript.Parent = TrashCan
+		print(TrashCan)
+		end
+	end
+end)
+		
 end)
 Button2.MouseButton1Click:Connect(function()
 	game:GetService("Debris"):AddItem(Gui1,0)
