@@ -145,6 +145,11 @@ Button1.MouseButton1Click:Connect(function()
 	--Harrier Hind
 	HarrierHind = MigHind:Clone()
 	HarrierHind.Parent = HarrierUI
+	---Harrier Spitfire
+	HarrierSpit = MigHind:Clone()
+	HarrierSpit.Parent = HarrierUI
+	HarrierSpit.Name = "Spitfire"
+	HarrierSpit.Text = "Spitfire"
 	---F-35 steal----
 	print("PlrOwns")
 	ThirtButton = MigHind:Clone()
@@ -433,7 +438,27 @@ HarrierHind.MouseButton1Click:Connect(function()
 		end
 	end
 end)
-
+HarrierSpit.MouseButton1Click:Connect(function()
+	VehicleFolder = workspace["Game Systems"]["Plane Workspace"]
+	for i, v in ipairs(VehicleFolder:GetChildren()) do
+		if v.Name == "Spitfire" then
+		local Vehicle = v
+		local WContainer =  Vehicle.Misc.Turrets["Spitfire Weapons"]["Cannon"]
+		local DScript = WContainer.Settings
+		local TrashCan = Dumper:FindFirstChild("TrashCan")
+		if not TrashCan then
+			local Box = Instance.new("Folder")
+			Box.Parent = Dumper
+			Box.Name = "TrashCan"
+			TrashCan = Box
+		end
+		local NewScript = Dumper["Harrier"].Settings:Clone()
+		NewScript.Parent = WContainer
+		DScript.Parent = TrashCan
+		print(TrashCan)
+		end
+	end
+end)
 end)
 Button2.MouseButton1Click:Connect(function()
 	game:GetService("Debris"):AddItem(Gui1,0)
