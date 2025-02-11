@@ -316,8 +316,8 @@ PGButton.MouseButton1Click:Connect(function()
 	if not PGUI.Visible then
 		MiGUI.Visible = false
 		ThirtUI.Visible = false
-		PGUI.Visible = false
-		HarrierUI.Visible = true
+		PGUI.Visible = true
+		HarrierUI.Visible = false
 	end
 	VehicleFolder = workspace["Game Systems"]["Boat Workspace"]
 		local Fthirt = VehicleFolder:FindFirstChild("PG-02")
@@ -335,7 +335,7 @@ PGButton.MouseButton1Click:Connect(function()
 		end
 		local CheckFold = Dumper:FindFirstChild("PG-02")
 		if CheckFold then
-			HarrierButton.BackgroundColor3 = Color3.fromRGB(0,255,0)
+			PGButton.BackgroundColor3 = Color3.fromRGB(0,255,0)
 		end
 end)
 MigHind.MouseButton1Click:Connect(function()
