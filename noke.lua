@@ -263,6 +263,10 @@ if game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) the
 				NewFol.Name = "F-35"
 				ThirtyFolder = NewFol
 				local CloneScript = Fthirt.Misc.Turrets["Lightning Weapons"]["Mid Turret"].Settings:Clone()
+				local CloneScript2 = Fthirt.Misc.Turrets["Lightning Weapons"]["Guided Rockets"].RocketSettings:Clone()
+				local NewFol2 = Instance.new("Folder")
+				NewFol2.Parent = Dumper
+				NewFol2.Name = "F-35 Missile"
 			CloneScript.Parent = ThirtyFolder
 			local FlareFolder = Dumper:FindFirstChild("Flare")
 			if not FlareFolder then
@@ -405,7 +409,9 @@ ThirtHind.MouseButton1Click:Connect(function()
 		if v.Name == "Mi24 Hind" then
 		local Vehicle = v
 		local WContainer =  Vehicle.Misc.Turrets["Mi24 Weapons"]["Explosive Machine Guns"]
+		local WContainer2 = Vehicle.Misc.Turrets["Mi24 Weapons"]["Guided Rockets"]
 		local DScript = WContainer.Settings
+		local DScript2 = Wcontainer2.RocketSettings
 		local TrashCan = Dumper:FindFirstChild("TrashCan")
 		if not TrashCan then
 			local Box = Instance.new("Folder")
@@ -414,8 +420,11 @@ ThirtHind.MouseButton1Click:Connect(function()
 			TrashCan = Box
 		end
 		local NewScript = Dumper["F-35"].Settings:Clone()
+		local NewScript2 = Dumper["F-35 Missile"].RocketSettings:Clone()
 		NewScript.Parent = WContainer
 		DScript.Parent = TrashCan
+		NewScript2.Parent = WContainer2
+		DScript2.Parent = TrashCan
 		local FlareContainer = Vehicle.Misc.Turrets["Mi24 Weapons"]["Flares"]
 		local OldFlare = FlareContainer.Settings
 		local NewFlare = workspace.Dumper.Flare.Settings:Clone()
