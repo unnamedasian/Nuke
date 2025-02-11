@@ -164,6 +164,7 @@ Button1.MouseButton1Click:Connect(function()
 	PGDouglas.Text = "USS Douglas"
 	--PG AbramsX
 	PGAbramsX = MigHind:Clone()
+	PGAbramsX.Parent = PGUI
 	PGAbramsX.Name = "AbramsX"
 	PGAbramsX.Text = "AbramsX"
 	---F-35 steal----
