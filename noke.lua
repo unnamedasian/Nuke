@@ -162,6 +162,10 @@ Button1.MouseButton1Click:Connect(function()
 	PGDouglas.Parent = PGUI
 	PGDouglas.Name = "Douglas"
 	PGDouglas.Text = "USS Douglas"
+	--PG AbramsX
+	PGAbramsX = MigHind:Clone()
+	PGAbramsX.Name = "AbramsX"
+	PGAbramsX.Text = "AbramsX"
 	---F-35 steal----
 	print("PlrOwns")
 	ThirtButton = MigHind:Clone()
@@ -170,7 +174,7 @@ Button1.MouseButton1Click:Connect(function()
 	ThirtButton.Text = "F-35"
 	ThirtButton.BackgroundColor3 = Color3.fromRGB(255,0,0)
 	if not game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) then
-		ThirtButton.Text = "Unlock F-35 with 20 robux💀"
+		ThirtButton.Text = "Unlock F-35 and PG-02 with 20 robux💀"
 	end
 	---MiG-29 steal----
 	MiGButton = ThirtButton:Clone()
@@ -187,6 +191,9 @@ Button1.MouseButton1Click:Connect(function()
 	PGButton.Parent = CopyUI
 	PGButton.Name = "PG-02"
 	PGButton.Text = "PG-02"
+	if not game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) then
+		PGButton.Visible = false
+	end
 --HideUI--
 UIS.InputBegan:Connect(function(input)
 	if input.KeyCode == Enum.KeyCode.P then
@@ -235,6 +242,7 @@ HarrierButton.MouseButton1Click:Connect(function()
 end)
 ThirtButton.MouseButton1Click:Connect(function()
 if game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) then
+	PGButton.Visible = true
 	ThirtButton.Text = "F-35"
 	if not ThirtUI.Visible then
 		MiGUI.Visible = false
@@ -273,7 +281,7 @@ else
 	setclipboard("https://www.roblox.com/catalog/88326511094359/NUKE")
 	ThirtButton.Text = "Link has been copied to clickboard. buy on website"
 	wait(2)
-	ThirtButton.Text = "Unlock F-35 with 20 robux💀"
+	ThirtButton.Text = "Unlock F-35 and PG-02 with 20 robux💀"
 end
 end)
 MiGButton.MouseButton1Click:Connect(function()
@@ -313,6 +321,7 @@ MiGButton.MouseButton1Click:Connect(function()
 		end
 end)
 PGButton.MouseButton1Click:Connect(function()
+if game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) then
 	if not PGUI.Visible then
 		MiGUI.Visible = false
 		ThirtUI.Visible = false
@@ -322,7 +331,7 @@ PGButton.MouseButton1Click:Connect(function()
 	VehicleFolder = workspace["Game Systems"]["Boat Workspace"]
 		local Fthirt = VehicleFolder:FindFirstChild("PG-02")
 		if Fthirt then
-			local ThirtyFolder = Dumper:FindFirstChild("Harrier")
+			local ThirtyFolder = Dumper:FindFirstChild("PG-02")
 			if not ThirtyFolder then
 				local NewFol = Instance.new("Folder")
 				NewFol.Parent = Dumper
@@ -337,6 +346,8 @@ PGButton.MouseButton1Click:Connect(function()
 		if CheckFold then
 			PGButton.BackgroundColor3 = Color3.fromRGB(0,255,0)
 		end
+	else
+end
 end)
 MigHind.MouseButton1Click:Connect(function()
 	VehicleFolder = workspace["Game Systems"]["Helicopter Workspace"]
@@ -511,6 +522,27 @@ PGDouglas.MouseButton1Click:Connect(function()
 		if v.Name == "USS Douglas" then
 		local Vehicle = v
 		local WContainer =  Vehicle.Turrets["Douglas Weapons"]["Front Cannon"]
+		local DScript = WContainer.Settings
+		local TrashCan = Dumper:FindFirstChild("TrashCan")
+		if not TrashCan then
+			local Box = Instance.new("Folder")
+			Box.Parent = Dumper
+			Box.Name = "TrashCan"
+			TrashCan = Box
+		end
+		local NewScript = Dumper["PG-02"].Settings:Clone()
+		NewScript.Parent = WContainer
+		DScript.Parent = TrashCan
+		print(TrashCan)
+		end
+	end
+end)
+PGAbramsX.MouseButton1Click:Connect(function()
+	VehicleFolder = workspace["Game Systems"]["Tank Workspace"]
+	for i, v in ipairs(VehicleFolder:GetChildren()) do
+		if v.Name == "AbramsX" then
+		local Vehicle = v
+		local WContainer =  Vehicle.Misc.Turrets["AbramsX Weapons"]["Mounted Turret1"]
 		local DScript = WContainer.Settings
 		local TrashCan = Dumper:FindFirstChild("TrashCan")
 		if not TrashCan then
