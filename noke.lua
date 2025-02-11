@@ -118,9 +118,9 @@ Button1.MouseButton1Click:Connect(function()
 	local Label6 = Label3:Clone()
 	Label6.Parent = HarrierUI
 	Label6.Text = "Insert Harrier"
-	local Label17 = Label13:Clone()
-	Label17.Parent = PGUI
-	Labek17.Text = "insert PG-02"
+	local Label7 = Label3:Clone()
+	Label7.Parent = PGUI
+	Label7.Text = "insert PG-02"
 	----MIG HIND BUTTON
 	MigHind = Instance.new("TextButton")
 	MigHind.Parent = MiGUI
