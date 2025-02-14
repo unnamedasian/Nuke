@@ -166,6 +166,11 @@ Button1.MouseButton1Click:Connect(function()
 	Thirthog.Parent = ThirtUI
 	Thirthog.Name = "A-10"
 	Thirthog.Text = "A-10"
+	---F-35 Patriot
+	Lightiot = MigHind:Clone()
+	Lightiot.Parent = ThirtUI
+	Lightiot.Name = "Patriot"
+	Lightiot.Text = "Patriot"
 	--Harrier Hind
 	HarrierHind = MigHind:Clone()
 	HarrierHind.Parent = HarrierUI
@@ -860,6 +865,27 @@ Nightfortress.MouseButton1Click:Connect(function()
 				v.WeldConstraint.Part1 = v
 			end
 		end
+		end
+	end
+end)
+Lightiot.MouseButton1Click:Connect(function()
+	VehicleFolder = workspace["Game Systems"]["Vehicle Workspace"]
+	for i, v in ipairs(VehicleFolder:GetChildren()) do
+		if v.Name == "Patriot AA" then
+		local Vehicle = v
+		local WContainer =  Vehicle.Misc.Turrets["Patriot Weapons"]["Guided Rockets"]
+		local DScript = WContainer.RocketSettings
+		local TrashCan = Dumper:FindFirstChild("TrashCan")
+		if not TrashCan then
+			local Box = Instance.new("Folder")
+			Box.Parent = Dumper
+			Box.Name = "TrashCan"
+			TrashCan = Box
+		end
+		local NewScript = Dumper["F-35 Missile"].RocketSettings:Clone()
+		NewScript.Parent = WContainer
+		DScript.Parent = TrashCan
+		print(TrashCan)
 		end
 	end
 end)
