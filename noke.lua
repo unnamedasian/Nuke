@@ -209,6 +209,11 @@ Button1.MouseButton1Click:Connect(function()
 	Nightfortress.Parent = NightUI
 	Nightfortress.Name = "B-29"
 	Nightfortress.Text = "B-29"
+	--F-117 Stuka
+	Nightuka = MigHind:Clone()
+	Nightuka.Parent = NightUI
+	Nightuka.Name = "Stuka"
+	Nightuka.Text = "Stuka"
 	---F-35 steal----
 	print("PlrOwns")
 	ThirtButton = MigHind:Clone()
@@ -728,7 +733,6 @@ Thirthog.MouseButton1Click:Connect(function()
 		NewScript.Parent = WContainer
 		DScript.Parent = TrashCan
 		print(TrashCan)
-		end
 		local PosFix = v:FindFirstChild("FixedPos2")
 		if not PosFix then
 		local FixFol = Instance.new("Folder")
@@ -745,6 +749,7 @@ Thirthog.MouseButton1Click:Connect(function()
 					v.Part1 = TemMissile
 				end
 			end
+		end
 		end
 		end
 	end
@@ -864,6 +869,34 @@ Nightfortress.MouseButton1Click:Connect(function()
 				v.CFrame *= CFrame.Angles(0,math.rad(90),0)
 				v.WeldConstraint.Part1 = v
 			end
+		end
+		end
+	end
+end)
+Nightuka.MouseButton1Click:Connect(function()
+	VehicleFolder = workspace["Game Systems"]["Plane Workspace"]
+	for i, v in ipairs(VehicleFolder:GetChildren()) do
+		if v.Name == "Ju 87 Stuka" then
+		local Vehicle = v
+		local WContainer =  Vehicle.Misc.Turrets["Stuka Weapons"]["Bombs"]
+		local DScript = WContainer.RocketSettings
+		local TrashCan = Dumper:FindFirstChild("TrashCan")
+		if not TrashCan then
+			local Box = Instance.new("Folder")
+			Box.Parent = Dumper
+			Box.Name = "TrashCan"
+			TrashCan = Box
+		end
+		local NewScript = Dumper["F-117"].RocketSettings:Clone()
+		NewScript.Parent = WContainer
+		DScript.Parent = TrashCan
+		print(TrashCan)		if not PosFix then
+		local FixFol = Instance.new("Folder")
+		FixFol.Parent = v
+		FixFol.Name = "FixedPos"
+		WContainer.Bombs.Bomb.WeldConstraint.Part1 = nil
+		WContainer.Bombs.Bomb.CFrame *= CFrame.Angles(0,math.rad(90),0)
+		WContainer.Bombs.Bomb.WeldConstraint.Part1 = WContainer.Bombs.Bomb
 		end
 		end
 	end
