@@ -214,6 +214,11 @@ Button1.MouseButton1Click:Connect(function()
 	Nightuka.Parent = NightUI
 	Nightuka.Name = "Stuka"
 	Nightuka.Text = "Stuka"
+	---F-117 F-18
+	Nightnet = MigHind:Clone()
+	Nightnet.Parent = NightUI
+	Nightnet.Name = "F-18"
+	Nightnet.Text = "F-18"
 	---F-35 steal----
 	print("PlrOwns")
 	ThirtButton = MigHind:Clone()
@@ -890,13 +895,55 @@ Nightuka.MouseButton1Click:Connect(function()
 		local NewScript = Dumper["F-117"].RocketSettings:Clone()
 		NewScript.Parent = WContainer
 		DScript.Parent = TrashCan
-		print(TrashCan)		if not PosFix then
+		print(TrashCan)	
+		local PosFix = v:FindFirstChild("FixedPos")
+		if not PosFix then
 		local FixFol = Instance.new("Folder")
 		FixFol.Parent = v
 		FixFol.Name = "FixedPos"
 		WContainer.Bombs.Bomb.WeldConstraint.Part1 = nil
 		WContainer.Bombs.Bomb.CFrame *= CFrame.Angles(0,math.rad(90),0)
 		WContainer.Bombs.Bomb.WeldConstraint.Part1 = WContainer.Bombs.Bomb
+		end
+		end
+	end
+end)
+Nightnet.MouseButton1Click:Connect(function()
+	VehicleFolder = workspace["Game Systems"]["Plane Workspace"]
+	for i, v in ipairs(VehicleFolder:GetChildren()) do
+		if v.Name == "F-18 Hornet" then
+		local Vehicle = v
+		local WContainer =  Vehicle.Misc.Turrets["F18 Weapons"]["Bombs"]
+		local DScript = WContainer.RocketSettings
+		local TrashCan = Dumper:FindFirstChild("TrashCan")
+		if not TrashCan then
+			local Box = Instance.new("Folder")
+			Box.Parent = Dumper
+			Box.Name = "TrashCan"
+			TrashCan = Box
+		end
+		local NewScript = Dumper["F-117"].RocketSettings:Clone()
+		NewScript.Parent = WContainer
+		DScript.Parent = TrashCan
+		print(TrashCan)	
+		local PosFix = v:FindFirstChild("FixedPos")
+		if not PosFix then
+			local FixFol = Instance.new("Folder")
+			FixFol.Parent = v
+			FixFol.Name = "FixedPos"
+			local engine = v.Functionality.Engine
+			for i,v in pairs(engine:GetChildren()) do
+				if v:IsA("WeldConstraint") then
+					if v.Part0.Name == "Bomb" then
+						v.Part0 = nil
+					end
+				end
+			end
+			for i,v in pairs(WContainer.Bombs:GetChildren()) do
+				v.WeldConstraint.Part0 = nil
+				v.CFrame *= CFrame.Angles(math.rad(180),0,0)
+				v.WeldConstraint.Part0 = v
+			end
 		end
 		end
 	end
