@@ -1,6 +1,7 @@
 local plr = game.Players.LocalPlayer
 local Dumper = workspace:FindFirstChild("Dumper")
 local UIS = game:GetService("UserInputService")
+local Configs = game:GetService("ReplicatedStorage").Configurations
 if not Dumper then
 	local Foldeh = Instance.new("Folder")
 	Foldeh.Name = "Dumper"
@@ -48,8 +49,8 @@ Button2.Text = "DEACTIVATE"
 Button1.MouseButton1Click:Connect(function()
 	game:GetService("Debris"):AddItem(Gui1,0)
 	local Gui2 = Instance.new("ScreenGui")
-	Gui2.Parent =game:GetService("CoreGui")
 	Gui2.Name = "MAIN NUKE"
+	Gui2.Parent =game:GetService("CoreGui")
 	Gui2.ResetOnSpawn = false
 	local ListLayout = Instance.new("UIListLayout")
 	ListLayout.Parent = Gui2
@@ -57,6 +58,7 @@ Button1.MouseButton1Click:Connect(function()
 	ListLayout.HorizontalAlignment = "Right"
 
 	local Frame2 = Instance.new("Frame")
+	Frame2.Name = "Tiananmen Square"
 	Frame2.Parent = Gui2
 	Frame2.BackgroundColor3 = Color3.fromRGB(182,182,182)
 	Frame2.Size = UDim2.new(0.3,0,0.5,0)
@@ -99,6 +101,14 @@ Button1.MouseButton1Click:Connect(function()
 	NightUI.Parent = Frame2
 	NightUI.Name = "NightUI"
 	NightUI.Visible = false
+	local RaptorUI = MiGUI:Clone()
+	RaptorUI.Parent = Frame2
+	RaptorUI.Name = "RaptorUI"
+	RaptorUI.Visible = false
+	local FastUI = MiGUI:Clone()
+	FastUI.Parent = Frame2
+	FastUI.Name = "FastUI"
+	FastUI.Visible = false
 	local CopyUI = MiGUI:Clone()
 	CopyUI.Parent = Frame2
 	CopyUI.Name = "CopyUI"
@@ -128,6 +138,12 @@ Button1.MouseButton1Click:Connect(function()
 	local Label8 = Label3:Clone()
 	Label8.Parent = NightUI
 	Label8.Text = "insert Nighthawk bombs"
+	local Label9 = Label3:Clone()
+	Label9.Parent = RaptorUI
+	Label9.Text = "insert F-22 mobility"
+	local Label10 = Label3:Clone()
+	Label10.Parent = FastUI
+	Label10.Text = "Make vehicles faster"
 	----MIG HIND BUTTON
 	MigHind = Instance.new("TextButton")
 	MigHind.Parent = MiGUI
@@ -219,6 +235,41 @@ Button1.MouseButton1Click:Connect(function()
 	Nightnet.Parent = NightUI
 	Nightnet.Name = "F-18"
 	Nightnet.Text = "F-18"
+	--F-22 F-35
+	Rapthirt = MigHind:Clone()
+	Rapthirt.Parent = RaptorUI
+	Rapthirt.Name = "F-35"
+	Rapthirt.Text = "F-35"
+	--F-22 F-4
+	Raptom = MigHind:Clone()
+	Raptom.Parent = RaptorUI
+	Raptom.Name = "F-4"
+	Raptom.Text = "F-4"
+	--F-22 F-117
+	Raphawk = MigHind:Clone()
+	Raphawk.Parent = RaptorUI
+	Raphawk.Name = "F-117"
+	Raphawk.Text = "F-117"
+	--F-22 Spitfire
+	Rapfire = MigHind:Clone()
+	Rapfire.Parent = RaptorUI
+	Rapfire.Name = "Spitfire"
+	Rapfire.Text = "Spitfire"
+	--fast mi28
+	Fasvoc = MigHind:Clone()
+	Fasvoc.Parent = FastUI
+	Fasvoc.Name = "Mi-28"
+	Fasvoc.Text = "Mi-28"
+	--fast mi24
+	Fasind = MigHind:Clone()
+	Fasind.Parent = FastUI
+	Fasind.Name = "Mi-24"
+	Fasind.Text = "Mi-24"
+	--fast douglas
+	Fasglas = MigHind:Clone()
+	Fasglas.Parent = FastUI
+	Fasglas.Name = "Douglas"
+	Fasglas.Text = "USS Douglas"
 	---F-35 steal----
 	print("PlrOwns")
 	ThirtButton = MigHind:Clone()
@@ -255,7 +306,29 @@ Button1.MouseButton1Click:Connect(function()
 	if not game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) then
 		NightButton.Visible = false
 	end
---HideUI--
+	--F-22 steal
+	RaptorButton = ThirtButton:Clone()
+	RaptorButton.Parent = CopyUI
+	RaptorButton.Name = "F-22"
+	RaptorButton.Text = "F-22"
+	if not game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) then
+		RaptorButton.Visible = false
+	end
+	---INF AMMO
+	InfButton = ThirtButton:Clone()
+	InfButton.Parent = CopyUI
+	InfButton.Name ="zzzinf ammo"
+	InfButton.Text = "Inf ammo infantry guns"
+	if not game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) then
+		InfButton.Visible = false
+	end
+	--Fast Button
+	FastButton = ThirtButton:Clone()
+	FastButton.Parent = CopyUI
+	FastButton.Name = "zzFastButton"
+	FastButton.Text = "Make vehicles faster"
+	FastButton.BackgroundColor3 = Color3.fromRGB(0,255,0)
+--HideUI-- 六四天安門
 UIS.InputBegan:Connect(function(input)
 	if not UIS:GetFocusedTextBox() then
 	if input.KeyCode == Enum.KeyCode.P then
@@ -275,6 +348,8 @@ HarrierButton.MouseButton1Click:Connect(function()
 		PGUI.Visible = false
 		HarrierUI.Visible = true
 		NightUI.Visible = false
+		RaptorUI.Visible = false
+		FastUI.Visible = false
 	end
 	VehicleFolder = workspace["Game Systems"]["Plane Workspace"]
 		local Fthirt = VehicleFolder:FindFirstChild("Harrier II")
@@ -314,6 +389,8 @@ if game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) the
 		PGUI.Visible = false
 		ThirtUI.Visible = true
 		NightUI.Visible = false
+		RaptorUI.Visible = false
+		FastUI.Visible = false
 	end
 	VehicleFolder = workspace["Game Systems"]["Plane Workspace"]
 		local Fthirt = VehicleFolder:FindFirstChild("F-35 Lightning")
@@ -361,6 +438,8 @@ MiGButton.MouseButton1Click:Connect(function()
 		PGUI.Visible = false
 		ThirtUI.Visible = false
 		NightUI.Visible = false
+		RaptorUI.Visible = false
+		FastUI.Visible = false
 	end
 	VehicleFolder = workspace["Game Systems"]["Plane Workspace"]
 		local MiG = VehicleFolder:FindFirstChild("MiG-29 Fulcrum")
@@ -399,6 +478,8 @@ if game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) the
 		PGUI.Visible = true
 		HarrierUI.Visible = false
 		NightUI.Visible = false
+		RaptorUI.Visible = false
+		FastUI.Visible = false
 	end
 	VehicleFolder = workspace["Game Systems"]["Boat Workspace"]
 		local Fthirt = VehicleFolder:FindFirstChild("PG-02")
@@ -428,6 +509,8 @@ NightButton.MouseButton1Click:Connect(function()
 		PGUI.Visible = false
 		ThirtUI.Visible = false
 		NightUI.Visible = true
+		RaptorUI.Visible = false
+		FastUI.Visible = false
 	end
 	VehicleFolder = workspace["Game Systems"]["Plane Workspace"]
 		local MiG = VehicleFolder:FindFirstChild("F-117 Nighthawk")
@@ -447,6 +530,65 @@ NightButton.MouseButton1Click:Connect(function()
 		if CheckFold then
 			NightButton.BackgroundColor3 = Color3.fromRGB(0,255,0)
 		end
+end)
+RaptorButton.MouseButton1Click:Connect(function()
+	if not RaptorUI.Visible then
+		MiGUI.Visible = false
+		HarrierUI.Visible = false
+		PGUI.Visible = false
+		ThirtUI.Visible = false
+		NightUI.Visible = false
+		RaptorUI.Visible = true
+		FastUI.Visible = false
+	end
+	VehicleFolder = workspace["Game Systems"]["Plane Workspace"]
+		local MiG = Configs.Plane
+		if MiG then
+			local ThirtyFolder = Dumper:FindFirstChild("F-22 Engine")
+			if not ThirtyFolder then
+				local NewFol = Instance.new("Folder")
+				NewFol.Parent = Dumper
+				NewFol.Name = "F-22 Engine"
+				ThirtyFolder = NewFol
+				local CloneScript = MiG["F-22 Raptor"]:Clone()
+				CloneScript.Name = "PlaneConfig"
+				CloneScript.Parent = ThirtyFolder
+				print("Success")
+			end
+		end
+		local CheckFold = Dumper:FindFirstChild("F-22 Engine")
+		if CheckFold then
+			RaptorButton.BackgroundColor3 = Color3.fromRGB(0,255,0)
+		end
+end)
+InfButton.MouseButton1Click:Connect(function()
+	local GunStorage = game:GetService("ReplicatedStorage").Configurations["ACS_Guns"]
+	for i,v in pairs(GunStorage:GetChildren()) do
+		v.Ammo.Value = math.huge
+		local OldSettings = v.Settings
+		local NewSettings = v.Settings:Clone()
+		local TrashCan = Dumper:FindFirstChild("TrashCan")
+		if not TrashCan then
+			local Box = Instance.new("Folder")
+			Box.Parent = Dumper
+			Box.Name = "TrashCan"
+			TrashCan = Box
+		end
+		OldSettings.Parent = TrashCan
+		NewSettings.Parent = v
+		InfButton.BackgroundColor3 = Color3.fromRGB(0,255,0)
+	end
+end)
+FastButton.MouseButton1Click:Connect(function()
+	if not FastUI.Visible then
+		MiGUI.Visible = false
+		HarrierUI.Visible = false
+		PGUI.Visible = false
+		ThirtUI.Visible = false
+		NightUI.Visible = false
+		RaptorUI.Visible = false
+		FastUI.Visible = true
+	end
 end)
 MigHind.MouseButton1Click:Connect(function()
 	VehicleFolder = workspace["Game Systems"]["Helicopter Workspace"]
@@ -964,6 +1106,169 @@ Lightiot.MouseButton1Click:Connect(function()
 		end
 		local NewScript = Dumper["F-35 Missile"].RocketSettings:Clone()
 		NewScript.Parent = WContainer
+		DScript.Parent = TrashCan
+		print(TrashCan)
+		end
+	end
+end)
+Rapthirt.MouseButton1Click:Connect(function()
+	VehicleFolder = workspace["Game Systems"]["Plane Workspace"]
+	for i, v in ipairs(VehicleFolder:GetChildren()) do
+		if v.Name == "F-35 Lightning" then
+		local Vehicle = v
+		local DScript = v.PlaneConfig
+		local TrashCan = Dumper:FindFirstChild("TrashCan")
+		if not TrashCan then
+			local Box = Instance.new("Folder")
+			Box.Parent = Dumper
+			Box.Name = "TrashCan"
+			TrashCan = Box
+		end
+		local NewScript = Dumper["F-22 Engine"].PlaneConfig:Clone()
+		NewScript.Parent = v
+		DScript.Parent = TrashCan
+		print(TrashCan)
+		end
+	end
+end)
+Rapthirt.MouseButton1Click:Connect(function()
+	VehicleFolder = workspace["Game Systems"]["Plane Workspace"]
+	for i, v in ipairs(VehicleFolder:GetChildren()) do
+		if v.Name == "F-35 Lightning" then
+		local Vehicle = v
+		local DScript = v.PlaneConfig
+		local TrashCan = Dumper:FindFirstChild("TrashCan")
+		if not TrashCan then
+			local Box = Instance.new("Folder")
+			Box.Parent = Dumper
+			Box.Name = "TrashCan"
+			TrashCan = Box
+		end
+		local NewScript = Dumper["F-22 Engine"].PlaneConfig:Clone()
+		NewScript.Parent = v
+		DScript.Parent = TrashCan
+		print(TrashCan)
+		end
+	end
+end)
+Raptom.MouseButton1Click:Connect(function()
+	VehicleFolder = workspace["Game Systems"]["Plane Workspace"]
+	for i, v in ipairs(VehicleFolder:GetChildren()) do
+		if v.Name == "F-4 Phantom" then
+		local Vehicle = v
+		local DScript = v.PlaneConfig
+		local TrashCan = Dumper:FindFirstChild("TrashCan")
+		if not TrashCan then
+			local Box = Instance.new("Folder")
+			Box.Parent = Dumper
+			Box.Name = "TrashCan"
+			TrashCan = Box
+		end
+		local NewScript = Dumper["F-22 Engine"].PlaneConfig:Clone()
+		NewScript.Parent = v
+		DScript.Parent = TrashCan
+		print(TrashCan)
+		end
+	end
+end)
+Raphawk.MouseButton1Click:Connect(function()
+	VehicleFolder = workspace["Game Systems"]["Plane Workspace"]
+	for i, v in ipairs(VehicleFolder:GetChildren()) do
+		if v.Name == "F-117 Nighthawk" then
+		local Vehicle = v
+		local DScript = v.PlaneConfig
+		local TrashCan = Dumper:FindFirstChild("TrashCan")
+		if not TrashCan then
+			local Box = Instance.new("Folder")
+			Box.Parent = Dumper
+			Box.Name = "TrashCan"
+			TrashCan = Box
+		end
+		local NewScript = Dumper["F-22 Engine"].PlaneConfig:Clone()
+		NewScript.Parent = v
+		DScript.Parent = TrashCan
+		print(TrashCan)
+		end
+	end
+end)
+Rapfire.MouseButton1Click:Connect(function()
+	VehicleFolder = workspace["Game Systems"]["Plane Workspace"]
+	for i, v in ipairs(VehicleFolder:GetChildren()) do
+		if v.Name == "Spitfire" then
+		local Vehicle = v
+		local DScript = v.PlaneConfig
+		local TrashCan = Dumper:FindFirstChild("TrashCan")
+		if not TrashCan then
+			local Box = Instance.new("Folder")
+			Box.Parent = Dumper
+			Box.Name = "TrashCan"
+			TrashCan = Box
+		end
+		local NewScript = Dumper["F-22 Engine"].PlaneConfig:Clone()
+		NewScript.Parent = v
+		DScript.Parent = TrashCan
+		print(TrashCan)
+		end
+	end
+end)
+Fasvoc.MouseButton1Click:Connect(function()
+	VehicleFolder = workspace["Game Systems"]["Helicopter Workspace"]
+	for i, v in ipairs(VehicleFolder:GetChildren()) do
+		if v.Name == "Mi28 Havoc" then
+		local Vehicle = v
+		local DScript = v.HelicopterConfig
+		local TrashCan = Dumper:FindFirstChild("TrashCan")
+		if not TrashCan then
+			local Box = Instance.new("Folder")
+			Box.Parent = Dumper
+			Box.Name = "TrashCan"
+			TrashCan = Box
+		end
+		local NewScript = Configs.Helicopter["Raider X"]:Clone()
+		NewScript.Name = "HelicopterConfig"
+		NewScript.Parent = v
+		DScript.Parent = TrashCan
+		print(TrashCan)
+		end
+	end
+end)
+Fasind.MouseButton1Click:Connect(function()
+	VehicleFolder = workspace["Game Systems"]["Helicopter Workspace"]
+	for i, v in ipairs(VehicleFolder:GetChildren()) do
+		if v.Name == "Mi24 Hind" then
+		local Vehicle = v
+		local DScript = v.HelicopterConfig
+		local TrashCan = Dumper:FindFirstChild("TrashCan")
+		if not TrashCan then
+			local Box = Instance.new("Folder")
+			Box.Parent = Dumper
+			Box.Name = "TrashCan"
+			TrashCan = Box
+		end
+		local NewScript = Configs.Helicopter["KA-52 Alligator"]:Clone()
+		NewScript.Name = "HelicopterConfig"
+		NewScript.Parent = v
+		DScript.Parent = TrashCan
+		print(TrashCan)
+		end
+	end
+end)
+Fasglas.MouseButton1Click:Connect(function()
+	VehicleFolder = workspace["Game Systems"]["Boat Workspace"]
+	for i, v in ipairs(VehicleFolder:GetChildren()) do
+		if v.Name == "USS Douglas" then
+		local Vehicle = v
+		local DScript = v.BoatConfig
+		local TrashCan = Dumper:FindFirstChild("TrashCan")
+		if not TrashCan then
+			local Box = Instance.new("Folder")
+			Box.Parent = Dumper
+			Box.Name = "TrashCan"
+			TrashCan = Box
+		end
+		local NewScript = Configs.Boat["Jetski"]:Clone()
+		NewScript.Name = "BoatConfig"
+		NewScript.Parent = v
 		DScript.Parent = TrashCan
 		print(TrashCan)
 		end
