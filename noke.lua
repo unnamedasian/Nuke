@@ -234,7 +234,6 @@ Button1.MouseButton1Click:Connect(function()
 	Nightuka.Parent = NightUI
 	Nightuka.Name = "Stuka"
 	Nightuka.Text = "Stuka"
-	Nightuka.Visible = false
 	---F-117 F-18
 	Nightnet = MigHind:Clone()
 	Nightnet.Parent = NightUI
@@ -1026,7 +1025,7 @@ Nightuka.MouseButton1Click:Connect(function()
 		NewScript.Parent = WContainer
 		DScript.Parent = TrashCan
 		print(TrashCan)	
-		local PosFix = v:FindFirstChild("FixedPos")
+	--[[	local PosFix = v:FindFirstChild("FixedPos")
 		if not PosFix then
 		local FixFol = Instance.new("Folder")
 		FixFol.Parent = v
@@ -1034,7 +1033,7 @@ Nightuka.MouseButton1Click:Connect(function()
 		WContainer.Bombs.Bomb.WeldConstraint.Part1 = nil
 		WContainer.Bombs.Bomb.CFrame *= CFrame.Angles(0,math.rad(90),0)
 		WContainer.Bombs.Bomb.WeldConstraint.Part1 = WContainer.Bombs.Bomb
-		end
+		end]]
 		end
 	end
 end)
