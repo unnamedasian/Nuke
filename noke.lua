@@ -883,7 +883,7 @@ Thirthog.MouseButton1Click:Connect(function()
 					print("E")
 					local TemMissile = v.Part1 
 					v.Part1 = nil
-					TemMissile.CFrame *= CFrame.Angles(0,math.rad(90),0)
+					TemMissile.CFrame *= CFrame.Angles(0,math.rad(-90),0)
 					v.Part1 = TemMissile
 				end
 			end
