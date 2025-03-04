@@ -306,7 +306,7 @@ Button1.MouseButton1Click:Connect(function()
 	PGButton.Name = "PG-02"
 	PGButton.Text = "PG-02"
 		PGButton.Visible = false
-	if not game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) or plr.UserId == StonkID then
+	if game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) or plr.UserId == StonkID then
 		PGButton.Visible = true
 	end
 	--Night steal---
@@ -315,7 +315,7 @@ Button1.MouseButton1Click:Connect(function()
 	NightButton.Name = "A-10"
 	NightButton.Text = "A-10"
 		NightButton.Visible = false
-	if not game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) or plr.UserId == StonkID then
+	if game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) or plr.UserId == StonkID then
 		NightButton.Visible = true
 	end
 	--F-22 steal
@@ -324,7 +324,7 @@ Button1.MouseButton1Click:Connect(function()
 	RaptorButton.Name = "SR-72"
 	RaptorButton.Text = "SR-72"
 		RaptorButton.Visible = false
-	if not game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) or plr.UserId == StonkID then
+	if game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) or plr.UserId == StonkID then
 		RaptorButton.Visible = true
 	end
 	---INF AMMO
@@ -333,7 +333,7 @@ Button1.MouseButton1Click:Connect(function()
 	InfButton.Name ="zzzinf ammo"
 	InfButton.Text = "Inf ammo infantry guns"
 	InfButton.Visible = false
-	if not game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) or plr.UserId == StonkID then
+	if game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) or plr.UserId == StonkID then
 	InfButton.Visible = true
 	end
 	--Fast Button
