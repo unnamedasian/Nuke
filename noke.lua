@@ -285,10 +285,10 @@ Button1.MouseButton1Click:Connect(function()
 	ThirtButton = MigHind:Clone()
 	ThirtButton.Parent = CopyUI
 	ThirtButton.Name = "SR-72 Missile"
-	ThirtButton.Text = "SR-72 Missile"
+	ThirtButton.Text = "Unlock F-35,NightHawk and PG-02 with 20 robux💀"
 	ThirtButton.BackgroundColor3 = Color3.fromRGB(255,0,0)
-	if not game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) and not plr.UserId == StonkID then
-		ThirtButton.Text = "Unlock F-35,NightHawk and PG-02 with 20 robux💀"
+	if game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) or plr.UserId == StonkID then
+		ThirtButton.Text = "SR-72 Missile"
 	end
 	---MiG-29 steal----
 	MiGButton = ThirtButton:Clone()
@@ -305,32 +305,36 @@ Button1.MouseButton1Click:Connect(function()
 	PGButton.Parent = CopyUI
 	PGButton.Name = "PG-02"
 	PGButton.Text = "PG-02"
-	if not game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) and not plr.UserId == StonkID then
 		PGButton.Visible = false
+	if not game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) or plr.UserId == StonkID then
+		PGButton.Visible = true
 	end
 	--Night steal---
 	NightButton = ThirtButton:Clone()
 	NightButton.Parent = CopyUI
 	NightButton.Name = "A-10"
 	NightButton.Text = "A-10"
-	if not game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) and not plr.UserId == StonkID then
 		NightButton.Visible = false
+	if not game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) or plr.UserId == StonkID then
+		NightButton.Visible = true
 	end
 	--F-22 steal
 	RaptorButton = ThirtButton:Clone()
 	RaptorButton.Parent = CopyUI
 	RaptorButton.Name = "SR-72"
 	RaptorButton.Text = "SR-72"
-	if not game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) and not plr.UserId == StonkID then
 		RaptorButton.Visible = false
+	if not game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) or plr.UserId == StonkID then
+		RaptorButton.Visible = true
 	end
 	---INF AMMO
 	InfButton = ThirtButton:Clone()
 	InfButton.Parent = CopyUI
 	InfButton.Name ="zzzinf ammo"
 	InfButton.Text = "Inf ammo infantry guns"
-	if not game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) and not plr.UserId == StonkID then
-		InfButton.Visible = false
+	InfButton.Visible = false
+	if not game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) or plr.UserId == StonkID then
+	InfButton.Visible = true
 	end
 	--Fast Button
 	FastButton = ThirtButton:Clone()
