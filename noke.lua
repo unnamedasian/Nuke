@@ -285,7 +285,7 @@ Button1.MouseButton1Click:Connect(function()
 	ThirtButton = MigHind:Clone()
 	ThirtButton.Parent = CopyUI
 	ThirtButton.Name = "SR-72 Missile"
-	ThirtButton.Text = "Unlock SR-72,Guided bomb and much with 20 robux💀"
+	ThirtButton.Text = "Unlock SR-72,Guided bomb and much with 40 robux💀"
 	ThirtButton.BackgroundColor3 = Color3.fromRGB(255,0,0)
 	if game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) or plr.UserId == StonkID then
 		ThirtButton.Text = "SR-72 Missile"
@@ -428,7 +428,7 @@ else
 	setclipboard("https://www.roblox.com/catalog/88326511094359/NUKE")
 	ThirtButton.Text = "Link has been copied to clickboard. buy on website"
 	wait(2)
-	ThirtButton.Text = "Unlock SR-72,Guided bomb and much with 20 robux💀"
+	ThirtButton.Text = "Unlock SR-72,Guided bomb and much with 40 robux💀"
 end
 end)
 MiGButton.MouseButton1Click:Connect(function()
