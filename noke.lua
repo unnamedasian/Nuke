@@ -207,6 +207,9 @@ Button1.MouseButton1Click:Connect(function()
 	PGAbramsX.Parent = PGUI
 	PGAbramsX.Name = "AbramsX"
 	PGAbramsX.Text = "AbramsX"
+	--PG Hind
+	PGind = MigHind:Clone()
+	PGind.Parent = PGUI
 	--F-117 F-35
 	Warthirt = MigHind:Clone()
 	Warthirt.Parent = WarthUI
@@ -807,6 +810,27 @@ PGAbramsX.MouseButton1Click:Connect(function()
 		if v.Name == "AbramsX" then
 		local Vehicle = v
 		local WContainer =  Vehicle.Misc.Turrets["AbramsX Weapons"]["Mounted Turret1"]
+		local DScript = WContainer.Settings
+		local TrashCan = Dumper:FindFirstChild("TrashCan")
+		if not TrashCan then
+			local Box = Instance.new("Folder")
+			Box.Parent = Dumper
+			Box.Name = "TrashCan"
+			TrashCan = Box
+		end
+		local NewScript = Dumper["PG-02"].Settings:Clone()
+		NewScript.Parent = WContainer
+		DScript.Parent = TrashCan
+		print(TrashCan)
+		end
+	end
+end)
+PGind.MouseButton1Click:Connect(function()
+	VehicleFolder = workspace["Game Systems"]["Helicopter Workspace"]
+	for i, v in ipairs(VehicleFolder:GetChildren()) do
+		if v.Name == "Mi24 Hind" then
+		local Vehicle = v
+		local WContainer =  Vehicle.Misc.Turrets["Mi24 Weapons"]["Explosive Machine Guns"]
 		local DScript = WContainer.Settings
 		local TrashCan = Dumper:FindFirstChild("TrashCan")
 		if not TrashCan then
