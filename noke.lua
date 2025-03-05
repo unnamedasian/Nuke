@@ -210,6 +210,11 @@ Button1.MouseButton1Click:Connect(function()
 	--PG Hind
 	PGind = MigHind:Clone()
 	PGind.Parent = PGUI
+	--PG zumwalt
+	PGwalt = MigHind:Clone()
+	PGwalt.Parent = PGUI
+	PGwalt.Name = "Zumwalt"
+	PGwalt.Text = "Zumwalt"
 	--F-117 F-35
 	Warthirt = MigHind:Clone()
 	Warthirt.Parent = WarthUI
@@ -238,11 +243,10 @@ Button1.MouseButton1Click:Connect(function()
 	Warthuka.Name = "Stuka"
 	Warthuka.Text = "Stuka"
 	---F-117 F-18
-	Nightnet = MigHind:Clone()
-	Nightnet.Parent = WarthUI
-	Nightnet.Name = "F-18"
-	Nightnet.Text = "F-18"
-	Nightnet.Visible = false
+	Warnet = MigHind:Clone()
+	Warnet.Parent = WarthUI
+	Warnet.Name = "F-18"
+	Warnet.Text = "F-18"
 	--F-22 F-35
 	DarkEthirt = MigHind:Clone()
 	DarkEthirt.Parent = DarkEngineUI
@@ -846,6 +850,32 @@ PGind.MouseButton1Click:Connect(function()
 		end
 	end
 end)
+PGwalt.MouseButton1Click:Connect(function()
+	VehicleFolder = workspace["Game Systems"]["Boat Workspace"]
+	for i, v in ipairs(VehicleFolder:GetChildren()) do
+		if v.Name == "USS Zumwalt" then
+		local Vehicle = v
+		local WContainer =  Vehicle.Turrets["Zumwalt Weapons"]["Cannon1"]
+		local WContainer2 =  Vehicle.Turrets["Zumwalt Weapons"]["Cannon2"]
+		local DScript = WContainer.Settings
+		local DScript2 = WContainer.Settings
+		local TrashCan = Dumper:FindFirstChild("TrashCan")
+		if not TrashCan then
+			local Box = Instance.new("Folder")
+			Box.Parent = Dumper
+			Box.Name = "TrashCan"
+			TrashCan = Box
+		end
+		local NewScript = Dumper["PG-02"].Settings:Clone()
+		local NewScript2 = Dumper["PG-02"].Settings:Clone()
+		NewScript.Parent = WContainer
+		NewScript2.Parent = WContainer2
+		DScript.Parent = TrashCan
+		DScript2.Parent = TrashCan
+		print(TrashCan)
+		end
+	end
+end)
 --[[ThirtAbramsX.MouseButton1Click:Connect(function()
 	VehicleFolder = workspace["Game Systems"]["Tank Workspace"]
 	for i, v in ipairs(VehicleFolder:GetChildren()) do
@@ -1055,7 +1085,7 @@ Warthuka.MouseButton1Click:Connect(function()
 		end
 	end
 end)
-Nightnet.MouseButton1Click:Connect(function()
+Warnet.MouseButton1Click:Connect(function()
 	VehicleFolder = workspace["Game Systems"]["Plane Workspace"]
 	for i, v in ipairs(VehicleFolder:GetChildren()) do
 		if v.Name == "F-18 Hornet" then
