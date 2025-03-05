@@ -189,6 +189,11 @@ Button1.MouseButton1Click:Connect(function()
 	Darkiot.Parent = DarkUI
 	Darkiot.Name = "Patriot"
 	Darkiot.Text = "Patriot"
+	--F-35
+	Darkptor = MigHind:Clone()
+	Darkptor.Parent = DarkUI
+	Darkptor.Name = "F-22"
+	Darkptor.Text = "F-22"
 	--Harrier Hind
 	RapHind = MigHind:Clone()
 	RapHind.Parent = HarrierUI
@@ -247,6 +252,11 @@ Button1.MouseButton1Click:Connect(function()
 	Warnet.Parent = WarthUI
 	Warnet.Name = "F-18"
 	Warnet.Text = "F-18"
+	---F-117 F-22
+	Warptor = MigHind:Clone()
+	Warptor.Parent = WarthUI
+	Warptor.Name = "F-22"
+	Warptor.Text = "F-22"
 	--SR-72 F-35
 	DarkEthirt = MigHind:Clone()
 	DarkEthirt.Parent = DarkEngineUI
@@ -698,6 +708,56 @@ ThirtHind.MouseButton1Click:Connect(function()
 	end
 	end
 end)
+Darkptor.MouseButton1Click:Connect(function()
+	VehicleFolder = workspace["Game Systems"]["Plane Workspace"]
+	for i, v in ipairs(VehicleFolder:GetChildren()) do
+		if v.Name == "F-22 Raptor" then
+		local Vehicle = v
+		local WContainer =  Vehicle.Misc.Turrets["F22 Weapons"]["Guided Rockets"]
+		local DScript = WContainer.RocketSettings
+		local TrashCan = Dumper:FindFirstChild("TrashCan")
+		if not TrashCan then
+			local Box = Instance.new("Folder")
+			Box.Parent = Dumper
+			Box.Name = "TrashCan"
+			TrashCan = Box
+		end
+		local NewScript = Dumper["F-35 Missile"].RocketSettings:Clone()
+		NewScript.Parent = WContainer
+		DScript.Parent = TrashCan
+		print(TrashCan)
+		local PosFix = v:FindFirstChild("FixedPos")
+		if not PosFix then
+			local FixedFol = Instance.new("Folder")
+			FixedFol.Parent = v
+			FixedFol.Name = "FixedPos"
+			for i,v in pairs(v.Functionality.Engine:GetChildren()) do
+				if v:IsA("WeldConstraint") then
+					if v.Part0.Name == "RocketH" then
+						v:Destroy()
+					end
+				end
+			end
+			for i,v in pairs(WContainer:GetChildren()) do
+				if v:IsA("Model") then
+					for i,v in pairs(v:GetChildren()) do
+						for i,v in pairs(v:GetChildren()) do
+							if not v.Active then
+								v:Destroy()
+							else
+								local TemMissile = v.Part0
+								v.Part0 = nil
+								TemMissile.CFrame *= CFrame.Angles(math.rad(180),0,0)
+								v.Part0 = TemMissile
+							end
+						end
+					end
+				end
+			end
+		end
+		end
+	end
+end)
 --[[ThirtLilBird.MouseButton1Click:Connect(function()
 	VehicleFolder = workspace["Game Systems"]["Helicopter Workspace"]
 	for i, v in ipairs(VehicleFolder:GetChildren()) do
@@ -1120,6 +1180,45 @@ Warnet.MouseButton1Click:Connect(function()
 				v.WeldConstraint.Part0 = nil
 				v.CFrame *= CFrame.Angles(0,math.rad(90),0)
 				v.WeldConstraint.Part0 = v
+			end
+		end
+		end
+	end
+end)
+Warptor.MouseButton1Click:Connect(function()
+	VehicleFolder = workspace["Game Systems"]["Plane Workspace"]
+	for i, v in ipairs(VehicleFolder:GetChildren()) do
+		if v.Name == "F-22 Raptor" then
+		local Vehicle = v
+		local WContainer =  Vehicle.Misc.Turrets["F22 Weapons"]["Bombs"]
+		local DScript = WContainer.RocketSettings
+		local TrashCan = Dumper:FindFirstChild("TrashCan")
+		if not TrashCan then
+			local Box = Instance.new("Folder")
+			Box.Parent = Dumper
+			Box.Name = "TrashCan"
+			TrashCan = Box
+		end
+		local NewScript = Dumper["A-10"].RocketSettings:Clone()
+		NewScript.Parent = WContainer
+		DScript.Parent = TrashCan
+		print(TrashCan)
+		local PosFix = v:FindFirstChild("FixedPos2")
+		if not PosFix then
+			local FixedFol = Instance.new("Folder")
+			FixedFol.Parent = v
+			FixedFol.Name = "FixedPos2"
+			for i,v in pairs(WContainer:GetChildren()) do
+				if v:IsA("Model") then
+					for i,v in pairs(v:GetChildren()) do
+						for i,v in pairs(v:GetChildren()) do
+							local TemMissile = v.Part0
+							v.Part0 = nil
+							TemMissile.CFrame *= CFrame.Angles(0,math.rad(-90),0)
+							v.Part0 = TemMissile
+						end
+					end
+				end
 			end
 		end
 		end
