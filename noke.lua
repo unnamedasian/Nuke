@@ -220,6 +220,11 @@ Button1.MouseButton1Click:Connect(function()
 	PGwalt.Parent = PGUI
 	PGwalt.Name = "Zumwalt"
 	PGwalt.Text = "Zumwalt"
+	--pg osprey
+	PGrey = MigHind:Clone()
+	PGrey.Parent = PGUI
+	PGrey.Name = "V-22 Osprey"
+	PGrey.Text = "V-22 Osprey"
 	--F-117 F-35
 	Warthirt = MigHind:Clone()
 	Warthirt.Parent = WarthUI
@@ -932,6 +937,27 @@ PGwalt.MouseButton1Click:Connect(function()
 		NewScript2.Parent = WContainer2
 		DScript.Parent = TrashCan
 		DScript2.Parent = TrashCan
+		print(TrashCan)
+		end
+	end
+end)
+PGrey.MouseButton1Click:Connect(function()
+	VehicleFolder = workspace["Game Systems"]["Plane Workspace"]
+	for i, v in ipairs(VehicleFolder:GetChildren()) do
+		if v.Name == "V-22 Osprey" then
+		local Vehicle = v
+		local WContainer =  Vehicle.Misc.Turrets["Osprey Weapons"]["Mounted Minigun"]
+		local DScript = WContainer.Settings
+		local TrashCan = Dumper:FindFirstChild("TrashCan")
+		if not TrashCan then
+			local Box = Instance.new("Folder")
+			Box.Parent = Dumper
+			Box.Name = "TrashCan"
+			TrashCan = Box
+		end
+		local NewScript = Dumper["PG-02"].Settings:Clone()
+		NewScript.Parent = WContainer
+		DScript.Parent = TrashCan
 		print(TrashCan)
 		end
 	end
