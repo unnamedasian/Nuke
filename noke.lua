@@ -247,12 +247,12 @@ Button1.MouseButton1Click:Connect(function()
 	Warnet.Parent = WarthUI
 	Warnet.Name = "F-18"
 	Warnet.Text = "F-18"
-	--F-22 F-35
+	--SR-72 F-35
 	DarkEthirt = MigHind:Clone()
 	DarkEthirt.Parent = DarkEngineUI
 	DarkEthirt.Name = "F-35"
 	DarkEthirt.Text = "F-35"
-	--F-22 F-4
+	--SR-72 F-4
 	DarkEtom = MigHind:Clone()
 	DarkEtom.Parent = DarkEngineUI
 	DarkEtom.Name = "F-4"
@@ -262,12 +262,12 @@ Button1.MouseButton1Click:Connect(function()
 	Raphawk.Parent = DarkEngineUI
 	Raphawk.Name = "F-117"
 	Raphawk.Text = "F-117"
-	--F-22 Spitfire
+	--SR-72 Spitfire
 	DarkEfire = MigHind:Clone()
 	DarkEfire.Parent = DarkEngineUI
 	DarkEfire.Name = "Spitfire"
 	DarkEfire.Text = "Spitfire"
-	--F-22 F-22
+	--SR-72 F-22
 	DarkEptor = MigHind:Clone()
 	DarkEptor.Parent = DarkEngineUI
 	DarkEptor.Name = "F-22"
@@ -1118,7 +1118,7 @@ Warnet.MouseButton1Click:Connect(function()
 			end
 			for i,v in pairs(WContainer.Bombs:GetChildren()) do
 				v.WeldConstraint.Part0 = nil
-				v.CFrame *= CFrame.Angles(math.rad(180),0,0)
+				v.CFrame *= CFrame.Angles(0,math.rad(90),0)
 				v.WeldConstraint.Part0 = v
 			end
 		end
