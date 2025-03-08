@@ -237,11 +237,10 @@ Button1.MouseButton1Click:Connect(function()
 	Nighthog.Name = "A-10"
 	Nighthog.Text = "A-10"
 	---F-117 F-4
-	Nightom = MigHind:Clone()
-	Nightom.Parent = WarthUI
-	Nightom.Name = "F-4"
-	Nightom.Text = "F-4"
-	Nightom.Visible = false
+	Wartom = MigHind:Clone()
+	Wartom.Parent = WarthUI
+	Wartom.Name = "F-4"
+	Wartom.Text = "F-4"
 	---F-117 B-29
 	Warthfortress = MigHind:Clone()
 	Warthfortress.Parent = WarthUI
@@ -1088,7 +1087,7 @@ Nighthog.MouseButton1Click:Connect(function()
 		end
 	end
 end)
-Nightom.MouseButton1Click:Connect(function()
+Wartom.MouseButton1Click:Connect(function()
 	VehicleFolder = workspace["Game Systems"]["Plane Workspace"]
 	for i, v in ipairs(VehicleFolder:GetChildren()) do
 		if v.Name == "F-4 Phantom" then
@@ -1106,6 +1105,20 @@ Nightom.MouseButton1Click:Connect(function()
 		NewScript.Parent = WContainer
 		DScript.Parent = TrashCan
 		print(TrashCan)
+		local PosFix = v:FindFirstChild("FixedPos")
+		if not PosFix then
+			local FixFol = Instance.new("Folder")
+			FixFol.Parent = v
+			FixFol.Name = "FixedPos"
+			for i,v in pairs(WContainer.Bombs:GetChildren()) do
+				for i,v in pairs(v:GetChildren()) do
+					local TemMissile = v.Part0
+					v.Part0 = nil
+					TemMissile.CFrame *= CFrame.Angles(0,math.rad(-90),0)
+					v.Part0 = TemMissile
+				end
+			end
+		end
 		end
 	end
 end)
