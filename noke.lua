@@ -107,6 +107,10 @@ Button1.MouseButton1Click:Connect(function()
 	DarkEngineUI.Parent = Frame2
 	DarkEngineUI.Name = "DarkEngineUI"
 	DarkEngineUI.Visible = false
+	local AdatsUI = MiGUI:Clone()
+	AdatsUI.Parent = Frame2
+	AdatsUI.Name = "AdatsUI"
+	AdatsUI.Visible = false
 	local FastUI = MiGUI:Clone()
 	FastUI.Parent = Frame2
 	FastUI.Name = "FastUI"
@@ -146,6 +150,9 @@ Button1.MouseButton1Click:Connect(function()
 	local Label10 = Label3:Clone()
 	Label10.Parent = FastUI
 	Label10.Text = "Make vehicles faster"
+	local Label11 = Label3:Clone()
+	Label11.Parent = AdatsUI
+	Label11.Text  = "Insert Adats missile"
 	----MIG HIND BUTTON
 	MigHind = Instance.new("TextButton")
 	MigHind.Parent = MiGUI
@@ -296,6 +303,24 @@ Button1.MouseButton1Click:Connect(function()
 	DarkEpen.Parent = DarkEngineUI
 	DarkEpen.Name = "JAS-39 Gripen"
 	DarkEpen.Text = "JAS-39 Gripen"
+	--Adats havoc
+	Adavoc = MigHind:Clone()
+	Adavoc.Parent = AdatsUI
+	Adavoc.Name = "Mi-28"
+	Adavoc.Text = "Mi-28"
+	--Adats apache
+	Adache = MigHind:Clone()
+	Adache.Parent = AdatsUI
+	Adache.Name = "AH-64"
+	Adache.Text = "AH-64"
+	--Adats katyusha
+	Adyusha = MigHind:Clone()
+	Adyusha.Parent = AdatsUI
+	Adyusha.Name = "Katyusha"
+	Adyusha.Text = "Katyusha"
+	--Adats hind
+	Adind = MigHind:Clone()
+	Adind.Parent = AdatsUI
 	--fast mi28
 	Fasvoc = MigHind:Clone()
 	Fasvoc.Parent = FastUI
@@ -362,6 +387,15 @@ Button1.MouseButton1Click:Connect(function()
 	if game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) or plr.UserId == StonkID then
 		RaptorButton.Visible = true
 	end
+	--VCAC steal
+	AdatsButton = DarkButton:Clone()
+	AdatsButton.Parent = CopyUI
+	AdatsButton.Name = "Adats"
+	AdatsButton.Text = "Adats"
+	AdatsButton.Visible = false
+	if game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) or plr.UserId == StonkID then
+		AdatsButton.Visible = true
+	end
 	---INF AMMO
 	InfButton = DarkButton:Clone()
 	InfButton.Parent = CopyUI
@@ -398,6 +432,7 @@ HarrierButton.MouseButton1Click:Connect(function()
 		HarrierUI.Visible = true
 		WarthUI.Visible = false
 		DarkEngineUI.Visible = false
+		AdatsUI.Visible = false
 		FastUI.Visible = false
 	end
 	VehicleFolder = workspace["Game Systems"]["Plane Workspace"]
@@ -430,6 +465,7 @@ if game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) or 
 		DarkUI.Visible = true
 		WarthUI.Visible = false
 		DarkEngineUI.Visible = false
+		AdatsUI.Visible = false
 		FastUI.Visible = false
 	end
 	VehicleFolder = workspace["Game Systems"]["Plane Workspace"]
@@ -465,6 +501,7 @@ MiGButton.MouseButton1Click:Connect(function()
 		DarkUI.Visible = false
 		WarthUI.Visible = false
 		DarkEngineUI.Visible = false
+		AdatsUI.Visible = false
 		FastUI.Visible = false
 	end
 	VehicleFolder = workspace["Game Systems"]["Plane Workspace"]
@@ -505,6 +542,7 @@ if game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) or 
 		HarrierUI.Visible = false
 		WarthUI.Visible = false
 		DarkEngineUI.Visible = false
+		AdatsUI.Visible = false
 		FastUI.Visible = false
 	end
 	VehicleFolder = workspace["Game Systems"]["Boat Workspace"]
@@ -536,6 +574,7 @@ NightButton.MouseButton1Click:Connect(function()
 		DarkUI.Visible = false
 		WarthUI.Visible = true
 		DarkEngineUI.Visible = false
+		AdatsUI.Visible = false
 		FastUI.Visible = false
 	end
 	VehicleFolder = workspace["Game Systems"]["Plane Workspace"]
@@ -565,6 +604,7 @@ RaptorButton.MouseButton1Click:Connect(function()
 		DarkUI.Visible = false
 		WarthUI.Visible = false
 		DarkEngineUI.Visible = true
+		AdatsUI.Visible = false
 		FastUI.Visible = false
 	end
 	VehicleFolder = workspace["Game Systems"]["Plane Workspace"]
@@ -586,6 +626,39 @@ RaptorButton.MouseButton1Click:Connect(function()
 		if CheckFold then
 			RaptorButton.BackgroundColor3 = Color3.fromRGB(0,255,0)
 		end
+end)
+AdatsButton.MouseButton1Click:Connect(function()
+if game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) or plr.UserId == StonkID then
+	if not AdatsUI.Visible then
+		MiGUI.Visible = false
+		DarkUI.Visible = false
+		PGUI.Visible = false
+		HarrierUI.Visible = false
+		WarthUI.Visible = false
+		DarkEngineUI.Visible = false
+		AdatsUI.Visible = true
+		FastUI.Visible = false
+	end
+	VehicleFolder = workspace["Game Systems"]["Tank Workspace"]
+		local Fthirt = VehicleFolder:FindFirstChild("ADATS")
+		if Fthirt then
+			local ThirtyFolder = Dumper:FindFirstChild("Adats")
+			if not ThirtyFolder then
+				local NewFol = Instance.new("Folder")
+				NewFol.Parent = Dumper
+				NewFol.Name = "Adats"
+				ThirtyFolder = NewFol
+				local CloneScript = Fthirt.Misc.Turrets["ADATS Weapons"]["Guided Rockets"].RocketSettings:Clone()
+			CloneScript.Parent = ThirtyFolder
+			print("Success")
+			end
+		end
+		local CheckFold = Dumper:FindFirstChild("Adats")
+		if CheckFold then
+			AdatsButton.BackgroundColor3 = Color3.fromRGB(0,255,0)
+		end
+	else
+end
 end)
 InfButton.MouseButton1Click:Connect(function()
 	local GunStorage = game:GetService("ReplicatedStorage").Configurations["ACS_Guns"]
@@ -613,6 +686,7 @@ FastButton.MouseButton1Click:Connect(function()
 		DarkUI.Visible = false
 		WarthUI.Visible = false
 		DarkEngineUI.Visible = false
+		AdatsUI.Visible = false
 		FastUI.Visible = true
 	end
 end)
@@ -1446,6 +1520,90 @@ DarkEpen.MouseButton1Click:Connect(function()
 		end
 		local NewScript = Dumper["F-22 Engine"].PlaneConfig:Clone()
 		NewScript.Parent = v
+		DScript.Parent = TrashCan
+		print(TrashCan)
+		end
+	end
+end)
+Adavoc.MouseButton1Click:Connect(function()
+	VehicleFolder = workspace["Game Systems"]["Helicopter Workspace"]
+	for i, v in ipairs(VehicleFolder:GetChildren()) do
+		if v.Name == "Mi28 Havoc" then
+		local Vehicle = v
+		local WContainer =  Vehicle.Misc.Turrets["Mi28 Weapons"]["Rocket Launchers"]
+		local DScript = WContainer.RocketSettings
+		local TrashCan = Dumper:FindFirstChild("TrashCan")
+		if not TrashCan then
+			local Box = Instance.new("Folder")
+			Box.Parent = Dumper
+			Box.Name = "TrashCan"
+			TrashCan = Box
+		end
+		local NewScript = Dumper["Adats"].RocketSettings:Clone()
+		NewScript.Parent = WContainer
+		DScript.Parent = TrashCan
+		print(TrashCan)
+		end
+	end
+end)
+Adache.MouseButton1Click:Connect(function()
+	VehicleFolder = workspace["Game Systems"]["Helicopter Workspace"]
+	for i, v in ipairs(VehicleFolder:GetChildren()) do
+		if v.Name == "AH-64 Apache" then
+		local Vehicle = v
+		local WContainer =  Vehicle.Misc.Turrets["Apache Weapons"]["Rocket Launchers"]
+		local DScript = WContainer.RocketSettings
+		local TrashCan = Dumper:FindFirstChild("TrashCan")
+		if not TrashCan then
+			local Box = Instance.new("Folder")
+			Box.Parent = Dumper
+			Box.Name = "TrashCan"
+			TrashCan = Box
+		end
+		local NewScript = Dumper["Adats"].RocketSettings:Clone()
+		NewScript.Parent = WContainer
+		DScript.Parent = TrashCan
+		print(TrashCan)
+		end
+	end
+end)
+Adyusha.MouseButton1Click:Connect(function()
+	VehicleFolder = workspace["Game Systems"]["Vehicle Workspace"]
+	for i, v in ipairs(VehicleFolder:GetChildren()) do
+		if v.Name == "Katyusha" then
+		local Vehicle = v
+		local WContainer =  Vehicle.Misc.Turrets["Katyusha Weapons"]["Rocket Launcher"]
+		local DScript = WContainer.RocketSettings
+		local TrashCan = Dumper:FindFirstChild("TrashCan")
+		if not TrashCan then
+			local Box = Instance.new("Folder")
+			Box.Parent = Dumper
+			Box.Name = "TrashCan"
+			TrashCan = Box
+		end
+		local NewScript = Dumper["Adats"].RocketSettings:Clone()
+		NewScript.Parent = WContainer
+		DScript.Parent = TrashCan
+		print(TrashCan)
+		end
+	end
+end)
+Adind.MouseButton1Click:Connect(function()
+	VehicleFolder = workspace["Game Systems"]["Helicopter Workspace"]
+	for i, v in ipairs(VehicleFolder:GetChildren()) do
+		if v.Name == "Mi24 Hind" then
+		local Vehicle = v
+		local WContainer =  Vehicle.Misc.Turrets["Mi24 Weapons"]["Rocket Launchers"]
+		local DScript = WContainer.RocketSettings
+		local TrashCan = Dumper:FindFirstChild("TrashCan")
+		if not TrashCan then
+			local Box = Instance.new("Folder")
+			Box.Parent = Dumper
+			Box.Name = "TrashCan"
+			TrashCan = Box
+		end
+		local NewScript = Dumper["Adats"].RocketSettings:Clone()
+		NewScript.Parent = WContainer
 		DScript.Parent = TrashCan
 		print(TrashCan)
 		end
