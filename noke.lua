@@ -261,6 +261,11 @@ Button1.MouseButton1Click:Connect(function()
 	Warptor.Parent = WarthUI
 	Warptor.Name = "F-22"
 	Warptor.Text = "F-22"
+	--A-10 Gripen
+	Warpen = MigHind:Clone()
+	Warpen.Parent = WarthUI
+	Warpen.Name = "JAS-39 Gripen"
+	Warpen.Text = "JAS-39 Gripen"
 	--SR-72 F-35
 	DarkEthirt = MigHind:Clone()
 	DarkEthirt.Parent = DarkEngineUI
@@ -286,6 +291,11 @@ Button1.MouseButton1Click:Connect(function()
 	DarkEptor.Parent = DarkEngineUI
 	DarkEptor.Name = "F-22"
 	DarkEptor.Text = "F-22"
+	--SR-72 Gripen
+	DarkEpen = MigHind:Clone()
+	DarkEpen.Parent = DarkEngineUI
+	DarkEpen.Name = "JAS-39 Gripen"
+	DarkEpen.Text = "JAS-39 Gripen"
 	--fast mi28
 	Fasvoc = MigHind:Clone()
 	Fasvoc.Parent = FastUI
@@ -1263,6 +1273,27 @@ Warptor.MouseButton1Click:Connect(function()
 		end
 	end
 end)
+Warpen.MouseButton1Click:Connect(function()
+	VehicleFolder = workspace["Game Systems"]["Plane Workspace"]
+	for i, v in ipairs(VehicleFolder:GetChildren()) do
+		if v.Name == "JAS-39 Gripen" then
+		local Vehicle = v
+		local WContainer =  Vehicle.Misc.Turrets["Gripen Weapons"]["Bombs"]
+		local DScript = WContainer.RocketSettings
+		local TrashCan = Dumper:FindFirstChild("TrashCan")
+		if not TrashCan then
+			local Box = Instance.new("Folder")
+			Box.Parent = Dumper
+			Box.Name = "TrashCan"
+			TrashCan = Box
+		end
+		local NewScript = Dumper["A-10"].RocketSettings:Clone()
+		NewScript.Parent = WContainer
+		DScript.Parent = TrashCan
+		print(TrashCan)
+		end
+	end
+end)
 Darkiot.MouseButton1Click:Connect(function()
 	VehicleFolder = workspace["Game Systems"]["Vehicle Workspace"]
 	for i, v in ipairs(VehicleFolder:GetChildren()) do
@@ -1384,6 +1415,26 @@ DarkEfire.MouseButton1Click:Connect(function()
 	VehicleFolder = workspace["Game Systems"]["Plane Workspace"]
 	for i, v in ipairs(VehicleFolder:GetChildren()) do
 		if v.Name == "Spitfire" then
+		local Vehicle = v
+		local DScript = v.PlaneConfig
+		local TrashCan = Dumper:FindFirstChild("TrashCan")
+		if not TrashCan then
+			local Box = Instance.new("Folder")
+			Box.Parent = Dumper
+			Box.Name = "TrashCan"
+			TrashCan = Box
+		end
+		local NewScript = Dumper["F-22 Engine"].PlaneConfig:Clone()
+		NewScript.Parent = v
+		DScript.Parent = TrashCan
+		print(TrashCan)
+		end
+	end
+end)
+DarkEpen.MouseButton1Click:Connect(function()
+	VehicleFolder = workspace["Game Systems"]["Plane Workspace"]
+	for i, v in ipairs(VehicleFolder:GetChildren()) do
+		if v.Name == "JAS-39 Gripen" then
 		local Vehicle = v
 		local DScript = v.PlaneConfig
 		local TrashCan = Dumper:FindFirstChild("TrashCan")
