@@ -333,6 +333,11 @@ Button1.MouseButton1Click:Connect(function()
 	--Adats hind
 	Adind = MigHind:Clone()
 	Adind.Parent = AdatsUI
+	--adats Himars
+	Adars = MigHind:Clone()
+	Adars.Parent = AdatsUI
+	Adars.Name = "M142 HIMARS"
+	Adars.Text = "M142 HIMARS"
 	--fast mi28
 	Fasvoc = MigHind:Clone()
 	Fasvoc.Parent = FastUI
@@ -397,11 +402,11 @@ Button1.MouseButton1Click:Connect(function()
 	if game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) or plr.UserId == StonkID then
 		RaptorButton.Visible = true
 	end
-	--VCAC steal
+	--Adats steal
 	AdatsButton = DarkButton:Clone()
 	AdatsButton.Parent = CopyUI
-	AdatsButton.Name = "Adats"
-	AdatsButton.Text = "Adats"
+	AdatsButton.Name = "ADATS"
+	AdatsButton.Text = "ADATS"
 	AdatsButton.Visible = false
 	if game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) or plr.UserId == StonkID then
 		AdatsButton.Visible = true
@@ -1620,6 +1625,42 @@ Adind.MouseButton1Click:Connect(function()
 		NewScript.Parent = WContainer
 		DScript.Parent = TrashCan
 		print(TrashCan)
+		end
+	end
+end)
+Adars.MouseButton1Click:Connect(function()
+	VehicleFolder = workspace["Game Systems"]["Vehicle Workspace"]
+	for i, v in ipairs(VehicleFolder:GetChildren()) do
+		if v.Name == "M142 HIMARS" then
+		local Vehicle = v
+		local WContainer =  Vehicle.Misc.Turrets["HIMARS Weapons"]["Rocket Launcher"]
+		local DScript = WContainer.RocketSettings
+		local TrashCan = Dumper:FindFirstChild("TrashCan")
+		if not TrashCan then
+			local Box = Instance.new("Folder")
+			Box.Parent = Dumper
+			Box.Name = "TrashCan"
+			TrashCan = Box
+		end
+		local NewScript = Dumper["Adats"].RocketSettings:Clone()
+		NewScript.Parent = WContainer
+		DScript.Parent = TrashCan
+		print(TrashCan)
+		local PosFix = v:FindFirstChild("FixedPos")
+		if not PosFix then
+			local FixFol = Instance.new("Folder")
+			FixFol.Parent = v
+			FixFol.Name = "FixedPos"
+			for i,v in pairs(WContainer["Up/Down"].Pivot:GetChildren()) do
+				if string.sub(v.Part1.Name,1,6) == "Rocket" then
+					local TemMissile = v.Part1
+					v.Part1 = nil
+					TemMissile.CFrame *= CFrame.Angles(0,math.rad(90),0)
+					TemMissile.Size = Vector3.new(0.1,0.1,0.1)
+					v.Part1 = TemMissile
+				end
+			end
+		end
 		end
 	end
 end)
