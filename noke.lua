@@ -80,8 +80,8 @@ Button1.MouseButton1Click:Connect(function()
 	HideFrame.Name = "Hide"
 	HideFrame.Parent = Frame2
 	HideFrame.Size = UDim2.new(0.9,0,0.8,0)
-	HideFrame.Position = UDim2.new(0.05,0,0.2,0
-	HideFrame.BackgroundColor3 = fromRGB(0,0,0)
+	HideFrame.Position = UDim2.new(0.05,0,0.2,0)
+	HideFrame.BackgroundColor3 = Color3.fromRGB(0,0,0)
 	local LoadText = Label2:Clone()
 	LoadText.Parent = HideFrame
 	LoadText.Text = "Loading..."
@@ -95,6 +95,7 @@ Button1.MouseButton1Click:Connect(function()
 	MiGUI.Position = UDim2.new(0.05,0,0.25,0)
 	MiGUI.VerticalScrollBarInset = Enum.ScrollBarInset.ScrollBar
 	MiGUI.VerticalScrollBarPosition = Enum.VerticalScrollBarPosition.Right
+	MiGUI.Visible = false
 	local UIListLayout2 = Instance.new("UIListLayout")
 	UIListLayout2.Parent = MiGUI
 	UIListLayout2.Padding = UDim.new(0,3)
@@ -422,6 +423,8 @@ Button1.MouseButton1Click:Connect(function()
 	FastButton.BackgroundColor3 = Color3.fromRGB(0,255,0)
 	-----END THE LOADING
 	HideFrame:Destroy()
+	MiGUI.Visible = true
+	CopyUI.Visible = true
 --HideUI-- 六四天安門
 UIS.InputBegan:Connect(function(input)
 	if not UIS:GetFocusedTextBox() then
