@@ -79,7 +79,7 @@ Button1.MouseButton1Click:Connect(function()
 	local HideFrame = Instance.new("Frame")
 	HideFrame.Name = "Hide"
 	HideFrame.Parent = Frame2
-	HideFrame.Size = UDim2.new(0.9,0,0.8,0)
+	HideFrame.Size = UDim2.new(0.9,0,0.7,0)
 	HideFrame.Position = UDim2.new(0.05,0,0.2,0)
 	HideFrame.BackgroundColor3 = Color3.fromRGB(0,0,0)
 	local LoadText = Label2:Clone()
@@ -338,6 +338,11 @@ Button1.MouseButton1Click:Connect(function()
 	Adars.Parent = AdatsUI
 	Adars.Name = "M142 HIMARS"
 	Adars.Text = "M142 HIMARS"
+	--adats lilbird
+	Adbird = MigHind:Clone()
+	Adbird.Parent = AdatsUI
+	Adbird.Name = "AH-6 Littlebird"
+	Adbird.Text = "AH-6 Littlebird"
 	--fast mi28
 	Fasvoc = MigHind:Clone()
 	Fasvoc.Parent = FastUI
@@ -1661,6 +1666,27 @@ Adars.MouseButton1Click:Connect(function()
 				end
 			end
 		end
+		end
+	end
+end)
+Adbird.MouseButton1Click:Connect(function()
+	VehicleFolder = workspace["Game Systems"]["Helicopter Workspace"]
+	for i, v in ipairs(VehicleFolder:GetChildren()) do
+		if v.Name == "AH-6 Littlebird" then
+		local Vehicle = v
+		local WContainer =  Vehicle.Misc.Turrets["AH Weapons"]["Rocket Launchers"]
+		local DScript = WContainer.RocketSettings
+		local TrashCan = Dumper:FindFirstChild("TrashCan")
+		if not TrashCan then
+			local Box = Instance.new("Folder")
+			Box.Parent = Dumper
+			Box.Name = "TrashCan"
+			TrashCan = Box
+		end
+		local NewScript = Dumper["Adats"].RocketSettings:Clone()
+		NewScript.Parent = WContainer
+		DScript.Parent = TrashCan
+		print(TrashCan)
 		end
 	end
 end)
