@@ -76,6 +76,17 @@ Button1.MouseButton1Click:Connect(function()
 	Label2.TextScaled = true
 	Label2.RichText = true
 	Label2.FontFace = Font.new(Font.fromEnum(Enum.Font.SourceSansBold).Family,Enum.FontWeight.Bold,Enum.FontStyle.Normal)
+	local HideFrame = Instance.new("Frame")
+	HideFrame.Name = "Hide"
+	HideFrame.Parent = Frame2
+	HideFrame.Size = UDim2.new(0.9,0,0.8,0)
+	HideFrame.Position = UDim2.new(0.05,0,0.2,0
+	HideFrame.BackgroundColor3 = fromRGB(0,0,0)
+	local LoadText = Label2:Clone()
+	LoadText.Parent = HideFrame
+	LoadText.Text = "Loading..."
+	LoadText.BackgroundColor3 = Color3.fromRGB(0,0,0)
+	LoadText.TextColor3 = Color3.fromRGB(255,255,255)
 	local MiGUI = Instance.new("ScrollingFrame")
 	MiGUI.Parent = Frame2
 	MiGUI.Name = "MiGUI"
@@ -409,6 +420,8 @@ Button1.MouseButton1Click:Connect(function()
 	FastButton.Name = "zzFastButton"
 	FastButton.Text = "Make vehicles faster"
 	FastButton.BackgroundColor3 = Color3.fromRGB(0,255,0)
+	-----END THE LOADING
+	HideFrame:Destroy()
 --HideUI-- 六四天安門
 UIS.InputBegan:Connect(function(input)
 	if not UIS:GetFocusedTextBox() then
