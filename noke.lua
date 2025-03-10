@@ -329,8 +329,6 @@ Button1.MouseButton1Click:Connect(function()
 	--fast mi24
 	Fasind = MigHind:Clone()
 	Fasind.Parent = FastUI
-	Fasind.Name = "Mi-24"
-	Fasind.Text = "Mi-24"
 	--fast douglas
 	Fasglas = MigHind:Clone()
 	Fasglas.Parent = FastUI
