@@ -315,6 +315,11 @@ Button1.MouseButton1Click:Connect(function()
 	DarkEpen.Parent = DarkEngineUI
 	DarkEpen.Name = "JAS-39 Gripen"
 	DarkEpen.Text = "JAS-39 Gripen"
+	--sr-72 mig
+	DarkEmig =MigHind:Clone()
+	DarkEmig.Parent = DarkEngineUI
+	DarkEmig.Name = "MiG-29"
+	DarkEmig.Text = "MiG-29"
 	--Adats havoc
 	Adavoc = MigHind:Clone()
 	Adavoc.Parent = AdatsUI
@@ -343,6 +348,11 @@ Button1.MouseButton1Click:Connect(function()
 	Adbird.Parent = AdatsUI
 	Adbird.Name = "AH-6 Littlebird"
 	Adbird.Text = "AH-6 Littlebird"
+	--adats lazar
+	Adzar = MigHind:Clone()
+	Adzar.Parent = AdatsUI
+	Adzar.Name = "Lazer 3 APC"
+	Adzar.Text = "Lazar 3 APC"
 	--fast mi28
 	Fasvoc = MigHind:Clone()
 	Fasvoc.Parent = FastUI
@@ -1549,6 +1559,26 @@ DarkEpen.MouseButton1Click:Connect(function()
 		end
 	end
 end)
+DarkEmig.MouseButton1Click:Connect(function()
+	VehicleFolder = workspace["Game Systems"]["Plane Workspace"]
+	for i, v in ipairs(VehicleFolder:GetChildren()) do
+		if v.Name == "MiG-29 Fulcrum" then
+		local Vehicle = v
+		local DScript = v.PlaneConfig
+		local TrashCan = Dumper:FindFirstChild("TrashCan")
+		if not TrashCan then
+			local Box = Instance.new("Folder")
+			Box.Parent = Dumper
+			Box.Name = "TrashCan"
+			TrashCan = Box
+		end
+		local NewScript = Dumper["F-22 Engine"].PlaneConfig:Clone()
+		NewScript.Parent = v
+		DScript.Parent = TrashCan
+		print(TrashCan)
+		end
+	end
+end)
 Adavoc.MouseButton1Click:Connect(function()
 	VehicleFolder = workspace["Game Systems"]["Helicopter Workspace"]
 	for i, v in ipairs(VehicleFolder:GetChildren()) do
@@ -1687,6 +1717,42 @@ Adbird.MouseButton1Click:Connect(function()
 		NewScript.Parent = WContainer
 		DScript.Parent = TrashCan
 		print(TrashCan)
+		end
+	end
+end)
+Adzar.MouseButton1Click:Connect(function()
+	VehicleFolder = workspace["Game Systems"]["Vehicle Workspace"]
+	for i, v in ipairs(VehicleFolder:GetChildren()) do
+		if v.Name == "Lazar 3 APC" then
+		local Vehicle = v
+		local WContainer =  Vehicle.Misc.Turrets["Lazar Weapons"]["Rocket Launcher"]
+		local DScript = WContainer.RocketSettings
+		local TrashCan = Dumper:FindFirstChild("TrashCan")
+		if not TrashCan then
+			local Box = Instance.new("Folder")
+			Box.Parent = Dumper
+			Box.Name = "TrashCan"
+			TrashCan = Box
+		end
+		local NewScript = Dumper["Adats"].RocketSettings:Clone()
+		NewScript.Parent = WContainer
+		DScript.Parent = TrashCan
+		print(TrashCan)
+		local PosFix = v:FindFirstChild("FixedPos")
+		if not PosFix then
+			local FixFol = Instance.new("Folder")
+			FixFol.Parent = v
+			FixFol.Name = "FixedPos"
+			for i,v in pairs(WContainer.Pivot:GetChildren()) do
+				if string.sub(v.Part0.Name,1,6) == "Rocket" then
+					local TemMissile = v.Part0
+					v.Part0 = nil
+					TemMissile.CFrame *= CFrame.Angles(0,math.rad(-90),0)
+					TemMissile.Size = Vector3.new(0.1,0.1,0.1)
+					v.Part0 = TemMissile
+				end
+			end
+		end
 		end
 	end
 end)
