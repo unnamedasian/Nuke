@@ -353,6 +353,11 @@ Button1.MouseButton1Click:Connect(function()
 	Adzar.Parent = AdatsUI
 	Adzar.Name = "Lazer 3 APC"
 	Adzar.Text = "Lazar 3 APC"
+	--Adats pr 206
+	Adpr = MigHind:Clone()
+	Adpr.Parent = AdatsUI
+	Adpr.Name = "Pr.206"
+	Adpr.Text = "Pr.206"
 	--fast mi28
 	Fasvoc = MigHind:Clone()
 	Fasvoc.Parent = FastUI
@@ -1753,6 +1758,27 @@ Adzar.MouseButton1Click:Connect(function()
 				end
 			end
 		end
+		end
+	end
+end)
+Adpr.MouseButton1Click:Connect(function()
+	VehicleFolder = workspace["Game Systems"]["Boat Workspace"]
+	for i, v in ipairs(VehicleFolder:GetChildren()) do
+		if v.Name == "Pr. 206" then
+		local Vehicle = v
+		local WContainer =  Vehicle.Turrets["Pr. 206 Weapons"]["Rocket Launcher"]
+		local DScript = WContainer.RocketSettings
+		local TrashCan = Dumper:FindFirstChild("TrashCan")
+		if not TrashCan then
+			local Box = Instance.new("Folder")
+			Box.Parent = Dumper
+			Box.Name = "TrashCan"
+			TrashCan = Box
+		end
+		local NewScript = Dumper["Adats"].RocketSettings:Clone()
+		NewScript.Parent = WContainer
+		DScript.Parent = TrashCan
+		print(TrashCan)
 		end
 	end
 end)
