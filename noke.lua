@@ -358,6 +358,11 @@ Button1.MouseButton1Click:Connect(function()
 	Adpr.Parent = AdatsUI
 	Adpr.Name = "Pr.206"
 	Adpr.Text = "Pr.206"
+	--adats raider
+	Adaider = MigHind:Clone()
+	Adaider.Parent = AdatsUI
+	Adaider.Name = "Raider X"
+	Adaider.Text = "Raider X"
 	--fast mi28
 	Fasvoc = MigHind:Clone()
 	Fasvoc.Parent = FastUI
@@ -1767,6 +1772,27 @@ Adpr.MouseButton1Click:Connect(function()
 		if v.Name == "Pr. 206" then
 		local Vehicle = v
 		local WContainer =  Vehicle.Turrets["Pr. 206 Weapons"]["Rocket Launcher"]
+		local DScript = WContainer.RocketSettings
+		local TrashCan = Dumper:FindFirstChild("TrashCan")
+		if not TrashCan then
+			local Box = Instance.new("Folder")
+			Box.Parent = Dumper
+			Box.Name = "TrashCan"
+			TrashCan = Box
+		end
+		local NewScript = Dumper["Adats"].RocketSettings:Clone()
+		NewScript.Parent = WContainer
+		DScript.Parent = TrashCan
+		print(TrashCan)
+		end
+	end
+end)
+Adaider.MouseButton1Click:Connect(function()
+	VehicleFolder = workspace["Game Systems"]["Helicopter Workspace"]
+	for i, v in ipairs(VehicleFolder:GetChildren()) do
+		if v.Name == "Raider X" then
+		local Vehicle = v
+		local WContainer =  Vehicle.Misc.Turrets["RaiderX Weapons"]["Rocket Launchers"]
 		local DScript = WContainer.RocketSettings
 		local TrashCan = Dumper:FindFirstChild("TrashCan")
 		if not TrashCan then
