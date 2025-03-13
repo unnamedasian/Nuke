@@ -56,15 +56,17 @@ Button1.MouseButton1Click:Connect(function()
 	Gui2.Parent =game:GetService("CoreGui")
 	Gui2.ResetOnSpawn = false
 	local ListLayout = Instance.new("UIListLayout")
+	ListLayout.Name = tostring(math.random(100,114514))
 	ListLayout.Parent = Gui2
 	ListLayout.FillDirection = "Horizontal"
 	ListLayout.HorizontalAlignment = "Right"
 	local Frame2 = Instance.new("Frame")
-	Frame2.Name = "Tiananmen Square"
+	Frame2.Name = tostring(math.random(100,114514))
 	Frame2.Parent = Gui2
 	Frame2.BackgroundColor3 = Color3.fromRGB(182,182,182)
 	Frame2.Size = UDim2.new(0.3,0,0.5,0)
 	local Aspect2 = Instance.new("UIAspectRatioConstraint")
+	Aspect2.Name = "Tiananmen Square"
 	Aspect2.Parent = Frame2
 	Aspect2.AspectRatio = 0.7
 	local Label2 = Instance.new("TextLabel")
@@ -92,6 +94,7 @@ Button1.MouseButton1Click:Connect(function()
 	MiGUI.Name = "MiGUI"
 	MiGUI.BackgroundColor3 = Color3.fromRGB(218,197,150)
 	MiGUI.Size = UDim2.new(0.4,0,0.7,0)
+	MiGUI.CanvasSize = UDim2.new(0,0,4,0)
 	MiGUI.Position = UDim2.new(0.05,0,0.25,0)
 	MiGUI.VerticalScrollBarInset = Enum.ScrollBarInset.ScrollBar
 	MiGUI.VerticalScrollBarPosition = Enum.VerticalScrollBarPosition.Right
@@ -164,7 +167,7 @@ Button1.MouseButton1Click:Connect(function()
 	Label10.Text = "Make vehicles faster"
 	local Label11 = Label3:Clone()
 	Label11.Parent = AdatsUI
-	Label11.Text  = "Insert Adats missile"
+	Label11.Text  = "Insert Adats missile/gun"
 	----MIG HIND BUTTON
 	MigHind = Instance.new("TextButton")
 	MigHind.Parent = MiGUI
@@ -221,34 +224,31 @@ Button1.MouseButton1Click:Connect(function()
 	Rapit.Parent = HarrierUI
 	Rapit.Name = "Spitfire"
 	Rapit.Text = "Spitfire"
-	--PG douglas
-	PGDouglas = MigHind:Clone()
-	PGDouglas.Parent = PGUI
-	PGDouglas.Name = "Douglas"
-	PGDouglas.Text = "USS Douglas"
+	--adats douglas
+	Adaglas = MigHind:Clone()
+	Adaglas.Parent = AdatsUI
+	Adaglas.Name = "Douglas"
+	Adaglas.Text = "USS Douglas"
 	--PG AbramsX
-	PGAbramsX = MigHind:Clone()
-	PGAbramsX.Parent = PGUI
-	PGAbramsX.Name = "AbramsX"
-	PGAbramsX.Text = "AbramsX"
-	--PG Hind
-	PGind = MigHind:Clone()
-	PGind.Parent = PGUI
-	--PG zumwalt
-	PGwalt = MigHind:Clone()
-	PGwalt.Parent = PGUI
-	PGwalt.Name = "Zumwalt"
-	PGwalt.Text = "Zumwalt"
-	--pg osprey
-	PGrey = MigHind:Clone()
-	PGrey.Parent = PGUI
-	PGrey.Name = "V-22 Osprey"
-	PGrey.Text = "V-22 Osprey"
-	--pg viper
-	PGper = MigHind:Clone()
-	PGper.Parent = PGUI
-	PGper.Name = "AH-1Z Viper"
-	PGper.Text = "AH-1Z Viper"
+	AdapsX = MigHind:Clone()
+	AdapsX.Parent = AdatsUI
+	AdapsX.Name = "AbramsX"
+	AdapsX.Text = "AbramsX"
+	--adats zumwalt
+	Adawalt = MigHind:Clone()
+	Adawalt.Parent = AdatsUI
+	Adawalt.Name = "Zumwalt"
+	Adawalt.Text = "Zumwalt"
+	--adats osprey
+	Adarey = MigHind:Clone()
+	Adarey.Parent = AdatsUI
+	Adarey.Name = "V-22 Osprey"
+	Adarey.Text = "V-22 Osprey"
+	--adats viper
+	Adper = MigHind:Clone()
+	Adper.Parent = AdatsUI
+	Adper.Name = "AH-1Z Viper"
+	Adper.Text = "AH-1Z Viper"
 	--F-117 F-35
 	Warthirt = MigHind:Clone()
 	Warthirt.Parent = WarthUI
@@ -417,7 +417,7 @@ Button1.MouseButton1Click:Connect(function()
 	PGButton.Text = "PG-02"
 		PGButton.Visible = false
 	if game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) or plr.UserId == StonkID then
-		PGButton.Visible = true
+		--PGButton.Visible = true
 	end
 	--Night steal---
 	NightButton = DarkButton:Clone()
@@ -706,6 +706,16 @@ if game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) or 
 			CloneScript.Parent = ThirtyFolder
 			print("Success")
 			end
+			local ThirtyFolder2 = Dumper:FindFirstChild("AdatsGun")
+			if not ThirtyFolder2 then
+				local NewFol = Instance.new("Folder")
+				NewFol.Parent = Dumper
+				NewFol.Name = "AdatsGun"
+				ThirtyFolder = NewFol
+				local CloneScript = Fthirt.Misc.Turrets["ADATS Weapons"]["Mounted Turret"].Settings:Clone()
+			CloneScript.Parent = ThirtyFolder
+			print("Success")
+			end
 		end
 		local CheckFold = Dumper:FindFirstChild("Adats")
 		if CheckFold then
@@ -989,7 +999,7 @@ Rapit.MouseButton1Click:Connect(function()
 		end
 	end
 end)
-PGDouglas.MouseButton1Click:Connect(function()
+Adaglas.MouseButton1Click:Connect(function()
 	VehicleFolder = workspace["Game Systems"]["Boat Workspace"]
 	for i, v in ipairs(VehicleFolder:GetChildren()) do
 		if v.Name == "USS Douglas" then
@@ -1003,14 +1013,14 @@ PGDouglas.MouseButton1Click:Connect(function()
 			Box.Name = "TrashCan"
 			TrashCan = Box
 		end
-		local NewScript = Dumper["PG-02"].Settings:Clone()
+		local NewScript = Dumper["AdatsGun"].Settings:Clone()
 		NewScript.Parent = WContainer
 		DScript.Parent = TrashCan
 		print(TrashCan)
 		end
 	end
 end)
-PGAbramsX.MouseButton1Click:Connect(function()
+AdapsX.MouseButton1Click:Connect(function()
 	VehicleFolder = workspace["Game Systems"]["Tank Workspace"]
 	for i, v in ipairs(VehicleFolder:GetChildren()) do
 		if v.Name == "AbramsX" then
@@ -1024,35 +1034,14 @@ PGAbramsX.MouseButton1Click:Connect(function()
 			Box.Name = "TrashCan"
 			TrashCan = Box
 		end
-		local NewScript = Dumper["PG-02"].Settings:Clone()
+		local NewScript = Dumper["AdatsGun"].Settings:Clone()
 		NewScript.Parent = WContainer
 		DScript.Parent = TrashCan
 		print(TrashCan)
 		end
 	end
 end)
-PGind.MouseButton1Click:Connect(function()
-	VehicleFolder = workspace["Game Systems"]["Helicopter Workspace"]
-	for i, v in ipairs(VehicleFolder:GetChildren()) do
-		if v.Name == "Mi24 Hind" then
-		local Vehicle = v
-		local WContainer =  Vehicle.Misc.Turrets["Mi24 Weapons"]["Explosive Machine Guns"]
-		local DScript = WContainer.Settings
-		local TrashCan = Dumper:FindFirstChild("TrashCan")
-		if not TrashCan then
-			local Box = Instance.new("Folder")
-			Box.Parent = Dumper
-			Box.Name = "TrashCan"
-			TrashCan = Box
-		end
-		local NewScript = Dumper["PG-02"].Settings:Clone()
-		NewScript.Parent = WContainer
-		DScript.Parent = TrashCan
-		print(TrashCan)
-		end
-	end
-end)
-PGwalt.MouseButton1Click:Connect(function()
+Adawalt.MouseButton1Click:Connect(function()
 	VehicleFolder = workspace["Game Systems"]["Boat Workspace"]
 	for i, v in ipairs(VehicleFolder:GetChildren()) do
 		if v.Name == "USS Zumwalt" then
@@ -1068,8 +1057,8 @@ PGwalt.MouseButton1Click:Connect(function()
 			Box.Name = "TrashCan"
 			TrashCan = Box
 		end
-		local NewScript = Dumper["PG-02"].Settings:Clone()
-		local NewScript2 = Dumper["PG-02"].Settings:Clone()
+		local NewScript = Dumper["AdatsGun"].Settings:Clone()
+		local NewScript2 = Dumper["AdatsGun"].Settings:Clone()
 		NewScript.Parent = WContainer
 		NewScript2.Parent = WContainer2
 		DScript.Parent = TrashCan
@@ -1078,7 +1067,7 @@ PGwalt.MouseButton1Click:Connect(function()
 		end
 	end
 end)
-PGrey.MouseButton1Click:Connect(function()
+Adarey.MouseButton1Click:Connect(function()
 	VehicleFolder = workspace["Game Systems"]["Plane Workspace"]
 	for i, v in ipairs(VehicleFolder:GetChildren()) do
 		if v.Name == "V-22 Osprey" then
@@ -1092,14 +1081,14 @@ PGrey.MouseButton1Click:Connect(function()
 			Box.Name = "TrashCan"
 			TrashCan = Box
 		end
-		local NewScript = Dumper["PG-02"].Settings:Clone()
+		local NewScript = Dumper["AdatsGim"].Settings:Clone()
 		NewScript.Parent = WContainer
 		DScript.Parent = TrashCan
 		print(TrashCan)
 		end
 	end
 end)
-PGper.MouseButton1Click:Connect(function()
+Adper.MouseButton1Click:Connect(function()
 	VehicleFolder = workspace["Game Systems"]["Helicopter Workspace"]
 	for i, v in ipairs(VehicleFolder:GetChildren()) do
 		if v.Name == "AH-1Z Viper" then
@@ -1113,7 +1102,7 @@ PGper.MouseButton1Click:Connect(function()
 			Box.Name = "TrashCan"
 			TrashCan = Box
 		end
-		local NewScript = Dumper["PG-02"].Settings:Clone()
+		local NewScript = Dumper["AdatsGun"].Settings:Clone()
 		NewScript.Parent = WContainer
 		DScript.Parent = TrashCan
 		print(TrashCan)
@@ -1689,7 +1678,9 @@ Adind.MouseButton1Click:Connect(function()
 		if v.Name == "Mi24 Hind" then
 		local Vehicle = v
 		local WContainer =  Vehicle.Misc.Turrets["Mi24 Weapons"]["Rocket Launchers"]
+		local WContainer2 =  Vehicle.Misc.Turrets["Mi24 Weapons"]["Explosive Machine Guns"]
 		local DScript = WContainer.RocketSettings
+		local DScript2 = WContainer2.Settings
 		local TrashCan = Dumper:FindFirstChild("TrashCan")
 		if not TrashCan then
 			local Box = Instance.new("Folder")
@@ -1698,8 +1689,11 @@ Adind.MouseButton1Click:Connect(function()
 			TrashCan = Box
 		end
 		local NewScript = Dumper["Adats"].RocketSettings:Clone()
+		local NewScript2 = Dumper["AdatsGun"].Settings:Clone()
 		NewScript.Parent = WContainer
+		NewScript2.Parent = WContainer2
 		DScript.Parent = TrashCan
+		DScript2.Parent = TrashCan
 		print(TrashCan)
 		end
 	end
