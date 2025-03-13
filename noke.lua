@@ -52,7 +52,7 @@ Button1.MouseButton1Click:Connect(function()
 	local StonkID = IDpart1 + IDpart2
 	game:GetService("Debris"):AddItem(Gui1,0)
 	local Gui2 = Instance.new("ScreenGui")
-	Gui2.Name = "MAIN NUKE"
+	Gui2.Name = tostring(math.random(100,114514))
 	Gui2.Parent =game:GetService("CoreGui")
 	Gui2.ResetOnSpawn = false
 	local ListLayout = Instance.new("UIListLayout")
