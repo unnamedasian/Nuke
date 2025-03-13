@@ -1544,7 +1544,7 @@ Adind.MouseButton1Click:Connect(function()
 		if not PosFix then
 			local FixFol = Instance.new("Folder")
 			FixFol.Parent = v
-			FixFol.Name = "FixPos2"
+			FixFol.Name = "FixedPos2"
 			for i,v in pairs(v.Functionality.Engine:GetChildren()) do
 				if v:IsA("WeldConstraint") then
 					if string.sub(v.Part0.Name,1,9) == "SmokePart" then
