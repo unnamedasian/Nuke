@@ -1733,7 +1733,7 @@ Fasvoc.MouseButton1Click:Connect(function()
 			Box.Name = "TrashCan"
 			TrashCan = Box
 		end
-		local NewScript = Configs.Helicopter["Raider X"]:Clone()
+		local NewScript = Configs.Helicopter["A129 Mangusta"]:Clone()
 		NewScript.Name = "HelicopterConfig"
 		NewScript.Parent = v
 		DScript.Parent = TrashCan
