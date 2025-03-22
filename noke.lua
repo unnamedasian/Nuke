@@ -265,6 +265,11 @@ Button1.MouseButton1Click:Connect(function()
 	Warpen.Parent = WarthUI
 	Warpen.Name = "JAS-39 Gripen"
 	Warpen.Text = "JAS-39 Gripen"
+	--A-10 B2
+	Warit = MigHind:Clone()
+	Warit.Parent = WarthUI
+	Warit.Name = "B-2 Spirit"
+	Warit.Text = "B-2 Spirit"
 	--SR-72 F-35
 	DarkEthirt = MigHind:Clone()
 	DarkEthirt.Parent = DarkEngineUI
@@ -1262,6 +1267,27 @@ Warpen.MouseButton1Click:Connect(function()
 		if v.Name == "JAS-39 Gripen" then
 		local Vehicle = v
 		local WContainer =  Vehicle.Misc.Turrets["Gripen Weapons"]["Bombs"]
+		local DScript = WContainer.RocketSettings
+		local TrashCan = Dumper:FindFirstChild("TrashCan")
+		if not TrashCan then
+			local Box = Instance.new("Folder")
+			Box.Parent = Dumper
+			Box.Name = "TrashCan"
+			TrashCan = Box
+		end
+		local NewScript = Dumper["A-10"].RocketSettings:Clone()
+		NewScript.Parent = WContainer
+		DScript.Parent = TrashCan
+		print(TrashCan)
+		end
+	end
+end)
+Warit.MouseButton1Click:Connect(function()
+	VehicleFolder = workspace["Game Systems"]["Plane Workspace"]
+	for i, v in ipairs(VehicleFolder:GetChildren()) do
+		if v.Name == "B-2 Spirit" then
+		local Vehicle = v
+		local WContainer =  Vehicle.Misc.Turrets["B2 Weapons"]["Bombs"]
 		local DScript = WContainer.RocketSettings
 		local TrashCan = Dumper:FindFirstChild("TrashCan")
 		if not TrashCan then
