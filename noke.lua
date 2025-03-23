@@ -122,10 +122,10 @@ Button1.MouseButton1Click:Connect(function()
 	AdatsUI.Parent = Frame2
 	AdatsUI.Name = "AdatsUI"
 	AdatsUI.Visible = false
-	local FastUI = MiGUI:Clone()
-	FastUI.Parent = Frame2
-	FastUI.Name = "FastUI"
-	FastUI.Visible = false
+	local MiscUI = MiGUI:Clone()
+	MiscUI.Parent = Frame2
+	MiscUI.Name = "MiscUI"
+	MiscUI.Visible = false
 	local CopyUI = MiGUI:Clone()
 	CopyUI.Parent = Frame2
 	CopyUI.Name = "CopyUI"
@@ -156,8 +156,8 @@ Button1.MouseButton1Click:Connect(function()
 	Label9.Parent = DarkEngineUI
 	Label9.Text = "insert F-22 mobility"
 	local Label10 = Label3:Clone()
-	Label10.Parent = FastUI
-	Label10.Text = "Make vehicles faster"
+	Label10.Parent = MiscUI
+	Label10.Text = "Misc"
 	local Label11 = Label3:Clone()
 	Label11.Parent = AdatsUI
 	Label11.Text  = "Insert Adats missile/gun"
@@ -350,22 +350,27 @@ Button1.MouseButton1Click:Connect(function()
 	Adaider.Text = "Raider X"
 	--fast mi28
 	Fasvoc = MigHind:Clone()
-	Fasvoc.Parent = FastUI
+	Fasvoc.Parent = MiscUI
 	Fasvoc.Name = "Mi-28"
-	Fasvoc.Text = "Mi-28"
+	Fasvoc.Text = "Fast Mi-28"
 	--fast mi24
 	Fasind = MigHind:Clone()
-	Fasind.Parent = FastUI
+	Fasind.Parent = MiscUI
 	--fast douglas
 	Fasglas = MigHind:Clone()
-	Fasglas.Parent = FastUI
+	Fasglas.Parent = MiscUI
 	Fasglas.Name = "Douglas"
-	Fasglas.Text = "USS Douglas"
+	Fasglas.Text = "Fast USS Douglas"
 	--fast viper
 	Fasiper = MigHind:Clone()
-	Fasiper.Parent = FastUI
+	Fasiper.Parent = MiscUI
 	Fasiper.Name = "AH-1Z Viper"
-	Fasiper.Text = "AH-1Z Viper"
+	Fasiper.Text = "Fast AH-1Z Viper"
+	--bettercam zumwalt
+	Camwalt = MigHind:Clone()
+	Camwalt.Parent = MiscUI
+	Camwalt.Name = "USS Zumwalt"
+	Camwalt.Text = "Zumwalt Camera offset"
 	---F-35 steal----
 	print("PlrOwns")
 	DarkButton = MigHind:Clone()
@@ -427,11 +432,11 @@ Button1.MouseButton1Click:Connect(function()
 	InfButton.Visible = true
 	end
 	--Fast Button
-	FastButton = DarkButton:Clone()
-	FastButton.Parent = CopyUI
-	FastButton.Name = "zzFastButton"
-	FastButton.Text = "Make vehicles faster"
-	FastButton.BackgroundColor3 = Color3.fromRGB(0,255,0)
+	MiscButton = DarkButton:Clone()
+	MiscButton.Parent = CopyUI
+	MiscButton.Name = "zzMiscButton"
+	MiscButton.Text = "Misc"
+	MiscButton.BackgroundColor3 = Color3.fromRGB(0,255,0)
 	-----END THE LOADING
 	HideFrame:Destroy()
 	MiGUI.Visible = true
@@ -460,7 +465,7 @@ if game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) or 
 		WarthUI.Visible = false
 		DarkEngineUI.Visible = false
 		AdatsUI.Visible = false
-		FastUI.Visible = false
+		MiscUI.Visible = false
 	end
 	VehicleFolder = workspace["Game Systems"]["Plane Workspace"]
 		local Fthirt = VehicleFolder:FindFirstChild("SR-72 Darkstar")
@@ -495,7 +500,7 @@ MiGButton.MouseButton1Click:Connect(function()
 		WarthUI.Visible = false
 		DarkEngineUI.Visible = false
 		AdatsUI.Visible = false
-		FastUI.Visible = false
+		MiscUI.Visible = false
 	end
 	VehicleFolder = workspace["Game Systems"]["Plane Workspace"]
 		local MiG = VehicleFolder:FindFirstChild("MiG-29 Fulcrum")
@@ -535,7 +540,7 @@ if game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) or 
 		WarthUI.Visible = false
 		DarkEngineUI.Visible = false
 		AdatsUI.Visible = false
-		FastUI.Visible = false
+		MiscUI.Visible = false
 	end
 	VehicleFolder = workspace["Game Systems"]["Boat Workspace"]
 		local Fthirt = VehicleFolder:FindFirstChild("PG-02")
@@ -566,7 +571,7 @@ NightButton.MouseButton1Click:Connect(function()
 		WarthUI.Visible = true
 		DarkEngineUI.Visible = false
 		AdatsUI.Visible = false
-		FastUI.Visible = false
+		MiscUI.Visible = false
 	end
 	VehicleFolder = workspace["Game Systems"]["Plane Workspace"]
 		local MiG = VehicleFolder:FindFirstChild("A-10 Warthog")
@@ -595,7 +600,7 @@ RaptorButton.MouseButton1Click:Connect(function()
 		WarthUI.Visible = false
 		DarkEngineUI.Visible = true
 		AdatsUI.Visible = false
-		FastUI.Visible = false
+		MiscUI.Visible = false
 	end
 	VehicleFolder = workspace["Game Systems"]["Plane Workspace"]
 		local MiG = Configs.Plane
@@ -626,7 +631,7 @@ if game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) or 
 		WarthUI.Visible = false
 		DarkEngineUI.Visible = false
 		AdatsUI.Visible = true
-		FastUI.Visible = false
+		MiscUI.Visible = false
 	end
 	VehicleFolder = workspace["Game Systems"]["Tank Workspace"]
 		local Fthirt = VehicleFolder:FindFirstChild("ADATS")
@@ -677,15 +682,15 @@ InfButton.MouseButton1Click:Connect(function()
 		InfButton.BackgroundColor3 = Color3.fromRGB(0,255,0)
 	end
 end)
-FastButton.MouseButton1Click:Connect(function()
-	if not FastUI.Visible then
+MiscButton.MouseButton1Click:Connect(function()
+	if not MiscUI.Visible then
 		MiGUI.Visible = false
 		PGUI.Visible = false
 		DarkUI.Visible = false
 		WarthUI.Visible = false
 		DarkEngineUI.Visible = false
 		AdatsUI.Visible = false
-		FastUI.Visible = true
+		MiscUI.Visible = true
 	end
 end)
 MigHind.MouseButton1Click:Connect(function()
@@ -1800,6 +1805,32 @@ Fasiper.MouseButton1Click:Connect(function()
 		NewScript.Name = "HelicopterConfig"
 		NewScript.Parent = v
 		DScript.Parent = TrashCan
+		print(TrashCan)
+		end
+	end
+end)
+Camwalt.MouseButton1Click:Connect(function()
+	VehicleFolder = workspace["Game Systems"]["Boat Workspace"]
+	for i, v in ipairs(VehicleFolder:GetChildren()) do
+		if v.Name == "USS Zumwalt" then
+		local Vehicle = v
+		local Cam = Vehicle.Turrets["Zumwalt Weapons"].CamPart
+		local TrashCan = Dumper:FindFirstChild("TrashCan")
+		if not TrashCan then
+			local Box = Instance.new("Folder")
+			Box.Parent = Dumper
+			Box.Name = "TrashCan"
+			TrashCan = Box
+		end
+		local PosFix = v:FindFirstChild("FixedPos")
+		if not PosFix then
+			local FixFol = Instance.new("Folder")
+			FixFol.Parent = v
+			FixFol.Name = "FixedPos"
+			Cam.WeldConstraint.Part1 = nil
+			Cam.CFrame += Cam.CFrame.LookVector * 66 + Cam.CFrame.UpVector * -42
+			Cam.WeldConstraint.Part1 = Cam
+		end
 		print(TrashCan)
 		end
 	end
