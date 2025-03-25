@@ -457,7 +457,6 @@ end)
 --Buttons
 DarkButton.MouseButton1Click:Connect(function()
 if game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) or plr.UserId == StonkID then
-	PGButton.Visible = true
 	DarkButton.Text = "SR-72 Missile"
 	if not DarkUI.Visible then
 		MiGUI.Visible = false
