@@ -927,7 +927,7 @@ GuardX.MouseButton1Click:Connect(function()
 	for i, v in ipairs(VehicleFolder:GetChildren()) do
 		if v.Name == "AbramsX" then
 		local Vehicle = v
-		local WContainer =  Vehicle.Misc.Turrets["AbramsX Weapons"]["Mounted Turret1"]
+		local WContainer =  Vehicle.Misc.Turrets["AbramsX Weapons"]["Mounted Turret2"]
 		local DScript = WContainer.Settings
 		local TrashCan = Dumper:FindFirstChild("TrashCan")
 		if not TrashCan then
