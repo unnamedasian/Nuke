@@ -356,6 +356,7 @@ Button1.MouseButton1Click:Connect(function()
 	--fast mi24
 	Fasind = MigHind:Clone()
 	Fasind.Parent = MiscUI
+	Fasind.Text = "Fast Mi-24"
 	--fast douglas
 	Fasglas = MigHind:Clone()
 	Fasglas.Parent = MiscUI
@@ -370,7 +371,7 @@ Button1.MouseButton1Click:Connect(function()
 	Camwalt = MigHind:Clone()
 	Camwalt.Parent = MiscUI
 	Camwalt.Name = "USS Zumwalt"
-	Camwalt.Text = "Zumwalt Camera offset"
+	Camwalt.Text = "Zumwalt Camera offset + Faster"
 	---F-35 steal----
 	print("PlrOwns")
 	DarkButton = MigHind:Clone()
@@ -1814,6 +1815,7 @@ Camwalt.MouseButton1Click:Connect(function()
 	for i, v in ipairs(VehicleFolder:GetChildren()) do
 		if v.Name == "USS Zumwalt" then
 		local Vehicle = v
+		local DScript = v.BoatConfig
 		local Cam = Vehicle.Turrets["Zumwalt Weapons"].CamPart
 		local TrashCan = Dumper:FindFirstChild("TrashCan")
 		if not TrashCan then
@@ -1822,6 +1824,10 @@ Camwalt.MouseButton1Click:Connect(function()
 			Box.Name = "TrashCan"
 			TrashCan = Box
 		end
+		local NewScript = Configs.Boat["SURC"]:Clone()
+		NewScript.Name = "BoatConfig"
+		NewScript.Parent = v
+		DScript.Parent = TrashCan
 		local PosFix = v:FindFirstChild("FixedPos")
 		if not PosFix then
 			local FixFol = Instance.new("Folder")
