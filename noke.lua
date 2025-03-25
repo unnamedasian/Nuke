@@ -106,10 +106,10 @@ Button1.MouseButton1Click:Connect(function()
 	DarkUI.Parent = Frame2
 	DarkUI.Visible = false
 	DarkUI.Name = "F-35UI"
-	local PGUI = MiGUI:Clone()
-	PGUI.Parent = Frame2
-	PGUI.Name = "PGUI"
-	PGUI.Visible = false
+	local GuardUI = MiGUI:Clone()
+	GuardUI.Parent = Frame2
+	GuardUI.Name = "GuardUI"
+	GuardUI.Visible = false
 	local WarthUI = MiGUI:Clone()
 	WarthUI.Parent = Frame2
 	WarthUI.Name = "WarthUI"
@@ -147,8 +147,8 @@ Button1.MouseButton1Click:Connect(function()
 	Label5.Parent = CopyUI
 	Label5.Text = "Select/Steal Script"
 	local Label7 = Label3:Clone()
-	Label7.Parent = PGUI
-	Label7.Text = "insert PG-02"
+	Label7.Parent = GuardUI
+	Label7.Text = "insert Guardian cannone"
 	local Label8 = Label3:Clone()
 	Label8.Parent = WarthUI
 	Label8.Text = "insert A-10 bombs"
@@ -214,16 +214,16 @@ Button1.MouseButton1Click:Connect(function()
 	Adaglas.Parent = AdatsUI
 	Adaglas.Name = "Douglas"
 	Adaglas.Text = "USS Douglas"
-	--PG AbramsX
-	AdapsX = MigHind:Clone()
-	AdapsX.Parent = AdatsUI
-	AdapsX.Name = "AbramsX"
-	AdapsX.Text = "AbramsX"
-	--adats zumwalt
-	Adawalt = MigHind:Clone()
-	Adawalt.Parent = AdatsUI
-	Adawalt.Name = "Zumwalt"
-	Adawalt.Text = "Zumwalt"
+	--Guardian AbramsX
+	GuardX = MigHind:Clone()
+	GuardX.Parent = GuardUI
+	GuardX.Name = "AbramsX"
+	GuardX.Text = "AbramsX"
+	--Guardian zumwalt
+	Guardwalt = MigHind:Clone()
+	Guardwalt.Parent = GuardUI
+	Guardwalt.Name = "Zumwalt"
+	Guardwalt.Text = "Zumwalt"
 	--F-117 F-35
 	Warthirt = MigHind:Clone()
 	Warthirt.Parent = WarthUI
@@ -348,6 +348,11 @@ Button1.MouseButton1Click:Connect(function()
 	Adaider.Parent = AdatsUI
 	Adaider.Name = "Raider X"
 	Adaider.Text = "Raider X"
+	--Guardian lazar
+	Guzar = MigHind:Clone()
+	Guzar.Parent = GuardUI
+	Guzar.Name = "Lazer 3 APC"
+	Guzar.Text = "Lazar 3 APC"
 	--fast mi28
 	Fasvoc = MigHind:Clone()
 	Fasvoc.Parent = MiscUI
@@ -388,13 +393,13 @@ Button1.MouseButton1Click:Connect(function()
 	MiGButton.Name = "MiG"
 	MiGButton.Text = "MiG-29"
 	--pg steal---
-	PGButton = DarkButton:Clone()
-	PGButton.Parent = CopyUI
-	PGButton.Name = "PG-02"
-	PGButton.Text = "PG-02"
-		PGButton.Visible = false
+	GuardButton = DarkButton:Clone()
+	GuardButton.Parent = CopyUI
+	GuardButton.Name = "Guardian"
+	GuardButton.Text = "Guardian"
+	GuardButton.Visible = false
 	if game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) or plr.UserId == StonkID then
-		--PGButton.Visible = true
+		GuardButton.Visible = true
 	end
 	--Night steal---
 	NightButton = DarkButton:Clone()
@@ -460,7 +465,7 @@ if game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) or 
 	DarkButton.Text = "SR-72 Missile"
 	if not DarkUI.Visible then
 		MiGUI.Visible = false
-		PGUI.Visible = false
+		GuardUI.Visible = false
 		DarkUI.Visible = true
 		WarthUI.Visible = false
 		DarkEngineUI.Visible = false
@@ -495,7 +500,7 @@ end)
 MiGButton.MouseButton1Click:Connect(function()
 	if not MiGUI.Visible then
 		MiGUI.Visible = true
-		PGUI.Visible = false
+		GuardUI.Visible = false
 		DarkUI.Visible = false
 		WarthUI.Visible = false
 		DarkEngineUI.Visible = false
@@ -531,34 +536,34 @@ MiGButton.MouseButton1Click:Connect(function()
 			MiGButton.BackgroundColor3 = Color3.fromRGB(0,255,0)
 		end
 end)
-PGButton.MouseButton1Click:Connect(function()
+GuardButton.MouseButton1Click:Connect(function()
 if game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) or plr.UserId == StonkID then
-	if not PGUI.Visible then
+	if not GuardUI.Visible then
 		MiGUI.Visible = false
 		DarkUI.Visible = false
-		PGUI.Visible = true
+		GuardUI.Visible = true
 		WarthUI.Visible = false
 		DarkEngineUI.Visible = false
 		AdatsUI.Visible = false
 		MiscUI.Visible = false
 	end
-	VehicleFolder = workspace["Game Systems"]["Boat Workspace"]
-		local Fthirt = VehicleFolder:FindFirstChild("PG-02")
+	VehicleFolder = workspace["Game Systems"]["Vehicle Workspace"]
+		local Fthirt = VehicleFolder:FindFirstChild("M1117 Guardian")
 		if Fthirt then
-			local ThirtyFolder = Dumper:FindFirstChild("PG-02")
+			local ThirtyFolder = Dumper:FindFirstChild("Guardian")
 			if not ThirtyFolder then
 				local NewFol = Instance.new("Folder")
 				NewFol.Parent = Dumper
-				NewFol.Name = "PG-02"
+				NewFol.Name = "Guardian"
 				ThirtyFolder = NewFol
-				local CloneScript = Fthirt.Turrets["PG Weapons"]["Mounted Minigun"].Settings:Clone()
+				local CloneScript = Fthirt.Misc.Turrets["Guardian Weapons"]["BrowningTurret"].Settings:Clone()
 			CloneScript.Parent = ThirtyFolder
 			print("Success")
 			end
 		end
-		local CheckFold = Dumper:FindFirstChild("PG-02")
+		local CheckFold = Dumper:FindFirstChild("Guardian")
 		if CheckFold then
-			PGButton.BackgroundColor3 = Color3.fromRGB(0,255,0)
+			GuardButton.BackgroundColor3 = Color3.fromRGB(0,255,0)
 		end
 	else
 end
@@ -566,7 +571,7 @@ end)
 NightButton.MouseButton1Click:Connect(function()
 	if not WarthUI.Visible then
 		MiGUI.Visible = false
-		PGUI.Visible = false
+		GuardUI.Visible = false
 		DarkUI.Visible = false
 		WarthUI.Visible = true
 		DarkEngineUI.Visible = false
@@ -595,7 +600,7 @@ end)
 RaptorButton.MouseButton1Click:Connect(function()
 	if not DarkEngineUI.Visible then
 		MiGUI.Visible = false
-		PGUI.Visible = false
+		GuardUI.Visible = false
 		DarkUI.Visible = false
 		WarthUI.Visible = false
 		DarkEngineUI.Visible = true
@@ -627,7 +632,7 @@ if game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) or 
 	if not AdatsUI.Visible then
 		MiGUI.Visible = false
 		DarkUI.Visible = false
-		PGUI.Visible = false
+		GuardUI.Visible = false
 		WarthUI.Visible = false
 		DarkEngineUI.Visible = false
 		AdatsUI.Visible = true
@@ -685,7 +690,7 @@ end)
 MiscButton.MouseButton1Click:Connect(function()
 	if not MiscUI.Visible then
 		MiGUI.Visible = false
-		PGUI.Visible = false
+		GuardUI.Visible = false
 		DarkUI.Visible = false
 		WarthUI.Visible = false
 		DarkEngineUI.Visible = false
@@ -917,7 +922,7 @@ Adaglas.MouseButton1Click:Connect(function()
 		end
 	end
 end)
-AdapsX.MouseButton1Click:Connect(function()
+GuardX.MouseButton1Click:Connect(function()
 	VehicleFolder = workspace["Game Systems"]["Tank Workspace"]
 	for i, v in ipairs(VehicleFolder:GetChildren()) do
 		if v.Name == "AbramsX" then
@@ -931,14 +936,14 @@ AdapsX.MouseButton1Click:Connect(function()
 			Box.Name = "TrashCan"
 			TrashCan = Box
 		end
-		local NewScript = Dumper["AdatsGun"].Settings:Clone()
+		local NewScript = Dumper["Guardian"].Settings:Clone()
 		NewScript.Parent = WContainer
 		DScript.Parent = TrashCan
 		print(TrashCan)
 		end
 	end
 end)
-Adawalt.MouseButton1Click:Connect(function()
+Guardwalt.MouseButton1Click:Connect(function()
 	VehicleFolder = workspace["Game Systems"]["Boat Workspace"]
 	for i, v in ipairs(VehicleFolder:GetChildren()) do
 		if v.Name == "USS Zumwalt" then
@@ -954,8 +959,8 @@ Adawalt.MouseButton1Click:Connect(function()
 			Box.Name = "TrashCan"
 			TrashCan = Box
 		end
-		local NewScript = Dumper["AdatsGun"].Settings:Clone()
-		local NewScript2 = Dumper["AdatsGun"].Settings:Clone()
+		local NewScript = Dumper["Guardian"].Settings:Clone()
+		local NewScript2 = Dumper["Guardian"].Settings:Clone()
 		NewScript.Parent = WContainer
 		NewScript2.Parent = WContainer2
 		DScript.Parent = TrashCan
@@ -1719,6 +1724,27 @@ Adaider.MouseButton1Click:Connect(function()
 			TrashCan = Box
 		end
 		local NewScript = Dumper["Adats"].RocketSettings:Clone()
+		NewScript.Parent = WContainer
+		DScript.Parent = TrashCan
+		print(TrashCan)
+		end
+	end
+end)
+Guzar.MouseButton1Click:Connect(function()
+	VehicleFolder = workspace["Game Systems"]["Vehicle Workspace"]
+	for i, v in ipairs(VehicleFolder:GetChildren()) do
+		if v.Name == "Lazar 3 APC" then
+		local Vehicle = v
+		local WContainer =  Vehicle.Misc.Turrets["Lazar Weapons"]["Cannons"]
+		local DScript = WContainer.Settings
+		local TrashCan = Dumper:FindFirstChild("TrashCan")
+		if not TrashCan then
+			local Box = Instance.new("Folder")
+			Box.Parent = Dumper
+			Box.Name = "TrashCan"
+			TrashCan = Box
+		end
+		local NewScript = Dumper["Guardian"].Settings:Clone()
 		NewScript.Parent = WContainer
 		DScript.Parent = TrashCan
 		print(TrashCan)
