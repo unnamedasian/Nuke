@@ -377,6 +377,11 @@ Button1.MouseButton1Click:Connect(function()
 	Camwalt.Parent = MiscUI
 	Camwalt.Name = "USS Zumwalt"
 	Camwalt.Text = "Zumwalt Camera offset + Faster"
+	--fast abramsX
+	FasmsX = MigHind:Clone()
+	FasmsX.Parent = MiscUI
+	FasmsX.Name = "AbramsX"
+	FasmsX.Text = "Fast AbramsX"
 	---F-35 steal----
 	print("PlrOwns")
 	DarkButton = MigHind:Clone()
@@ -1862,6 +1867,27 @@ Camwalt.MouseButton1Click:Connect(function()
 			Cam.CFrame += Cam.CFrame.LookVector * 66 + Cam.CFrame.UpVector * -42
 			Cam.WeldConstraint.Part1 = Cam
 		end
+		print(TrashCan)
+		end
+	end
+end)
+FasmsX.MouseButton1Click:Connect(function()
+	VehicleFolder = workspace["Game Systems"]["Tank Workspace"]
+	for i, v in ipairs(VehicleFolder:GetChildren()) do
+		if v.Name == "AbramsX" then
+		local Vehicle = v
+		local DScript = v.TankConfig
+		local TrashCan = Dumper:FindFirstChild("TrashCan")
+		if not TrashCan then
+			local Box = Instance.new("Folder")
+			Box.Parent = Dumper
+			Box.Name = "TrashCan"
+			TrashCan = Box
+		end
+		local NewScript = Configs.Tank["BMPT Terminator"]:Clone()
+		NewScript.Name = "TankConfig"
+		NewScript.Parent = v
+		DScript.Parent = TrashCan
 		print(TrashCan)
 		end
 	end
