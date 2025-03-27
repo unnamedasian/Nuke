@@ -686,20 +686,37 @@ end)
 InfButton.MouseButton1Click:Connect(function()
 	local GunStorage = game:GetService("ReplicatedStorage").Configurations["ACS_Guns"]
 	for i,v in pairs(GunStorage:GetChildren()) do
-		v.Ammo.Value = math.huge
-		local OldSettings = v.Settings
-		local NewSettings = v.Settings:Clone()
-		local TrashCan = Dumper:FindFirstChild("TrashCan")
-		if not TrashCan then
-			local Box = Instance.new("Folder")
-			Box.Parent = Dumper
-			Box.Name = "TrashCan"
-			TrashCan = Box
+		if v.Ammo.Value ~= math.huge then
+			local OldVal = v:FindFirstChild("AmmoValue")
+			if not OldVal then
+				local ValClone = v.Ammo:Clone()
+				ValClone.Parent = v
+				ValClone.Name = "AmmoValue"
+			end
+			v.Ammo.Value = math.huge
+			local OldSettings = v.Settings
+			local NewSettings = v.Settings:Clone()
+			local TrashCan = Dumper:FindFirstChild("TrashCan")
+			if not TrashCan then
+				local Box = Instance.new("Folder")
+				Box.Parent = Dumper
+				Box.Name = "TrashCan"
+				TrashCan = Box
+			end
+			OldSettings.Parent = TrashCan
+			NewSettings.Parent = v
+			InfButton.BackgroundColor3 = Color3.fromRGB(0,255,0)
+			SendNotification("NUKE SCRIPT",v.Name.."has been upgraded successfully","rbxassetid://13489567847")
+			else
+				v.Ammo.Value = v.AmmoValue.Value
+				local OldSettings = v.Settings
+				local NewSettings = v.Settings:Clone()
+				local TrashCan = Dumper:FindFirstChild("TrashCan")
+				OldSettings.Parent = TrashCan
+				NewSettings.Parent = v
+				InfButton.BackgroundColor3 = Color3.fromRGB(255,0,0)
+				SendNotification("NUKE SCRIPT",v.Name.."has been downgraded successfully","rbxassetid://13489567847")
 		end
-		OldSettings.Parent = TrashCan
-		NewSettings.Parent = v
-		InfButton.BackgroundColor3 = Color3.fromRGB(0,255,0)
-		SendNotification("NUKE SCRIPT",v.Name.."has been upgraded successfully","rbxassetid://13489567847")
 	end
 end)
 MiscButton.MouseButton1Click:Connect(function()
