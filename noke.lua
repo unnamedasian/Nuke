@@ -699,6 +699,7 @@ InfButton.MouseButton1Click:Connect(function()
 		OldSettings.Parent = TrashCan
 		NewSettings.Parent = v
 		InfButton.BackgroundColor3 = Color3.fromRGB(0,255,0)
+		SendNotification("NUKE SCRIPT",v.Name.."has been upgraded successfully","rbxassetid://13489567847")
 	end
 end)
 MiscButton.MouseButton1Click:Connect(function()
