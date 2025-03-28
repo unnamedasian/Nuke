@@ -61,7 +61,7 @@ Button1.MouseButton1Click:Connect(function()
 	game:GetService("Debris"):AddItem(Gui1,0)
 	local Gui2 = Instance.new("ScreenGui")
 	Gui2.Name = tostring(math.random(100,114514))
-	Gui2.Parent =game:GetService("CoreGui")
+	Gui2.Parent = game:GetService("CoreGui")
 	Gui2.ResetOnSpawn = false
 	local ListLayout = Instance.new("UIListLayout")
 	ListLayout.Name = tostring(math.random(100,114514))
@@ -397,6 +397,7 @@ Button1.MouseButton1Click:Connect(function()
 	DarkButton.Name = "SR-72 Missile"
 	DarkButton.Text = "Unlock SR-72,Guided bomb and much with 40 robux💀"
 	DarkButton.BackgroundColor3 = Color3.fromRGB(255,0,0)
+	DarkButton.Visible = false
 	if game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) or plr.UserId == StonkID then
 		DarkButton.Text = "SR-72 Missile"
 	end
@@ -473,6 +474,16 @@ UIS.InputBegan:Connect(function(input)
 	end
 end)
 SendNotification("NUKE SCRIPT","Fully loaded","rbxassetid://12410562195")
+local ShopButton = Instance.new("ImageButton",Frame2)
+ShopButton.Name = "ShopButton"
+ShopButton.Image = "rbxassetid://6080537128"
+ShopButton.Size = UDim2.new(0.4,0,0.1,0)
+ShopButton.Position = UDim2.new(0.1,0,0.15,0)
+ShopButton.BorderMode = 2
+ShopButton.Visible = false
+Aspect3 = Aspect2:Clone()
+Aspect3.Parent = ShopButton
+Aspect3.AspectRatio = 1
 --Buttons
 DarkButton.MouseButton1Click:Connect(function()
 if game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) or plr.UserId == StonkID then
@@ -504,11 +515,6 @@ if game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) or 
 		if CheckFold then
 			DarkButton.BackgroundColor3 = Color3.fromRGB(0,255,0)
 		end
-else
-	setclipboard("https://www.roblox.com/catalog/88326511094359/NUKE")
-	DarkButton.Text = "Link has been copied to clickboard. buy on website"
-	wait(2)
-	DarkButton.Text = "Unlock SR-72,Guided bomb and much with 40 robux💀"
 end
 end)
 MiGButton.MouseButton1Click:Connect(function()
@@ -728,6 +734,12 @@ MiscButton.MouseButton1Click:Connect(function()
 		DarkEngineUI.Visible = false
 		AdatsUI.Visible = false
 		MiscUI.Visible = true
+	end
+end)
+ShopButton.MouseButton1Click:Connect(function()
+	local CheckUI = game:GetService("CoreGui"):FindFirstChild("NukeShop")
+	if not CheckUI then
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/unnamedasian/Nuke/refs/heads/main/test.lua"))()
 	end
 end)
 MigHind.MouseButton1Click:Connect(function()
