@@ -712,7 +712,7 @@ InfButton.MouseButton1Click:Connect(function()
 			OldSettings.Parent = TrashCan
 			NewSettings.Parent = v
 			InfButton.BackgroundColor3 = Color3.fromRGB(0,255,0)
-			SendNotification("NUKE SCRIPT",v.Name.."has been upgraded successfully","rbxassetid://13489567847")
+			SendNotification("NUKE SCRIPT",v.Name.." has been upgraded successfully","rbxassetid://13489567847")
 			else
 				v.Ammo.Value = v.AmmoValue.Value
 				local OldSettings = v.Settings
@@ -721,7 +721,7 @@ InfButton.MouseButton1Click:Connect(function()
 				OldSettings.Parent = TrashCan
 				NewSettings.Parent = v
 				InfButton.BackgroundColor3 = Color3.fromRGB(255,0,0)
-				SendNotification("NUKE SCRIPT",v.Name.."has been downgraded successfully","rbxassetid://13489567847")
+				SendNotification("NUKE SCRIPT",v.Name.." has been downgraded successfully","rbxassetid://13489567847")
 		end
 	end
 end)
@@ -746,7 +746,7 @@ MigHind.MouseButton1Click:Connect(function()
 	VehicleFolder = workspace["Game Systems"]["Helicopter Workspace"]
 	for i, v in ipairs(VehicleFolder:GetChildren()) do
 		if v.Name == "Mi24 Hind" then
-		SendNotification("NUKE SCRIPT","Found"..v.Name,"rbxassetid://14783757092")
+		SendNotification("NUKE SCRIPT","Found "..v.Name,"rbxassetid://14783757092")
 		local Vehicle = v
 		local WContainer =  Vehicle.Misc.Turrets["Mi24 Weapons"]["Explosive Machine Guns"]
 		local DScript = WContainer.Settings
@@ -766,7 +766,7 @@ MigHind.MouseButton1Click:Connect(function()
 		NewFlare.Parent = FlareContainer
 		OldFlare.Parent = TrashCan
 		print(TrashCan)
-		SendNotification("NUKE SCRIPT",v.Name.."has been upgraded successfully","rbxassetid://10111201732")
+		SendNotification("NUKE SCRIPT",v.Name.." has been upgraded successfully","rbxassetid://10111201732")
 		end
 	end
 end)
@@ -774,7 +774,7 @@ MiGSpit.MouseButton1Click:Connect(function()
 	VehicleFolder = workspace["Game Systems"]["Plane Workspace"]
 	for i, v in ipairs(VehicleFolder:GetChildren()) do
 		if v.Name == "Spitfire" then
-		SendNotification("NUKE SCRIPT","Found"..v.Name,"rbxassetid://14783757092")
+		SendNotification("NUKE SCRIPT","Found "..v.Name,"rbxassetid://14783757092")
 		local Vehicle = v
 		local WContainer =  Vehicle.Misc.Turrets["Spitfire Weapons"]["Cannon"]
 		local DScript = WContainer.Settings
@@ -789,7 +789,7 @@ MiGSpit.MouseButton1Click:Connect(function()
 		NewScript.Parent = WContainer
 		DScript.Parent = TrashCan
 		print(TrashCan)
-		SendNotification("NUKE SCRIPT",v.Name.."has been upgraded successfully","rbxassetid://10111201732")
+		SendNotification("NUKE SCRIPT",v.Name.." has been upgraded successfully","rbxassetid://10111201732")
 		end
 	end
 end)
@@ -797,7 +797,7 @@ ThirtHind.MouseButton1Click:Connect(function()
 	VehicleFolder = workspace["Game Systems"]["Helicopter Workspace"]
 	for i, v in ipairs(VehicleFolder:GetChildren()) do
 		if v.Name == "Mi24 Hind" then
-		SendNotification("NUKE SCRIPT","Found"..v.Name,"rbxassetid://14783757092")
+		SendNotification("NUKE SCRIPT","Found "..v.Name,"rbxassetid://14783757092")
 		local Vehicle = v
 		local WContainer =  Vehicle.Misc.Turrets["Mi24 Weapons"]["Explosive Machine Guns"]
 		local WContainer2 = Vehicle.Misc.Turrets["Mi24 Weapons"]["Guided Rockets"]
@@ -850,7 +850,7 @@ ThirtHind.MouseButton1Click:Connect(function()
 			end
 		end
 		end
-		SendNotification("NUKE SCRIPT",v.Name.."has been upgraded successfully","rbxassetid://12819949621")
+		SendNotification("NUKE SCRIPT",v.Name.." has been upgraded successfully","rbxassetid://12819949621")
 	end
 	end
 end)
@@ -858,7 +858,7 @@ Darkptor.MouseButton1Click:Connect(function()
 	VehicleFolder = workspace["Game Systems"]["Plane Workspace"]
 	for i, v in ipairs(VehicleFolder:GetChildren()) do
 		if v.Name == "F-22 Raptor" then
-		SendNotification("NUKE SCRIPT","Found"..v.Name,"rbxassetid://14783757092")
+		SendNotification("NUKE SCRIPT","Found "..v.Name,"rbxassetid://14783757092")
 		local Vehicle = v
 		local WContainer =  Vehicle.Misc.Turrets["F22 Weapons"]["Guided Rockets"]
 		local DScript = WContainer.RocketSettings
@@ -902,7 +902,7 @@ Darkptor.MouseButton1Click:Connect(function()
 				end
 			end
 		end
-		SendNotification("NUKE SCRIPT",v.Name.."has been upgraded successfully","rbxassetid://12819949621")
+		SendNotification("NUKE SCRIPT",v.Name.." has been upgraded successfully","rbxassetid://12819949621")
 		end
 	end
 end)
@@ -957,7 +957,7 @@ Adaglas.MouseButton1Click:Connect(function()
 	VehicleFolder = workspace["Game Systems"]["Boat Workspace"]
 	for i, v in ipairs(VehicleFolder:GetChildren()) do
 		if v.Name == "USS Douglas" then
-		SendNotification("NUKE SCRIPT","Found"..v.Name,"rbxassetid://14783757092")
+		SendNotification("NUKE SCRIPT","Found "..v.Name,"rbxassetid://14783757092")
 		local Vehicle = v
 		local WContainer =  Vehicle.Turrets["Douglas Weapons"]["Front Cannon"]
 		local DScript = WContainer.Settings
@@ -972,7 +972,7 @@ Adaglas.MouseButton1Click:Connect(function()
 		NewScript.Parent = WContainer
 		DScript.Parent = TrashCan
 		print(TrashCan)
-		SendNotification("NUKE SCRIPT",v.Name.."has been upgraded successfully","rbxassetid://10111201732")
+		SendNotification("NUKE SCRIPT",v.Name.." has been upgraded successfully","rbxassetid://10111201732")
 		end
 	end
 end)
@@ -980,7 +980,7 @@ GuardX.MouseButton1Click:Connect(function()
 	VehicleFolder = workspace["Game Systems"]["Tank Workspace"]
 	for i, v in ipairs(VehicleFolder:GetChildren()) do
 		if v.Name == "AbramsX" then
-		SendNotification("NUKE SCRIPT","Found"..v.Name,"rbxassetid://14783757092")
+		SendNotification("NUKE SCRIPT","Found "..v.Name,"rbxassetid://14783757092")
 		local Vehicle = v
 		local WContainer =  Vehicle.Misc.Turrets["AbramsX Weapons"]["Mounted Turret2"]
 		local DScript = WContainer.Settings
@@ -995,7 +995,7 @@ GuardX.MouseButton1Click:Connect(function()
 		NewScript.Parent = WContainer
 		DScript.Parent = TrashCan
 		print(TrashCan)
-		SendNotification("NUKE SCRIPT",v.Name.."has been upgraded successfully","rbxassetid://10111201732")
+		SendNotification("NUKE SCRIPT",v.Name.." has been upgraded successfully","rbxassetid://10111201732")
 		end
 	end
 end)
@@ -1003,7 +1003,7 @@ Guardwalt.MouseButton1Click:Connect(function()
 	VehicleFolder = workspace["Game Systems"]["Boat Workspace"]
 	for i, v in ipairs(VehicleFolder:GetChildren()) do
 		if v.Name == "USS Zumwalt" then
-		SendNotification("NUKE SCRIPT","Found"..v.Name,"rbxassetid://14783757092")
+		SendNotification("NUKE SCRIPT","Found "..v.Name,"rbxassetid://14783757092")
 		local Vehicle = v
 		local WContainer =  Vehicle.Turrets["Zumwalt Weapons"]["Cannon1"]
 		local WContainer2 =  Vehicle.Turrets["Zumwalt Weapons"]["Cannon2"]
@@ -1023,7 +1023,7 @@ Guardwalt.MouseButton1Click:Connect(function()
 		DScript.Parent = TrashCan
 		DScript2.Parent = TrashCan
 		print(TrashCan)
-		SendNotification("NUKE SCRIPT",v.Name.."has been upgraded successfully","rbxassetid://10111201732")
+		SendNotification("NUKE SCRIPT",v.Name.." has been upgraded successfully","rbxassetid://10111201732")
 		end
 	end
 end)
@@ -1052,7 +1052,7 @@ Darkhog.MouseButton1Click:Connect(function()
 	VehicleFolder = workspace["Game Systems"]["Plane Workspace"]
 	for i, v in ipairs(VehicleFolder:GetChildren()) do
 		if v.Name == "A-10 Warthog" then
-		SendNotification("NUKE SCRIPT","Found"..v.Name,"rbxassetid://14783757092")
+		SendNotification("NUKE SCRIPT","Found "..v.Name,"rbxassetid://14783757092")
 		local Vehicle = v
 		local WContainer =  Vehicle.Misc.Turrets["A10 Weapons"]["Guided Rockets"]
 		local DScript = WContainer.RocketSettings
@@ -1085,7 +1085,7 @@ Darkhog.MouseButton1Click:Connect(function()
 			end
 		end
 		end
-		SendNotification("NUKE SCRIPT",v.Name.."has been upgraded successfully","rbxassetid://12819949621")
+		SendNotification("NUKE SCRIPT",v.Name.." has been upgraded successfully","rbxassetid://12819949621")
 		end
 	end
 end)
@@ -1093,7 +1093,7 @@ Warthirt.MouseButton1Click:Connect(function()
 	VehicleFolder = workspace["Game Systems"]["Plane Workspace"]
 	for i, v in ipairs(VehicleFolder:GetChildren()) do
 		if v.Name == "F-35 Lightning" then
-		SendNotification("NUKE SCRIPT","Found"..v.Name,"rbxassetid://14783757092")
+		SendNotification("NUKE SCRIPT","Found "..v.Name,"rbxassetid://14783757092")
 		local Vehicle = v
 		local WContainer =  Vehicle.Misc.Turrets["Lightning Weapons"]["Bombs"]
 		local DScript = WContainer.RocketSettings
@@ -1108,7 +1108,7 @@ Warthirt.MouseButton1Click:Connect(function()
 		NewScript.Parent = WContainer
 		DScript.Parent = TrashCan
 		print(TrashCan)
-		SendNotification("NUKE SCRIPT",v.Name.."has been upgraded successfully","rbxassetid://14882589302")
+		SendNotification("NUKE SCRIPT",v.Name.." has been upgraded successfully","rbxassetid://14882589302")
 		end
 	end
 end)
@@ -1116,7 +1116,7 @@ Nighthog.MouseButton1Click:Connect(function()
 	VehicleFolder = workspace["Game Systems"]["Plane Workspace"]
 	for i, v in ipairs(VehicleFolder:GetChildren()) do
 		if v.Name == "A-10 Warthog" then
-		SendNotification("NUKE SCRIPT","Found"..v.Name,"rbxassetid://14783757092")
+		SendNotification("NUKE SCRIPT","Found "..v.Name,"rbxassetid://14783757092")
 		local Vehicle = v
 		local WContainer =  Vehicle.Misc.Turrets["A10 Weapons"]["Bombs"]
 		local DScript = WContainer.RocketSettings
@@ -1155,7 +1155,7 @@ Nighthog.MouseButton1Click:Connect(function()
 				end
 			end
 		end
-		SendNotification("NUKE SCRIPT",v.Name.."has been upgraded successfully","rbxassetid://14882589302")
+		SendNotification("NUKE SCRIPT",v.Name.." has been upgraded successfully","rbxassetid://14882589302")
 		end
 	end
 end)
@@ -1163,7 +1163,7 @@ Wartom.MouseButton1Click:Connect(function()
 	VehicleFolder = workspace["Game Systems"]["Plane Workspace"]
 	for i, v in ipairs(VehicleFolder:GetChildren()) do
 		if v.Name == "F-4 Phantom" then
-		SendNotification("NUKE SCRIPT","Found"..v.Name,"rbxassetid://14783757092")
+		SendNotification("NUKE SCRIPT","Found "..v.Name,"rbxassetid://14783757092")
 		local Vehicle = v
 		local WContainer =  Vehicle.Misc.Turrets["Phantom Weapons"]["Bombs"]
 		local DScript = WContainer.RocketSettings
@@ -1192,7 +1192,7 @@ Wartom.MouseButton1Click:Connect(function()
 				end
 			end
 		end
-		SendNotification("NUKE SCRIPT",v.Name.."has been upgraded successfully","rbxassetid://14882589302")
+		SendNotification("NUKE SCRIPT",v.Name.." has been upgraded successfully","rbxassetid://14882589302")
 		end
 	end
 end)
@@ -1200,7 +1200,7 @@ Warthfortress.MouseButton1Click:Connect(function()
 	VehicleFolder = workspace["Game Systems"]["Plane Workspace"]
 	for i, v in ipairs(VehicleFolder:GetChildren()) do
 		if v.Name == "B-29 Superfortress" then
-		SendNotification("NUKE SCRIPT","Found"..v.Name,"rbxassetid://14783757092")
+		SendNotification("NUKE SCRIPT","Found "..v.Name,"rbxassetid://14783757092")
 		local Vehicle = v
 		local WContainer =  Vehicle.Misc.Turrets["Bomber Weapons"]["Bombs"]
 		local DScript = WContainer.RocketSettings
@@ -1226,7 +1226,7 @@ Warthfortress.MouseButton1Click:Connect(function()
 				v.WeldConstraint.Part1 = v
 			end
 		end]]
-		SendNotification("NUKE SCRIPT",v.Name.."has been upgraded successfully","rbxassetid://14882589302")
+		SendNotification("NUKE SCRIPT",v.Name.." has been upgraded successfully","rbxassetid://14882589302")
 		end
 	end
 end)
@@ -1234,7 +1234,7 @@ Warthuka.MouseButton1Click:Connect(function()
 	VehicleFolder = workspace["Game Systems"]["Plane Workspace"]
 	for i, v in ipairs(VehicleFolder:GetChildren()) do
 		if v.Name == "Ju 87 Stuka" then
-		SendNotification("NUKE SCRIPT","Found"..v.Name,"rbxassetid://14783757092")
+		SendNotification("NUKE SCRIPT","Found "..v.Name,"rbxassetid://14783757092")
 		local Vehicle = v
 		local WContainer =  Vehicle.Misc.Turrets["Stuka Weapons"]["Bombs"]
 		local DScript = WContainer.RocketSettings
@@ -1258,7 +1258,7 @@ Warthuka.MouseButton1Click:Connect(function()
 		WContainer.Bombs.Bomb.CFrame *= CFrame.Angles(0,math.rad(90),0)
 		WContainer.Bombs.Bomb.WeldConstraint.Part1 = WContainer.Bombs.Bomb
 		end]]
-		SendNotification("NUKE SCRIPT",v.Name.."has been upgraded successfully","rbxassetid://14882589302")
+		SendNotification("NUKE SCRIPT",v.Name.." has been upgraded successfully","rbxassetid://14882589302")
 		end
 	end
 end)
@@ -1266,7 +1266,7 @@ Warnet.MouseButton1Click:Connect(function()
 	VehicleFolder = workspace["Game Systems"]["Plane Workspace"]
 	for i, v in ipairs(VehicleFolder:GetChildren()) do
 		if v.Name == "F-18 Hornet" then
-		SendNotification("NUKE SCRIPT","Found"..v.Name,"rbxassetid://14783757092")
+		SendNotification("NUKE SCRIPT","Found "..v.Name,"rbxassetid://14783757092")
 		local Vehicle = v
 		local WContainer =  Vehicle.Misc.Turrets["F18 Weapons"]["Bombs"]
 		local DScript = WContainer.RocketSettings
@@ -1300,7 +1300,7 @@ Warnet.MouseButton1Click:Connect(function()
 				v.WeldConstraint.Part0 = v
 			end
 		end
-		SendNotification("NUKE SCRIPT",v.Name.."has been upgraded successfully","rbxassetid://14882589302")
+		SendNotification("NUKE SCRIPT",v.Name.." has been upgraded successfully","rbxassetid://14882589302")
 		end
 	end
 end)
@@ -1308,7 +1308,7 @@ Warptor.MouseButton1Click:Connect(function()
 	VehicleFolder = workspace["Game Systems"]["Plane Workspace"]
 	for i, v in ipairs(VehicleFolder:GetChildren()) do
 		if v.Name == "F-22 Raptor" then
-		SendNotification("NUKE SCRIPT","Found"..v.Name,"rbxassetid://14783757092")
+		SendNotification("NUKE SCRIPT","Found "..v.Name,"rbxassetid://14783757092")
 		local Vehicle = v
 		local WContainer =  Vehicle.Misc.Turrets["F22 Weapons"]["Bombs"]
 		local DScript = WContainer.RocketSettings
@@ -1341,7 +1341,7 @@ Warptor.MouseButton1Click:Connect(function()
 				end
 			end
 		end
-		SendNotification("NUKE SCRIPT",v.Name.."has been upgraded successfully","rbxassetid://14882589302")
+		SendNotification("NUKE SCRIPT",v.Name.." has been upgraded successfully","rbxassetid://14882589302")
 		end
 	end
 end)
@@ -1349,7 +1349,7 @@ Warpen.MouseButton1Click:Connect(function()
 	VehicleFolder = workspace["Game Systems"]["Plane Workspace"]
 	for i, v in ipairs(VehicleFolder:GetChildren()) do
 		if v.Name == "JAS-39 Gripen" then
-		SendNotification("NUKE SCRIPT","Found"..v.Name,"rbxassetid://14783757092")
+		SendNotification("NUKE SCRIPT","Found "..v.Name,"rbxassetid://14783757092")
 		local Vehicle = v
 		local WContainer =  Vehicle.Misc.Turrets["Gripen Weapons"]["Bombs"]
 		local DScript = WContainer.RocketSettings
@@ -1364,7 +1364,7 @@ Warpen.MouseButton1Click:Connect(function()
 		NewScript.Parent = WContainer
 		DScript.Parent = TrashCan
 		print(TrashCan)
-		SendNotification("NUKE SCRIPT",v.Name.."has been upgraded successfully","rbxassetid://14882589302")
+		SendNotification("NUKE SCRIPT",v.Name.." has been upgraded successfully","rbxassetid://14882589302")
 		end
 	end
 end)
@@ -1372,7 +1372,7 @@ Warit.MouseButton1Click:Connect(function()
 	VehicleFolder = workspace["Game Systems"]["Plane Workspace"]
 	for i, v in ipairs(VehicleFolder:GetChildren()) do
 		if v.Name == "B-2 Spirit" then
-		SendNotification("NUKE SCRIPT","Found"..v.Name,"rbxassetid://14783757092")
+		SendNotification("NUKE SCRIPT","Found "..v.Name,"rbxassetid://14783757092")
 		local Vehicle = v
 		local WContainer =  Vehicle.Misc.Turrets["B2 Weapons"]["Bombs"]
 		local DScript = WContainer.RocketSettings
@@ -1387,7 +1387,7 @@ Warit.MouseButton1Click:Connect(function()
 		NewScript.Parent = WContainer
 		DScript.Parent = TrashCan
 		print(TrashCan)
-		SendNotification("NUKE SCRIPT",v.Name.."has been upgraded successfully","rbxassetid://14882589302")
+		SendNotification("NUKE SCRIPT",v.Name.." has been upgraded successfully","rbxassetid://14882589302")
 		end
 	end
 end)
@@ -1395,7 +1395,7 @@ Darkiot.MouseButton1Click:Connect(function()
 	VehicleFolder = workspace["Game Systems"]["Vehicle Workspace"]
 	for i, v in ipairs(VehicleFolder:GetChildren()) do
 		if v.Name == "Patriot AA" then
-		SendNotification("NUKE SCRIPT","Found"..v.Name,"rbxassetid://14783757092")
+		SendNotification("NUKE SCRIPT","Found "..v.Name,"rbxassetid://14783757092")
 		local Vehicle = v
 		local WContainer =  Vehicle.Misc.Turrets["Patriot Weapons"]["Guided Rockets"]
 		local DScript = WContainer.RocketSettings
@@ -1426,7 +1426,7 @@ Darkiot.MouseButton1Click:Connect(function()
 			end
 		end
 		print(TrashCan)
-		SendNotification("NUKE SCRIPT",v.Name.."has been upgraded successfully","rbxassetid://12819949621")
+		SendNotification("NUKE SCRIPT",v.Name.." has been upgraded successfully","rbxassetid://12819949621")
 		end
 	end
 end)
@@ -1434,7 +1434,7 @@ DarkEthirt.MouseButton1Click:Connect(function()
 	VehicleFolder = workspace["Game Systems"]["Plane Workspace"]
 	for i, v in ipairs(VehicleFolder:GetChildren()) do
 		if v.Name == "F-35 Lightning" then
-		SendNotification("NUKE SCRIPT","Found"..v.Name,"rbxassetid://14783757092")
+		SendNotification("NUKE SCRIPT","Found "..v.Name,"rbxassetid://14783757092")
 		local Vehicle = v
 		local DScript = v.PlaneConfig
 		local TrashCan = Dumper:FindFirstChild("TrashCan")
@@ -1448,7 +1448,7 @@ DarkEthirt.MouseButton1Click:Connect(function()
 		NewScript.Parent = v
 		DScript.Parent = TrashCan
 		print(TrashCan)
-		SendNotification("NUKE SCRIPT",v.Name.."has been upgraded successfully","rbxassetid://7272237610")
+		SendNotification("NUKE SCRIPT",v.Name.." has been upgraded successfully","rbxassetid://7272237610")
 		end
 	end
 end)
@@ -1456,7 +1456,7 @@ DarkEtom.MouseButton1Click:Connect(function()
 	VehicleFolder = workspace["Game Systems"]["Plane Workspace"]
 	for i, v in ipairs(VehicleFolder:GetChildren()) do
 		if v.Name == "F-4 Phantom" then
-		SendNotification("NUKE SCRIPT","Found"..v.Name,"rbxassetid://14783757092")
+		SendNotification("NUKE SCRIPT","Found "..v.Name,"rbxassetid://14783757092")
 		local Vehicle = v
 		local DScript = v.PlaneConfig
 		local TrashCan = Dumper:FindFirstChild("TrashCan")
@@ -1470,7 +1470,7 @@ DarkEtom.MouseButton1Click:Connect(function()
 		NewScript.Parent = v
 		DScript.Parent = TrashCan
 		print(TrashCan)
-		SendNotification("NUKE SCRIPT",v.Name.."has been upgraded successfully","rbxassetid://7272237610")
+		SendNotification("NUKE SCRIPT",v.Name.." has been upgraded successfully","rbxassetid://7272237610")
 		end
 	end
 end)
@@ -1478,7 +1478,7 @@ Raphawk.MouseButton1Click:Connect(function()
 	VehicleFolder = workspace["Game Systems"]["Plane Workspace"]
 	for i, v in ipairs(VehicleFolder:GetChildren()) do
 		if v.Name == "F-117 Nighthawk" then
-		SendNotification("NUKE SCRIPT","Found"..v.Name,"rbxassetid://14783757092")
+		SendNotification("NUKE SCRIPT","Found "..v.Name,"rbxassetid://14783757092")
 		local Vehicle = v
 		local DScript = v.PlaneConfig
 		local TrashCan = Dumper:FindFirstChild("TrashCan")
@@ -1492,7 +1492,7 @@ Raphawk.MouseButton1Click:Connect(function()
 		NewScript.Parent = v
 		DScript.Parent = TrashCan
 		print(TrashCan)
-		SendNotification("NUKE SCRIPT",v.Name.."has been upgraded successfully","rbxassetid://7272237610")
+		SendNotification("NUKE SCRIPT",v.Name.." has been upgraded successfully","rbxassetid://7272237610")
 		end
 	end
 end)
@@ -1500,7 +1500,7 @@ DarkEptor.MouseButton1Click:Connect(function()
 	VehicleFolder = workspace["Game Systems"]["Plane Workspace"]
 	for i, v in ipairs(VehicleFolder:GetChildren()) do
 		if v.Name == "F-22 Raptor" then
-		SendNotification("NUKE SCRIPT","Found"..v.Name,"rbxassetid://14783757092")
+		SendNotification("NUKE SCRIPT","Found "..v.Name,"rbxassetid://14783757092")
 		local Vehicle = v
 		local DScript = v.PlaneConfig
 		local TrashCan = Dumper:FindFirstChild("TrashCan")
@@ -1514,7 +1514,7 @@ DarkEptor.MouseButton1Click:Connect(function()
 		NewScript.Parent = v
 		DScript.Parent = TrashCan
 		print(TrashCan)
-		SendNotification("NUKE SCRIPT",v.Name.."has been upgraded successfully","rbxassetid://7272237610")
+		SendNotification("NUKE SCRIPT",v.Name.." has been upgraded successfully","rbxassetid://7272237610")
 		end
 	end
 end)
@@ -1522,7 +1522,7 @@ DarkEfire.MouseButton1Click:Connect(function()
 	VehicleFolder = workspace["Game Systems"]["Plane Workspace"]
 	for i, v in ipairs(VehicleFolder:GetChildren()) do
 		if v.Name == "Spitfire" then
-		SendNotification("NUKE SCRIPT","Found"..v.Name,"rbxassetid://14783757092")
+		SendNotification("NUKE SCRIPT","Found "..v.Name,"rbxassetid://14783757092")
 		local Vehicle = v
 		local DScript = v.PlaneConfig
 		local TrashCan = Dumper:FindFirstChild("TrashCan")
@@ -1536,7 +1536,7 @@ DarkEfire.MouseButton1Click:Connect(function()
 		NewScript.Parent = v
 		DScript.Parent = TrashCan
 		print(TrashCan)
-		SendNotification("NUKE SCRIPT",v.Name.."has been upgraded successfully","rbxassetid://7272237610")
+		SendNotification("NUKE SCRIPT",v.Name.." has been upgraded successfully","rbxassetid://7272237610")
 		end
 	end
 end)
@@ -1544,7 +1544,7 @@ DarkEpen.MouseButton1Click:Connect(function()
 	VehicleFolder = workspace["Game Systems"]["Plane Workspace"]
 	for i, v in ipairs(VehicleFolder:GetChildren()) do
 		if v.Name == "JAS-39 Gripen" then
-		SendNotification("NUKE SCRIPT","Found"..v.Name,"rbxassetid://14783757092")
+		SendNotification("NUKE SCRIPT","Found "..v.Name,"rbxassetid://14783757092")
 		local Vehicle = v
 		local DScript = v.PlaneConfig
 		local TrashCan = Dumper:FindFirstChild("TrashCan")
@@ -1558,7 +1558,7 @@ DarkEpen.MouseButton1Click:Connect(function()
 		NewScript.Parent = v
 		DScript.Parent = TrashCan
 		print(TrashCan)
-		SendNotification("NUKE SCRIPT",v.Name.."has been upgraded successfully","rbxassetid://7272237610")
+		SendNotification("NUKE SCRIPT",v.Name.." has been upgraded successfully","rbxassetid://7272237610")
 		end
 	end
 end)
@@ -1566,7 +1566,7 @@ DarkEmig.MouseButton1Click:Connect(function()
 	VehicleFolder = workspace["Game Systems"]["Plane Workspace"]
 	for i, v in ipairs(VehicleFolder:GetChildren()) do
 		if v.Name == "MiG-29 Fulcrum" then
-		SendNotification("NUKE SCRIPT","Found"..v.Name,"rbxassetid://14783757092")
+		SendNotification("NUKE SCRIPT","Found "..v.Name,"rbxassetid://14783757092")
 		local Vehicle = v
 		local DScript = v.PlaneConfig
 		local TrashCan = Dumper:FindFirstChild("TrashCan")
@@ -1580,7 +1580,7 @@ DarkEmig.MouseButton1Click:Connect(function()
 		NewScript.Parent = v
 		DScript.Parent = TrashCan
 		print(TrashCan)
-		SendNotification("NUKE SCRIPT",v.Name.."has been upgraded successfully","rbxassetid://7272237610")
+		SendNotification("NUKE SCRIPT",v.Name.." has been upgraded successfully","rbxassetid://7272237610")
 		end
 	end
 end)
@@ -1588,7 +1588,7 @@ Adavoc.MouseButton1Click:Connect(function()
 	VehicleFolder = workspace["Game Systems"]["Helicopter Workspace"]
 	for i, v in ipairs(VehicleFolder:GetChildren()) do
 		if v.Name == "Mi28 Havoc" then
-		SendNotification("NUKE SCRIPT","Found"..v.Name,"rbxassetid://14783757092")
+		SendNotification("NUKE SCRIPT","Found "..v.Name,"rbxassetid://14783757092")
 		local Vehicle = v
 		local WContainer =  Vehicle.Misc.Turrets["Mi28 Weapons"]["Rocket Launchers"]
 		local DScript = WContainer.RocketSettings
@@ -1603,7 +1603,7 @@ Adavoc.MouseButton1Click:Connect(function()
 		NewScript.Parent = WContainer
 		DScript.Parent = TrashCan
 		print(TrashCan)
-		SendNotification("NUKE SCRIPT",v.Name.."has been upgraded successfully","rbxassetid://12819949621")
+		SendNotification("NUKE SCRIPT",v.Name.." has been upgraded successfully","rbxassetid://12819949621")
 		end
 	end
 end)
@@ -1611,7 +1611,7 @@ Adache.MouseButton1Click:Connect(function()
 	VehicleFolder = workspace["Game Systems"]["Helicopter Workspace"]
 	for i, v in ipairs(VehicleFolder:GetChildren()) do
 		if v.Name == "AH-64 Apache" then
-		SendNotification("NUKE SCRIPT","Found"..v.Name,"rbxassetid://14783757092")
+		SendNotification("NUKE SCRIPT","Found "..v.Name,"rbxassetid://14783757092")
 		local Vehicle = v
 		local WContainer =  Vehicle.Misc.Turrets["Apache Weapons"]["Rocket Launchers"]
 		local DScript = WContainer.RocketSettings
@@ -1626,7 +1626,7 @@ Adache.MouseButton1Click:Connect(function()
 		NewScript.Parent = WContainer
 		DScript.Parent = TrashCan
 		print(TrashCan)
-		SendNotification("NUKE SCRIPT",v.Name.."has been upgraded successfully","rbxassetid://12819949621")
+		SendNotification("NUKE SCRIPT",v.Name.." has been upgraded successfully","rbxassetid://12819949621")
 		end
 	end
 end)
@@ -1634,7 +1634,7 @@ Adyusha.MouseButton1Click:Connect(function()
 	VehicleFolder = workspace["Game Systems"]["Vehicle Workspace"]
 	for i, v in ipairs(VehicleFolder:GetChildren()) do
 		if v.Name == "Katyusha" then
-		SendNotification("NUKE SCRIPT","Found"..v.Name,"rbxassetid://14783757092")
+		SendNotification("NUKE SCRIPT","Found "..v.Name,"rbxassetid://14783757092")
 		local Vehicle = v
 		local WContainer =  Vehicle.Misc.Turrets["Katyusha Weapons"]["Rocket Launcher"]
 		local DScript = WContainer.RocketSettings
@@ -1649,7 +1649,7 @@ Adyusha.MouseButton1Click:Connect(function()
 		NewScript.Parent = WContainer
 		DScript.Parent = TrashCan
 		print(TrashCan)
-		SendNotification("NUKE SCRIPT",v.Name.."has been upgraded successfully","rbxassetid://12819949621")
+		SendNotification("NUKE SCRIPT",v.Name.." has been upgraded successfully","rbxassetid://12819949621")
 		end
 	end
 end)
@@ -1657,7 +1657,7 @@ Adind.MouseButton1Click:Connect(function()
 	VehicleFolder = workspace["Game Systems"]["Helicopter Workspace"]
 	for i, v in ipairs(VehicleFolder:GetChildren()) do
 		if v.Name == "Mi24 Hind" then
-		SendNotification("NUKE SCRIPT","Found"..v.Name,"rbxassetid://14783757092")
+		SendNotification("NUKE SCRIPT","Found "..v.Name,"rbxassetid://14783757092")
 		local Vehicle = v
 		local WContainer =  Vehicle.Misc.Turrets["Mi24 Weapons"]["Rocket Launchers"]
 		local WContainer2 =  Vehicle.Misc.Turrets["Mi24 Weapons"]["Explosive Machine Guns"]
@@ -1693,8 +1693,8 @@ Adind.MouseButton1Click:Connect(function()
 				end
 			end
 		end
-		SendNotification("NUKE SCRIPT",v.Name.."has been upgraded successfully","rbxassetid://10111201732")
-		SendNotification("NUKE SCRIPT",v.Name.."has been upgraded successfully","rbxassetid://12819949621")
+		SendNotification("NUKE SCRIPT",v.Name.." has been upgraded successfully","rbxassetid://10111201732")
+		SendNotification("NUKE SCRIPT",v.Name.." has been upgraded successfully","rbxassetid://12819949621")
 		end
 	end
 end)
@@ -1702,7 +1702,7 @@ Adars.MouseButton1Click:Connect(function()
 	VehicleFolder = workspace["Game Systems"]["Vehicle Workspace"]
 	for i, v in ipairs(VehicleFolder:GetChildren()) do
 		if v.Name == "M142 HIMARS" then
-		SendNotification("NUKE SCRIPT","Found"..v.Name,"rbxassetid://14783757092")
+		SendNotification("NUKE SCRIPT","Found "..v.Name,"rbxassetid://14783757092")
 		local Vehicle = v
 		local WContainer =  Vehicle.Misc.Turrets["HIMARS Weapons"]["Rocket Launcher"]
 		local DScript = WContainer.RocketSettings
@@ -1732,7 +1732,7 @@ Adars.MouseButton1Click:Connect(function()
 				end
 			end
 		end
-		SendNotification("NUKE SCRIPT",v.Name.."has been upgraded successfully","rbxassetid://12819949621")
+		SendNotification("NUKE SCRIPT",v.Name.." has been upgraded successfully","rbxassetid://12819949621")
 		end
 	end
 end)
@@ -1740,7 +1740,7 @@ Adbird.MouseButton1Click:Connect(function()
 	VehicleFolder = workspace["Game Systems"]["Helicopter Workspace"]
 	for i, v in ipairs(VehicleFolder:GetChildren()) do
 		if v.Name == "AH-6 Littlebird" then
-		SendNotification("NUKE SCRIPT","Found"..v.Name,"rbxassetid://14783757092")
+		SendNotification("NUKE SCRIPT","Found "..v.Name,"rbxassetid://14783757092")
 		local Vehicle = v
 		local WContainer =  Vehicle.Misc.Turrets["AH Weapons"]["Rocket Launchers"]
 		local DScript = WContainer.RocketSettings
@@ -1755,7 +1755,7 @@ Adbird.MouseButton1Click:Connect(function()
 		NewScript.Parent = WContainer
 		DScript.Parent = TrashCan
 		print(TrashCan)
-		SendNotification("NUKE SCRIPT",v.Name.."has been upgraded successfully","rbxassetid://12819949621")
+		SendNotification("NUKE SCRIPT",v.Name.." has been upgraded successfully","rbxassetid://12819949621")
 		end
 	end
 end)
@@ -1763,7 +1763,7 @@ Adzar.MouseButton1Click:Connect(function()
 	VehicleFolder = workspace["Game Systems"]["Vehicle Workspace"]
 	for i, v in ipairs(VehicleFolder:GetChildren()) do
 		if v.Name == "Lazar 3 APC" then
-		SendNotification("NUKE SCRIPT","Found"..v.Name,"rbxassetid://14783757092")
+		SendNotification("NUKE SCRIPT","Found "..v.Name,"rbxassetid://14783757092")
 		local Vehicle = v
 		local WContainer =  Vehicle.Misc.Turrets["Lazar Weapons"]["Rocket Launcher"]
 		local DScript = WContainer.RocketSettings
@@ -1793,7 +1793,7 @@ Adzar.MouseButton1Click:Connect(function()
 				end
 			end
 		end
-		SendNotification("NUKE SCRIPT",v.Name.."has been upgraded successfully","rbxassetid://12819949621")
+		SendNotification("NUKE SCRIPT",v.Name.." has been upgraded successfully","rbxassetid://12819949621")
 		end
 	end
 end)
@@ -1801,7 +1801,7 @@ Adpr.MouseButton1Click:Connect(function()
 	VehicleFolder = workspace["Game Systems"]["Boat Workspace"]
 	for i, v in ipairs(VehicleFolder:GetChildren()) do
 		if v.Name == "Pr. 206" then
-		SendNotification("NUKE SCRIPT","Found"..v.Name,"rbxassetid://14783757092")
+		SendNotification("NUKE SCRIPT","Found "..v.Name,"rbxassetid://14783757092")
 		local Vehicle = v
 		local WContainer =  Vehicle.Turrets["Pr. 206 Weapons"]["Rocket Launcher"]
 		local DScript = WContainer.RocketSettings
@@ -1816,7 +1816,7 @@ Adpr.MouseButton1Click:Connect(function()
 		NewScript.Parent = WContainer
 		DScript.Parent = TrashCan
 		print(TrashCan)
-		SendNotification("NUKE SCRIPT",v.Name.."has been upgraded successfully","rbxassetid://12819949621")
+		SendNotification("NUKE SCRIPT",v.Name.." has been upgraded successfully","rbxassetid://12819949621")
 		end
 	end
 end)
@@ -1824,7 +1824,7 @@ Adaider.MouseButton1Click:Connect(function()
 	VehicleFolder = workspace["Game Systems"]["Helicopter Workspace"]
 	for i, v in ipairs(VehicleFolder:GetChildren()) do
 		if v.Name == "Raider X" then
-		SendNotification("NUKE SCRIPT","Found"..v.Name,"rbxassetid://14783757092")
+		SendNotification("NUKE SCRIPT","Found "..v.Name,"rbxassetid://14783757092")
 		local Vehicle = v
 		local WContainer =  Vehicle.Misc.Turrets["RaiderX Weapons"]["Rocket Launchers"]
 		local DScript = WContainer.RocketSettings
@@ -1839,7 +1839,7 @@ Adaider.MouseButton1Click:Connect(function()
 		NewScript.Parent = WContainer
 		DScript.Parent = TrashCan
 		print(TrashCan)
-		SendNotification("NUKE SCRIPT",v.Name.."has been upgraded successfully","rbxassetid://12819949621")
+		SendNotification("NUKE SCRIPT",v.Name.." has been upgraded successfully","rbxassetid://12819949621")
 		end
 	end
 end)
@@ -1847,7 +1847,7 @@ Guzar.MouseButton1Click:Connect(function()
 	VehicleFolder = workspace["Game Systems"]["Vehicle Workspace"]
 	for i, v in ipairs(VehicleFolder:GetChildren()) do
 		if v.Name == "Lazar 3 APC" then
-		SendNotification("NUKE SCRIPT","Found"..v.Name,"rbxassetid://14783757092")
+		SendNotification("NUKE SCRIPT","Found "..v.Name,"rbxassetid://14783757092")
 		local Vehicle = v
 		local WContainer =  Vehicle.Misc.Turrets["Lazar Weapons"]["Cannons"]
 		local DScript = WContainer.Settings
@@ -1862,7 +1862,7 @@ Guzar.MouseButton1Click:Connect(function()
 		NewScript.Parent = WContainer
 		DScript.Parent = TrashCan
 		print(TrashCan)
-		SendNotification("NUKE SCRIPT",v.Name.."has been upgraded successfully","rbxassetid://10111201732")
+		SendNotification("NUKE SCRIPT",v.Name.." has been upgraded successfully","rbxassetid://10111201732")
 		end
 	end
 end)
@@ -1870,7 +1870,7 @@ Fasvoc.MouseButton1Click:Connect(function()
 	VehicleFolder = workspace["Game Systems"]["Helicopter Workspace"]
 	for i, v in ipairs(VehicleFolder:GetChildren()) do
 		if v.Name == "Mi28 Havoc" then
-		SendNotification("NUKE SCRIPT","Found"..v.Name,"rbxassetid://14783757092")
+		SendNotification("NUKE SCRIPT","Found "..v.Name,"rbxassetid://14783757092")
 		local Vehicle = v
 		local DScript = v.HelicopterConfig
 		local TrashCan = Dumper:FindFirstChild("TrashCan")
@@ -1885,7 +1885,7 @@ Fasvoc.MouseButton1Click:Connect(function()
 		NewScript.Parent = v
 		DScript.Parent = TrashCan
 		print(TrashCan)
-		SendNotification("NUKE SCRIPT",v.Name.."has been upgraded successfully","rbxassetid://7272237610")
+		SendNotification("NUKE SCRIPT",v.Name.." has been upgraded successfully","rbxassetid://7272237610")
 		end
 	end
 end)
@@ -1893,7 +1893,7 @@ Fasind.MouseButton1Click:Connect(function()
 	VehicleFolder = workspace["Game Systems"]["Helicopter Workspace"]
 	for i, v in ipairs(VehicleFolder:GetChildren()) do
 		if v.Name == "Mi24 Hind" then
-		SendNotification("NUKE SCRIPT","Found"..v.Name,"rbxassetid://14783757092")
+		SendNotification("NUKE SCRIPT","Found "..v.Name,"rbxassetid://14783757092")
 		local Vehicle = v
 		local DScript = v.HelicopterConfig
 		local TrashCan = Dumper:FindFirstChild("TrashCan")
@@ -1908,7 +1908,7 @@ Fasind.MouseButton1Click:Connect(function()
 		NewScript.Parent = v
 		DScript.Parent = TrashCan
 		print(TrashCan)
-		SendNotification("NUKE SCRIPT",v.Name.."has been upgraded successfully","rbxassetid://7272237610")
+		SendNotification("NUKE SCRIPT",v.Name.." has been upgraded successfully","rbxassetid://7272237610")
 		end
 	end
 end)
@@ -1916,7 +1916,7 @@ Fasglas.MouseButton1Click:Connect(function()
 	VehicleFolder = workspace["Game Systems"]["Boat Workspace"]
 	for i, v in ipairs(VehicleFolder:GetChildren()) do
 		if v.Name == "USS Douglas" then
-		SendNotification("NUKE SCRIPT","Found"..v.Name,"rbxassetid://14783757092")
+		SendNotification("NUKE SCRIPT","Found "..v.Name,"rbxassetid://14783757092")
 		local Vehicle = v
 		local DScript = v.BoatConfig
 		local TrashCan = Dumper:FindFirstChild("TrashCan")
@@ -1931,7 +1931,7 @@ Fasglas.MouseButton1Click:Connect(function()
 		NewScript.Parent = v
 		DScript.Parent = TrashCan
 		print(TrashCan)
-		SendNotification("NUKE SCRIPT",v.Name.."has been upgraded successfully","rbxassetid://7272237610")
+		SendNotification("NUKE SCRIPT",v.Name.." has been upgraded successfully","rbxassetid://7272237610")
 		end
 	end
 end)
@@ -1939,7 +1939,7 @@ Fasiper.MouseButton1Click:Connect(function()
 	VehicleFolder = workspace["Game Systems"]["Helicopter Workspace"]
 	for i, v in ipairs(VehicleFolder:GetChildren()) do
 		if v.Name == "AH-1Z Viper" then
-		SendNotification("NUKE SCRIPT","Found"..v.Name,"rbxassetid://14783757092")
+		SendNotification("NUKE SCRIPT","Found "..v.Name,"rbxassetid://14783757092")
 		local Vehicle = v
 		local DScript = v.HelicopterConfig
 		local TrashCan = Dumper:FindFirstChild("TrashCan")
@@ -1954,7 +1954,7 @@ Fasiper.MouseButton1Click:Connect(function()
 		NewScript.Parent = v
 		DScript.Parent = TrashCan
 		print(TrashCan)
-		SendNotification("NUKE SCRIPT",v.Name.."has been upgraded successfully","rbxassetid://7272237610")
+		SendNotification("NUKE SCRIPT",v.Name.." has been upgraded successfully","rbxassetid://7272237610")
 		end
 	end
 end)
@@ -1962,7 +1962,7 @@ Camwalt.MouseButton1Click:Connect(function()
 	VehicleFolder = workspace["Game Systems"]["Boat Workspace"]
 	for i, v in ipairs(VehicleFolder:GetChildren()) do
 		if v.Name == "USS Zumwalt" then
-		SendNotification("NUKE SCRIPT","Found"..v.Name,"rbxassetid://14783757092")
+		SendNotification("NUKE SCRIPT","Found "..v.Name,"rbxassetid://14783757092")
 		local Vehicle = v
 		local DScript = v.BoatConfig
 		local Cam = Vehicle.Turrets["Zumwalt Weapons"].CamPart
@@ -1987,7 +1987,7 @@ Camwalt.MouseButton1Click:Connect(function()
 			Cam.WeldConstraint.Part1 = Cam
 		end
 		print(TrashCan)
-		SendNotification("NUKE SCRIPT",v.Name.."has been upgraded successfully","rbxassetid://7272237610")
+		SendNotification("NUKE SCRIPT",v.Name.." has been upgraded successfully","rbxassetid://7272237610")
 		end
 	end
 end)
@@ -1995,7 +1995,7 @@ FasmsX.MouseButton1Click:Connect(function()
 	VehicleFolder = workspace["Game Systems"]["Tank Workspace"]
 	for i, v in ipairs(VehicleFolder:GetChildren()) do
 		if v.Name == "AbramsX" then
-		SendNotification("NUKE SCRIPT","Found"..v.Name,"rbxassetid://14783757092")
+		SendNotification("NUKE SCRIPT","Found "..v.Name,"rbxassetid://14783757092")
 		local Vehicle = v
 		local DScript = v.TankConfig
 		local TrashCan = Dumper:FindFirstChild("TrashCan")
@@ -2010,7 +2010,7 @@ FasmsX.MouseButton1Click:Connect(function()
 		NewScript.Parent = v
 		DScript.Parent = TrashCan
 		print(TrashCan)
-		SendNotification("NUKE SCRIPT",v.Name.."has been upgraded successfully","rbxassetid://7272237610")
+		SendNotification("NUKE SCRIPT",v.Name.." has been upgraded successfully","rbxassetid://7272237610")
 		end
 	end
 end)
