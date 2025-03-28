@@ -1,0 +1,11 @@
+local HideFrame = Instance.new("Frame")
+	HideFrame.Name = "Hide"
+	HideFrame.Parent = Frame2
+	HideFrame.Size = UDim2.new(0.9,0,0.7,0)
+	HideFrame.Position = UDim2.new(0.05,0,0.2,0)
+	HideFrame.BackgroundColor3 = Color3.fromRGB(0,0,0)
+	local LoadText = Label2:Clone()
+	LoadText.Parent = HideFrame
+	LoadText.Text = "Loading..."
+	LoadText.BackgroundColor3 = Color3.fromRGB(0,0,0)
+	LoadText.TextColor3 = Color3.fromRGB(255,255,255)
