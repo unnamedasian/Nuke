@@ -27,6 +27,11 @@ ScrolFrame.CanvasSize = UDim2.new(2,0,0,0)
 ScrolFrame.Position = UDim2.new(0.1,0,0.2,0)
 ScrolFrame.HorizontalScrollBarInset = Enum.ScrollBarInset.ScrollBar
 ScrolFrame.VerticalScrollBarPosition = Enum.VerticalScrollBarPosition.Right
+local Layout = Instance.new("UIGridLayout",ScrolFrame)
+Layout.CellPadding = UDim2.new(0,1,0,0)
+Layout.CellSize = UDim2.new(0.166,0,1,0)
+local CompleteFrame = Instance.new("Frame",ScrolFrame)
+CompleteFrame.Size = UDim2.new(1,0,1,0)
 
 CloseButton.MouseButton1Click:Connect(function()
     ScreenGui:Destroy()
