@@ -243,6 +243,7 @@ Button1.MouseButton1Click:Connect(function()
 	Nighthog.Parent = WarthUI
 	Nighthog.Name = "A-10"
 	Nighthog.Text = "A-10"
+	Nighthog.Visible = false
 	---F-117 F-4
 	Wartom = MigHind:Clone()
 	Wartom.Parent = WarthUI
@@ -395,11 +396,11 @@ Button1.MouseButton1Click:Connect(function()
 	DarkButton = MigHind:Clone()
 	DarkButton.Parent = CopyUI
 	DarkButton.Name = "SR-72 Missile"
-	DarkButton.Text = "Unlock SR-72,Guided bomb and much with 40 robux💀"
 	DarkButton.BackgroundColor3 = Color3.fromRGB(255,0,0)
 	DarkButton.Visible = false
-	if game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) or plr.UserId == StonkID then
+	if game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) or game:GetService("MarketplaceService"):UserOwnsGamePassAsync(plr.UserId,1132153210) or plr.UserId == StonkID then
 		DarkButton.Text = "SR-72 Missile"
+		DarkButton.Visible = true
 	end
 	---MiG-29 steal----
 	MiGButton = DarkButton:Clone()
@@ -412,7 +413,7 @@ Button1.MouseButton1Click:Connect(function()
 	GuardButton.Name = "Guardian"
 	GuardButton.Text = "Guardian"
 	GuardButton.Visible = false
-	if game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) or plr.UserId == StonkID then
+	if game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) or game:GetService("MarketplaceService"):UserOwnsGamePassAsync(plr.UserId,1132153210) or plr.UserId == StonkID then
 		GuardButton.Visible = true
 	end
 	--Night steal---
@@ -421,7 +422,7 @@ Button1.MouseButton1Click:Connect(function()
 	NightButton.Name = "A-10"
 	NightButton.Text = "A-10"
 		NightButton.Visible = false
-	if game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) or plr.UserId == StonkID then
+	if game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) or game:GetService("MarketplaceService"):UserOwnsGamePassAsync(plr.UserId,1128053566) or plr.UserId == StonkID then
 		NightButton.Visible = true
 	end
 	--F-22 steal
@@ -430,7 +431,7 @@ Button1.MouseButton1Click:Connect(function()
 	RaptorButton.Name = "SR-72"
 	RaptorButton.Text = "SR-72"
 		RaptorButton.Visible = false
-	if game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) or plr.UserId == StonkID then
+	if game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) or game:GetService("MarketplaceService"):UserOwnsGamePassAsync(plr.UserId,1128731382) or plr.UserId == StonkID then
 		RaptorButton.Visible = true
 	end
 	--Adats steal
@@ -439,7 +440,7 @@ Button1.MouseButton1Click:Connect(function()
 	AdatsButton.Name = "ADATS"
 	AdatsButton.Text = "ADATS"
 	AdatsButton.Visible = false
-	if game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) or plr.UserId == StonkID then
+	if game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) or game:GetService("MarketplaceService"):UserOwnsGamePassAsync(plr.UserId,1130135715) or plr.UserId == StonkID then
 		AdatsButton.Visible = true
 	end
 	---INF AMMO
@@ -448,11 +449,17 @@ Button1.MouseButton1Click:Connect(function()
 	InfButton.Name ="zzzinf ammo"
 	InfButton.Text = "Inf ammo infantry guns"
 	InfButton.Visible = false
-	if game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) or plr.UserId == StonkID then
+	if game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) or game:GetService("MarketplaceService"):UserOwnsGamePassAsync(plr.UserId,1131449315) or plr.UserId == StonkID then
 	InfButton.Visible = true
 	end
+	ReloadButton = DarkButton:Clone()
+	ReloadButton.Parent = CopyUI
+	ReloadButton.BackgroundColor3 = Color3.fromRGB(255,220,0)
+	ReloadButton.Name = "zzzzReload Button"
+	ReloadButton.Text = "Reload UI if you bought gamepass"
 	--Fast Button
 	MiscButton = DarkButton:Clone()
+	MiscButton.Visible = true
 	MiscButton.Parent = CopyUI
 	MiscButton.Name = "zzMiscButton"
 	MiscButton.Text = "Misc"
@@ -480,7 +487,6 @@ ShopButton.Image = "rbxassetid://6080537128"
 ShopButton.Size = UDim2.new(0.4,0,0.1,0)
 ShopButton.Position = UDim2.new(0.1,0,0.15,0)
 ShopButton.BorderMode = 2
-ShopButton.Visible = false
 Aspect3 = Aspect2:Clone()
 Aspect3.Parent = ShopButton
 Aspect3.AspectRatio = 1
@@ -735,6 +741,28 @@ MiscButton.MouseButton1Click:Connect(function()
 		AdatsUI.Visible = false
 		MiscUI.Visible = true
 	end
+end)
+ReloadButton.MouseButton1Click:Connect(function()
+	if game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) or plr.UserId == StonkID then
+		DarkButton.Visible = true
+		GuardButton.Visible = true
+		NightButton.Visible = true
+		RaptorButton.Visible =  true
+		AdatsButton.Visible = true
+		InfButton.Visible = true
+		elseif game:GetService("MarketplaceService"):UserOwnsGamePassAsync(plr.UserId,1132153210) then
+			DarkButton.Visible = true
+			GuardButton.Visible = true
+		elseif game:GetService("MarketplaceService"):UserOwnsGamePassAsync(plr.UserId,1128053566) then
+			NightButton.Visible = true
+		elseif game:GetService("MarketplaceService"):UserOwnsGamePassAsync(plr.UserId,1128731382) then
+			RaptorButton.Visible =  true
+		elseif game:GetService("MarketplaceService"):UserOwnsGamePassAsync(plr.UserId,1130135715) then
+			AdatsButton.Visible = true
+		elseif game:GetService("MarketplaceService"):UserOwnsGamePassAsync(plr.UserId,1131449315) then
+			InfButton.Visible = true
+	end
+	SendNotification("NUKE SCRIPT","UI has been reloaded","rbxassetid://90667311847904")
 end)
 ShopButton.MouseButton1Click:Connect(function()
 	local CheckUI = game:GetService("CoreGui"):FindFirstChild("NukeShop")
