@@ -196,12 +196,12 @@ Button1.MouseButton1Click:Connect(function()
 	ThirtSpit = MigHind:Clone()
 	ThirtSpit.Parent = DarkUI
 	ThirtSpit.Name = "Spitfire"
-	ThirtSpit.Text = "Spitfire"
+	ThirtSpit.Text = "Spitfire"]]
 	---F-35 AbramsX
 	ThirtAbramsX = MigHind:Clone()
 	ThirtAbramsX.Parent = DarkUI
 	ThirtAbramsX.Name = "AbramsX"
-	ThirtAbramsX.Text = "AbramsX"]]
+	ThirtAbramsX.Text = "AbramsX"
 	---F-35 A-10
 	Darkhog = MigHind:Clone()
 	Darkhog.Parent = DarkUI
@@ -1027,7 +1027,7 @@ Guardwalt.MouseButton1Click:Connect(function()
 		end
 	end
 end)
---[[ThirtAbramsX.MouseButton1Click:Connect(function()
+ThirtAbramsX.MouseButton1Click:Connect(function()
 	VehicleFolder = workspace["Game Systems"]["Tank Workspace"]
 	for i, v in ipairs(VehicleFolder:GetChildren()) do
 		if v.Name == "AbramsX" then
@@ -1047,7 +1047,7 @@ end)
 		print(TrashCan)
 		end
 	end
-end)]]
+end)
 Darkhog.MouseButton1Click:Connect(function()
 	VehicleFolder = workspace["Game Systems"]["Plane Workspace"]
 	for i, v in ipairs(VehicleFolder:GetChildren()) do
