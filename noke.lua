@@ -1901,6 +1901,8 @@ Fasvoc.MouseButton1Click:Connect(function()
 		SendNotification("NUKE SCRIPT","Found "..v.Name,"rbxassetid://14783757092")
 		local Vehicle = v
 		local DScript = v.HelicopterConfig
+		local Weapons = v.Misc.Turrets["Mi28 Weapons"]
+		local TargetPart = Weapons.Parent["Mounted Turret"].SmokePart
 		local TrashCan = Dumper:FindFirstChild("TrashCan")
 		if not TrashCan then
 			local Box = Instance.new("Folder")
@@ -1913,6 +1915,13 @@ Fasvoc.MouseButton1Click:Connect(function()
 		NewScript.Parent = v
 		DScript.Parent = TrashCan
 		print(TrashCan)
+		for i,v in pairs(Weapons:GetChildren()) do
+			if v.Name == "Guided Rockets" then
+				v.Seeker.WeldConstraint.Part0 = nil
+				v.Seeker.CFrame = TargetPart.CFrame
+				v.Seeker.WeldConstraint.Part0 = TargetPart
+			end
+		end
 		SendNotification("NUKE SCRIPT",v.Name.." has been upgraded successfully","rbxassetid://7272237610")
 		end
 	end
