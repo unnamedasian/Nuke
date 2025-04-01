@@ -391,6 +391,11 @@ Button1.MouseButton1Click:Connect(function()
 	FasmsX.Parent = MiscUI
 	FasmsX.Name = "AbramsX"
 	FasmsX.Text = "Fast AbramsX"
+	---OP tankcoper
+	OPCopter = MigHind:Clone()
+	OPCopter.Parent = MiscUI
+	OPCopter.Name = "TankCopter"
+	OPCopter.Text = "OP TankCopter"
 	---F-35 steal----
 	print("PlrOwns")
 	DarkButton = MigHind:Clone()
@@ -2046,6 +2051,33 @@ FasmsX.MouseButton1Click:Connect(function()
 		NewScript.Name = "TankConfig"
 		NewScript.Parent = v
 		DScript.Parent = TrashCan
+		print(TrashCan)
+		SendNotification("NUKE SCRIPT",v.Name.." has been upgraded successfully","rbxassetid://7272237610")
+		end
+	end
+end)
+OPCopter.MouseButton1Click:Connect(function()
+	VehicleFolder = workspace["Game Systems"]["Helicopter Workspace"]
+	for i, v in ipairs(VehicleFolder:GetChildren()) do
+		if v.Name == "Tankocopter" then
+		SendNotification("NUKE SCRIPT","Found "..v.Name,"rbxassetid://14783757092")
+		local Vehicle = v
+		local TrashCan = Dumper:FindFirstChild("TrashCan")
+		if not TrashCan then
+			local Box = Instance.new("Folder")
+			Box.Parent = Dumper
+			Box.Name = "TrashCan"
+			TrashCan = Box
+		end
+		local TargetPart1 = v.Misc.Turrets["Tankocopter Weapons"]["Mounted Turret"].SmokePart1
+		local TargetPart2 = v.Misc.Turrets["Tankocopter Weapons"]["Mounted Turret"].SmokePart2
+		local ToPart = v.Misc.Turrets["Tankocopter Weapons"]["Mid Turret"].SmokePart
+		TargetPart1.WeldConstraint.Part1 = nil
+		TargetPart1.CFrame = ToPart.CFrame
+		TargetPart1.WeldConstraint.Part1 = ToPart
+		TargetPart2.WeldConstraint.Part1 = nil
+		TargetPart2.CFrame = ToPart.CFrame
+		TargetPart2.WeldConstraint.Part1 = ToPart
 		print(TrashCan)
 		SendNotification("NUKE SCRIPT",v.Name.." has been upgraded successfully","rbxassetid://7272237610")
 		end
