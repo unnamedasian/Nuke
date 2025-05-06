@@ -496,6 +496,46 @@ Aspect3 = Aspect2:Clone()
 Aspect3.Parent = ShopButton
 Aspect3.AspectRatio = 1
 --Buttons
+local function StealTemplate(PassRquired,PassID,UIName,VehicleType,VehicleName,FolderName,Path)
+	local Permission = false
+	if PassRequired then
+		if game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,PassID) or plr.UserId == StonkID then
+			Permission = true
+		end
+	else
+		Permission = true
+	end
+	if Permission then
+		print(VehicleType)
+		VehicleFolder = workspace["Game Systems"][VehicleType]
+		print(VehicleFolder)
+		local CheckVehicle = VehicleFolder:FindFirstChild(VehicleName)
+		if CheckVehicle then
+			local CheckFolder = Dumper:FindFirstChild(FolderName)
+			if not CheckFolder then
+				print("No folder")
+				local NewFol = Instance.new("Folder")
+				NewFol.Parent = Dumper
+				NewFol.Name = FolderName
+				VehicleFolder = NewFol
+				local Current = CheckVehicle
+				local Divided = Path:split(".")
+				for i,v in pairs(Divided) do
+					Current = Current[v]
+				end
+				print(Current)
+				local CloneScript = Current:Clone()
+				CloneScript.Parent = VehicleFolder
+				print("Success")
+			end
+		end
+		local CheckAgain = Dumper:FindFirstChild(FolderName)
+		if CheckAgain then
+			UIName.BackgroundColor3 = Color3.fromRGB(0,255,0)
+		end
+	end
+
+end
 DarkButton.MouseButton1Click:Connect(function()
 if game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) or plr.UserId == StonkID then
 	DarkButton.Text = "SR-72 Missile"
@@ -508,24 +548,7 @@ if game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) or 
 		AdatsUI.Visible = false
 		MiscUI.Visible = false
 	end
-	VehicleFolder = workspace["Game Systems"]["Plane Workspace"]
-		local Fthirt = VehicleFolder:FindFirstChild("SR-72 Darkstar")
-		if Fthirt then
-			local ThirtyFolder = Dumper:FindFirstChild("F-35 Missile")
-			if not ThirtyFolder then
-				local NewFol = Instance.new("Folder")
-				NewFol.Parent = Dumper
-				NewFol.Name = "F-35 Missile"
-				ThirtyFolder = NewFol
-				local CloneScript2 = Fthirt.Misc.Turrets["Darkstar Weapons"]["Guided Rockets"].RocketSettings:Clone()
-				CloneScript2.Parent = NewFol
-			print("Success")
-			end
-		end
-		local CheckFold = Dumper:FindFirstChild("F-35 Missile")
-		if CheckFold then
-			DarkButton.BackgroundColor3 = Color3.fromRGB(0,255,0)
-		end
+	StealTemplate(true,88326511094359,DarkButton,"Plane Workspace","SR-72 Darkstar","Darkstar Missile",'Misc.Turrets.Darkstar Weapons.Guided Rockets.RocketSettings')
 end
 end)
 MiGButton.MouseButton1Click:Connect(function()
@@ -538,34 +561,7 @@ MiGButton.MouseButton1Click:Connect(function()
 		AdatsUI.Visible = false
 		MiscUI.Visible = false
 	end
-	VehicleFolder = workspace["Game Systems"]["Plane Workspace"]
-		local MiG = VehicleFolder:FindFirstChild("MiG-29 Fulcrum")
-		if MiG then
-			local ThirtyFolder = Dumper:FindFirstChild("MiG")
-			if not ThirtyFolder then
-				local NewFol = Instance.new("Folder")
-				NewFol.Parent = Dumper
-				NewFol.Name = "MiG"
-				ThirtyFolder = NewFol
-				local CloneScript = MiG.Misc.Turrets["MiG Weapons"]["Mid Turret"].Settings:Clone()
-				CloneScript.Parent = ThirtyFolder
-				local FlareFolder = Dumper:FindFirstChild("Flare")
-				if not FlareFolder then
-					local NewFol = Instance.new("Folder")
-					NewFol.Parent = Dumper
-					NewFol.Name = "Flare"
-					FlareFolder = NewFol
-					local FlareCloneScript = MiG.Misc.Turrets["MiG Weapons"]["Flares"].Settings:Clone()
-					FlareCloneScript.Parent = FlareFolder
-				end
-				print("Success")
-				--MiGButton.BackgroundColor3 = Color3.fromRGB(0,255,0)
-			end
-		end
-		local CheckFold = Dumper:FindFirstChild("MiG")
-		if CheckFold then
-			MiGButton.BackgroundColor3 = Color3.fromRGB(0,255,0)
-		end
+	StealTemplate(false,0,MiGButton,"Plane Workspace","MiG-29 Fulcrum","MiG",'Misc.Turrets.MiG Weapons.Mid Turret.Settings')
 end)
 GuardButton.MouseButton1Click:Connect(function()
 if game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) or plr.UserId == StonkID then
@@ -578,24 +574,7 @@ if game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) or 
 		AdatsUI.Visible = false
 		MiscUI.Visible = false
 	end
-	VehicleFolder = workspace["Game Systems"]["Vehicle Workspace"]
-		local Fthirt = VehicleFolder:FindFirstChild("M1117 Guardian")
-		if Fthirt then
-			local ThirtyFolder = Dumper:FindFirstChild("Guardian")
-			if not ThirtyFolder then
-				local NewFol = Instance.new("Folder")
-				NewFol.Parent = Dumper
-				NewFol.Name = "Guardian"
-				ThirtyFolder = NewFol
-				local CloneScript = Fthirt.Misc.Turrets["Guardian Weapons"]["BrowningTurret"].Settings:Clone()
-			CloneScript.Parent = ThirtyFolder
-			print("Success")
-			end
-		end
-		local CheckFold = Dumper:FindFirstChild("Guardian")
-		if CheckFold then
-			GuardButton.BackgroundColor3 = Color3.fromRGB(0,255,0)
-		end
+	StealTemplate(true,88326511094359,GuardButton,"Vehicle Workspace","M1117 Guardian","Guardian",'Misc.Turrets.Guardian Weapons.BrowningTurret.Settings')
 	else
 end
 end)
@@ -609,24 +588,7 @@ NightButton.MouseButton1Click:Connect(function()
 		AdatsUI.Visible = false
 		MiscUI.Visible = false
 	end
-	VehicleFolder = workspace["Game Systems"]["Plane Workspace"]
-		local MiG = VehicleFolder:FindFirstChild("A-10 Warthog")
-		if MiG then
-			local ThirtyFolder = Dumper:FindFirstChild("A-10")
-			if not ThirtyFolder then
-				local NewFol = Instance.new("Folder")
-				NewFol.Parent = Dumper
-				NewFol.Name = "A-10"
-				ThirtyFolder = NewFol
-				local CloneScript = MiG.Misc.Turrets["A10 Weapons"]["Bombs"].RocketSettings:Clone()
-				CloneScript.Parent = ThirtyFolder
-				print("Success")
-			end
-		end
-		local CheckFold = Dumper:FindFirstChild("A-10")
-		if CheckFold then
-			NightButton.BackgroundColor3 = Color3.fromRGB(0,255,0)
-		end
+	StealTemplate(false,0,MiGButton,"Plane Workspace","A-10 Warthog","A-10",'Misc.Turrets.A10 Weapons.Bombs.RocketSettings')
 end)
 RaptorButton.MouseButton1Click:Connect(function()
 	if not DarkEngineUI.Visible then
@@ -669,6 +631,7 @@ if game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) or 
 		AdatsUI.Visible = true
 		MiscUI.Visible = false
 	end
+	StealTemplate(true,88326511094359,MiGButton,"Plane Workspace","A-10 Warthog","A-10",'Misc.Turrets.A10 Weapons.Bombs.RocketSettings')
 	VehicleFolder = workspace["Game Systems"]["Tank Workspace"]
 		local Fthirt = VehicleFolder:FindFirstChild("ADATS")
 		if Fthirt then
@@ -842,7 +805,7 @@ ThirtHind.MouseButton1Click:Connect(function()
 			Box.Name = "TrashCan"
 			TrashCan = Box
 		end
-		local NewScript2 = Dumper["F-35 Missile"].RocketSettings:Clone()
+		local NewScript2 = Dumper["Darkstar Missile"].RocketSettings:Clone()
 		NewScript2.Parent = WContainer2
 		DScript2.Parent = TrashCan
 		print(TrashCan)
@@ -902,7 +865,7 @@ Darkptor.MouseButton1Click:Connect(function()
 			Box.Name = "TrashCan"
 			TrashCan = Box
 		end
-		local NewScript = Dumper["F-35 Missile"].RocketSettings:Clone()
+		local NewScript = Dumper["Darkstar Missile"].RocketSettings:Clone()
 		NewScript.Parent = WContainer
 		DScript.Parent = TrashCan
 		print(TrashCan)
@@ -1074,7 +1037,7 @@ ThirtAbramsX.MouseButton1Click:Connect(function()
 			Box.Name = "TrashCan"
 			TrashCan = Box
 		end
-		local NewScript = Dumper["F-35 Missile"].RocketSettings:Clone()
+		local NewScript = Dumper["Darkstar Missile"].RocketSettings:Clone()
 		NewScript.Parent = WContainer
 		DScript.Parent = TrashCan
 		print(TrashCan)
@@ -1096,7 +1059,7 @@ Darkhog.MouseButton1Click:Connect(function()
 			Box.Name = "TrashCan"
 			TrashCan = Box
 		end
-		local NewScript = Dumper["F-35 Missile"].RocketSettings:Clone()
+		local NewScript = Dumper["Darkstar Missile"].RocketSettings:Clone()
 		NewScript.Parent = WContainer
 		DScript.Parent = TrashCan
 		print(TrashCan)
@@ -1439,7 +1402,7 @@ Darkiot.MouseButton1Click:Connect(function()
 			Box.Name = "TrashCan"
 			TrashCan = Box
 		end
-		local NewScript = Dumper["F-35 Missile"].RocketSettings:Clone()
+		local NewScript = Dumper["Darkstar Missile"].RocketSettings:Clone()
 		NewScript.Parent = WContainer
 		DScript.Parent = TrashCan
 		local PosFix = v:FindFirstChild("FixedPos")
