@@ -1978,10 +1978,11 @@ Camwalt.MouseButton1Click:Connect(function()
 			Box.Name = "TrashCan"
 			TrashCan = Box
 		end
-		local NewScript = Configs.Boat["SURC"]:Clone()
+		Vehicle:SetAttribute("SpeedUpgrades",7)
+		--[[local NewScript = Configs.Boat["SURC"]:Clone()
 		NewScript.Name = "BoatConfig"
 		NewScript.Parent = v
-		DScript.Parent = TrashCan
+		DScript.Parent = TrashCan]]
 		local PosFix = v:FindFirstChild("FixedPos")
 		if not PosFix then
 			local FixFol = Instance.new("Folder")
