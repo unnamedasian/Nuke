@@ -314,6 +314,11 @@ Button1.MouseButton1Click:Connect(function()
 	DarkEmig.Parent = DarkEngineUI
 	DarkEmig.Name = "MiG-29"
 	DarkEmig.Text = "MiG-29"
+	--s4-72 a-10
+	DarkEthog = MigHind:Clone()
+	DarkEthog.Parent = DarkEngineUI
+	DarkEthog.Name = "A-10"
+	DarkEthog.Text = "A-10"
 	--Adats havoc
 	Adavoc = MigHind:Clone()
 	Adavoc.Parent = AdatsUI
@@ -1514,6 +1519,17 @@ DarkEmig.MouseButton1Click:Connect(function()
 	VehicleFolder = workspace["Game Systems"]["Plane Workspace"]
 	for i, v in ipairs(VehicleFolder:GetChildren()) do
 		if v.Name == "MiG-29 Fulcrum" then
+		SendNotification("NUKE SCRIPT","Found "..v.Name,"rbxassetid://14783757092")
+		local Vehicle = v
+		FastTemplate("Plane Workspace",v,6.3)
+		SendNotification("NUKE SCRIPT",v.Name.." has been upgraded successfully","rbxassetid://7272237610")
+		end
+	end
+end)
+DarkEthog.MouseButton1Click:Connect(function()
+	VehicleFolder = workspace["Game Systems"]["Plane Workspace"]
+	for i, v in ipairs(VehicleFolder:GetChildren()) do
+		if v.Name == "A-10 Warthog" then
 		SendNotification("NUKE SCRIPT","Found "..v.Name,"rbxassetid://14783757092")
 		local Vehicle = v
 		FastTemplate("Plane Workspace",v,6.3)
