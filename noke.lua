@@ -1461,7 +1461,7 @@ DarkEtom.MouseButton1Click:Connect(function()
 		if v.Name == "F-4 Phantom" then
 		SendNotification("NUKE SCRIPT","Found "..v.Name,"rbxassetid://14783757092")
 		local Vehicle = v
-		FastTemplate("Plane Workspace",v,5)
+		FastTemplate("Plane Workspace",v,5.2)
 		SendNotification("NUKE SCRIPT",v.Name.." has been upgraded successfully","rbxassetid://7272237610")
 		end
 	end
@@ -1483,7 +1483,7 @@ DarkEptor.MouseButton1Click:Connect(function()
 		if v.Name == "F-22 Raptor" then
 		SendNotification("NUKE SCRIPT","Found "..v.Name,"rbxassetid://14783757092")
 		local Vehicle = v
-		FastTemplate("Plane Workspace",v,5)
+		FastTemplate("Plane Workspace",v,5.3)
 		SendNotification("NUKE SCRIPT",v.Name.." has been upgraded successfully","rbxassetid://7272237610")
 		end
 	end
@@ -1505,7 +1505,7 @@ DarkEpen.MouseButton1Click:Connect(function()
 		if v.Name == "JAS-39 Gripen" then
 		SendNotification("NUKE SCRIPT","Found "..v.Name,"rbxassetid://14783757092")
 		local Vehicle = v
-		FastTemplate("Plane Workspace",v,6)
+		FastTemplate("Plane Workspace",v,6.4)
 		SendNotification("NUKE SCRIPT",v.Name.." has been upgraded successfully","rbxassetid://7272237610")
 		end
 	end
@@ -1516,7 +1516,7 @@ DarkEmig.MouseButton1Click:Connect(function()
 		if v.Name == "MiG-29 Fulcrum" then
 		SendNotification("NUKE SCRIPT","Found "..v.Name,"rbxassetid://14783757092")
 		local Vehicle = v
-		FastTemplate("Plane Workspace",v,6)
+		FastTemplate("Plane Workspace",v,6.3)
 		SendNotification("NUKE SCRIPT",v.Name.." has been upgraded successfully","rbxassetid://7272237610")
 		end
 	end
@@ -1826,7 +1826,7 @@ Fasvoc.MouseButton1Click:Connect(function()
 		if v.Name == "Mi28 Havoc" then
 		SendNotification("NUKE SCRIPT","Found "..v.Name,"rbxassetid://14783757092")
 		local Vehicle = v
-		FastTemplate("Helicopter Workspace",v,4.5)
+		FastTemplate("Helicopter Workspace",v,4.7)
 		local Weapons = v.Misc.Turrets["Mi28 Weapons"]
 		local TargetPart = Weapons.Parent["Mounted Turret"].SmokePart
 		for i,v in pairs(Weapons:GetChildren()) do
@@ -1857,7 +1857,7 @@ Fasupremehind.MouseButton1Click:Connect(function()
 		if v.Name == "Mi24 Superhind" then
 		SendNotification("NUKE SCRIPT","Found "..v.Name,"rbxassetid://14783757092")
 		local Vehicle = v
-		FastTemplate("Helicopter Workspace",v,6)
+		FastTemplate("Helicopter Workspace",v,6.1)
 		SendNotification("NUKE SCRIPT",v.Name.." has been upgraded successfully","rbxassetid://7272237610")
 		end
 	end
@@ -1868,7 +1868,7 @@ Fasglas.MouseButton1Click:Connect(function()
 		if v.Name == "USS Douglas" then
 		SendNotification("NUKE SCRIPT","Found "..v.Name,"rbxassetid://14783757092")
 		local Vehicle = v
-		FastTemplate("Boat Workspace",v,5)
+		FastTemplate("Boat Workspace",v,5.2)
 		SendNotification("NUKE SCRIPT",v.Name.." has been upgraded successfully","rbxassetid://7272237610")
 		end
 	end
@@ -1879,7 +1879,7 @@ Fasiper.MouseButton1Click:Connect(function()
 		if v.Name == "AH-1Z Viper" then
 		SendNotification("NUKE SCRIPT","Found "..v.Name,"rbxassetid://14783757092")
 		local Vehicle = v
-		FastTemplate("Helicopter Workspace",v,5)
+		FastTemplate("Helicopter Workspace",v,5.2)
 		SendNotification("NUKE SCRIPT",v.Name.." has been upgraded successfully","rbxassetid://7272237610")
 		end
 	end
@@ -1911,7 +1911,7 @@ FasmsX.MouseButton1Click:Connect(function()
 		if v.Name == "AbramsX" then
 		SendNotification("NUKE SCRIPT","Found "..v.Name,"rbxassetid://14783757092")
 		local Vehicle = v
-		FastTemplate("Tank Workspace",v,4.4)
+		FastTemplate("Tank Workspace",v,5)
 		SendNotification("NUKE SCRIPT",v.Name.." has been upgraded successfully","rbxassetid://7272237610")
 		end
 	end
