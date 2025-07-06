@@ -330,6 +330,11 @@ Button1.MouseButton1Click:Connect(function()
 	Adache.Parent = AdatsUI
 	Adache.Name = "AH-64"
 	Adache.Text = "AH-64"
+	--adats f-35
+	Adight = MigHind:Clone()
+	Adight.Parent = AdatsUI
+	Adight.Name = "F-35"
+	Adight.Text = "F-35"
 	--Adats katyusha
 	Adyusha = MigHind:Clone()
 	Adyusha.Parent = AdatsUI
@@ -342,6 +347,10 @@ Button1.MouseButton1Click:Connect(function()
 	AdindGun = MigHind:Clone()
 	AdindGun.Parent = GuardUI
 	AdindGun.Text = "Mi-24 Hind AdatsGun"
+	--adats superhind
+	AdupremeHind = MigHind:Clone()
+	AdupremeHind.Parent = GuardUI
+	AdupremeHind.Text = "Mi-24 Superhind"
 	--adats Himars
 	Adars = MigHind:Clone()
 	Adars.Parent = AdatsUI
@@ -367,11 +376,11 @@ Button1.MouseButton1Click:Connect(function()
 	Adaider.Parent = AdatsUI
 	Adaider.Name = "Raider X"
 	Adaider.Text = "Raider X"
-  --adats tos-1
-  Ados = MigHind:Clone()
-  Ados.Parent = AdatsUI
-  Ados.Name = "Tos-1"
-  Ados.Text = "Tos-1"
+ 	--adats tos-1
+ 	Ados = MigHind:Clone()
+ 	Ados.Parent = AdatsUI
+ 	Ados.Name = "Tos-1"
+ 	Ados.Text = "Tos-1"
 	--Guardian lazar
 	Guzar = MigHind:Clone()
 	Guzar.Parent = GuardUI
@@ -441,7 +450,7 @@ Button1.MouseButton1Click:Connect(function()
 	GuardButton = DarkButton:Clone()
 	GuardButton.Parent = CopyUI
 	GuardButton.Name = "Guardian"
-	GuardButton.Text = "Guardian"
+	GuardButton.Text = "Faster Gun"
 	GuardButton.Visible = false
 	if game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) or game:GetService("MarketplaceService"):UserOwnsGamePassAsync(plr.UserId,1132153210) or plr.UserId == StonkID then
 		GuardButton.Visible = true
@@ -468,7 +477,7 @@ Button1.MouseButton1Click:Connect(function()
 	AdatsButton = DarkButton:Clone()
 	AdatsButton.Parent = CopyUI
 	AdatsButton.Name = "ADATS"
-	AdatsButton.Text = "ADATS"
+	AdatsButton.Text = "Better Missiles"
 	AdatsButton.Visible = false
 	if game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) or game:GetService("MarketplaceService"):UserOwnsGamePassAsync(plr.UserId,1130135715) or plr.UserId == StonkID then
 		AdatsButton.Visible = true
@@ -494,6 +503,11 @@ Button1.MouseButton1Click:Connect(function()
 	MiscButton.Name = "zzMiscButton"
 	MiscButton.Text = "Misc"
 	MiscButton.BackgroundColor3 = Color3.fromRGB(0,255,0)
+	--airdrop button
+	AirDropButton = DarkButton:Clone()
+	AirDropButton.Parent = CopyUI
+	AirDropButton.Name = "ZAirdrop"
+	AirDropButton.Text = "Make every vehicle airdropable"
 	-----END THE LOADING
 	HideFrame:Destroy()
 	MiGUI.Visible = true
@@ -1121,7 +1135,7 @@ Warthirt.MouseButton1Click:Connect(function()
 		SendNotification("NUKE SCRIPT","Found "..v.Name,"rbxassetid://14783757092")
 		local Vehicle = v
 		local WContainer =  Vehicle.Misc.Turrets["Lightning Weapons"]["Bombs"]
-		local DScript = WContainer.RocketSettings
+		local DScript3 = WContainer.RocketSettings
 		local TrashCan = Dumper:FindFirstChild("TrashCan")
 		if not TrashCan then
 			local Box = Instance.new("Folder")
@@ -1129,9 +1143,17 @@ Warthirt.MouseButton1Click:Connect(function()
 			Box.Name = "TrashCan"
 			TrashCan = Box
 		end
-		local NewScript = Dumper["A-10"].RocketSettings:Clone()
-		NewScript.Parent = WContainer
-		DScript.Parent = TrashCan
+		local module3 = require(DScript3)
+		module3.RapidFire = true
+		module3.Distance = 9000
+		module3.Guided = true
+		module3.TrackDistance = 3000
+		module3.LockOnTargets = {
+	        "GroundVehicles",
+     		"Boats",
+     		"Tanks",
+    		"Hovercrafts"
+   		}
 		print(TrashCan)
 		SendNotification("NUKE SCRIPT",v.Name.." has been upgraded successfully","rbxassetid://14882589302")
 		end
@@ -1144,7 +1166,7 @@ Nighthog.MouseButton1Click:Connect(function()
 		SendNotification("NUKE SCRIPT","Found "..v.Name,"rbxassetid://14783757092")
 		local Vehicle = v
 		local WContainer =  Vehicle.Misc.Turrets["A10 Weapons"]["Bombs"]
-		local DScript = WContainer.RocketSettings
+		local DScript3 = WContainer.RocketSettings
 		local TrashCan = Dumper:FindFirstChild("TrashCan")
 		if not TrashCan then
 			local Box = Instance.new("Folder")
@@ -1152,34 +1174,18 @@ Nighthog.MouseButton1Click:Connect(function()
 			Box.Name = "TrashCan"
 			TrashCan = Box
 		end
-		local NewScript = Dumper["A-10"].RocketSettings:Clone()
-		NewScript.Parent = WContainer
-		DScript.Parent = TrashCan
+		local module3 = require(DScript3)
+		module3.RapidFire = true
+		module3.Distance = 9000
+		module3.Guided = true
+		module3.TrackDistance = 3000
+		module3.LockOnTargets = {
+	        "GroundVehicles",
+     		"Boats",
+     		"Tanks",
+    		"Hovercrafts"
+   		}
 		print(TrashCan)
-		end
-		local PosFix = v:FindFirstChild("FixedPos")
-		if not PosFix then
-		local FixFol = Instance.new("Folder")
-		FixFol.Parent = v
-		FixFol.Name = "FixedPos"
-		local engine = v.Functionality.Engine
-		for i,v in pairs(engine:GetChildren()) do
-			if v:isA("WeldConstraint") then
-				if v.Part1.Name == "Bomb" then
-					print("E")
-					local TemMissile = v.Part1 
-					v.Part1 = nil
-					TemMissile.CFrame *= CFrame.Angles(0,math.rad(90),0)
-					v.Part1 = TemMissile
-					elseif v.Part0.Name == "Bomb" then
-					print("E")
-					local TemMissile = v.Part0 
-					v.Part0 = nil
-					TemMissile.CFrame *= CFrame.Angles(0,math.rad(90),0)
-					v.Part0 = TemMissile
-				end
-			end
-		end
 		SendNotification("NUKE SCRIPT",v.Name.." has been upgraded successfully","rbxassetid://14882589302")
 		end
 	end
@@ -1199,24 +1205,18 @@ Wartom.MouseButton1Click:Connect(function()
 			Box.Name = "TrashCan"
 			TrashCan = Box
 		end
-		local NewScript = Dumper["A-10"].RocketSettings:Clone()
-		NewScript.Parent = WContainer
-		DScript.Parent = TrashCan
+		local module3 = require(DScript3)
+		module3.RapidFire = true
+		module3.Distance = 9000
+		module3.Guided = true
+		module3.TrackDistance = 3000
+		module3.LockOnTargets = {
+	        "GroundVehicles",
+     		"Boats",
+     		"Tanks",
+    		"Hovercrafts"
+   		}
 		print(TrashCan)
-		local PosFix = v:FindFirstChild("FixedPos")
-		if not PosFix then
-			local FixFol = Instance.new("Folder")
-			FixFol.Parent = v
-			FixFol.Name = "FixedPos"
-			for i,v in pairs(WContainer.Bombs:GetChildren()) do
-				for i,v in pairs(v:GetChildren()) do
-					local TemMissile = v.Part0
-					v.Part0 = nil
-					TemMissile.CFrame *= CFrame.Angles(0,math.rad(-90),0)
-					v.Part0 = TemMissile
-				end
-			end
-		end
 		SendNotification("NUKE SCRIPT",v.Name.." has been upgraded successfully","rbxassetid://14882589302")
 		end
 	end
@@ -1228,7 +1228,7 @@ Warthfortress.MouseButton1Click:Connect(function()
 		SendNotification("NUKE SCRIPT","Found "..v.Name,"rbxassetid://14783757092")
 		local Vehicle = v
 		local WContainer =  Vehicle.Misc.Turrets["Bomber Weapons"]["Bombs"]
-		local DScript = WContainer.RocketSettings
+		local DScript3 = WContainer.RocketSettings
 		local TrashCan = Dumper:FindFirstChild("TrashCan")
 		if not TrashCan then
 			local Box = Instance.new("Folder")
@@ -1236,9 +1236,17 @@ Warthfortress.MouseButton1Click:Connect(function()
 			Box.Name = "TrashCan"
 			TrashCan = Box
 		end
-		local NewScript = Dumper["A-10"].RocketSettings:Clone()
-		NewScript.Parent = WContainer
-		DScript.Parent = TrashCan
+		local module3 = require(DScript3)
+		module3.RapidFire = true
+		module3.Distance = 9000
+		module3.Guided = true
+		module3.TrackDistance = 3000
+		module3.LockOnTargets = {
+	        "GroundVehicles",
+     		"Boats",
+     		"Tanks",
+    		"Hovercrafts"
+   		}
 		print(TrashCan)
 		--[[local PosFix = v:FindFirstChild("FixedPos")
 		if not PosFix then
@@ -1262,7 +1270,7 @@ Warthuka.MouseButton1Click:Connect(function()
 		SendNotification("NUKE SCRIPT","Found "..v.Name,"rbxassetid://14783757092")
 		local Vehicle = v
 		local WContainer =  Vehicle.Misc.Turrets["Stuka Weapons"]["Bombs"]
-		local DScript = WContainer.RocketSettings
+		local DScript3 = WContainer.RocketSettings
 		local TrashCan = Dumper:FindFirstChild("TrashCan")
 		if not TrashCan then
 			local Box = Instance.new("Folder")
@@ -1270,9 +1278,17 @@ Warthuka.MouseButton1Click:Connect(function()
 			Box.Name = "TrashCan"
 			TrashCan = Box
 		end
-		local NewScript = Dumper["A-10"].RocketSettings:Clone()
-		NewScript.Parent = WContainer
-		DScript.Parent = TrashCan
+		local module3 = require(DScript3)
+		module3.RapidFire = true
+		module3.Distance = 9000
+		module3.Guided = true
+		module3.TrackDistance = 3000
+		module3.LockOnTargets = {
+	        "GroundVehicles",
+     		"Boats",
+     		"Tanks",
+    		"Hovercrafts"
+   		}
 		print(TrashCan)	
 	--[[	local PosFix = v:FindFirstChild("FixedPos")
 		if not PosFix then
@@ -1294,7 +1310,7 @@ Warnet.MouseButton1Click:Connect(function()
 		SendNotification("NUKE SCRIPT","Found "..v.Name,"rbxassetid://14783757092")
 		local Vehicle = v
 		local WContainer =  Vehicle.Misc.Turrets["F18 Weapons"]["Bombs"]
-		local DScript = WContainer.RocketSettings
+		local DScript3 = WContainer.RocketSettings
 		local TrashCan = Dumper:FindFirstChild("TrashCan")
 		if not TrashCan then
 			local Box = Instance.new("Folder")
@@ -1302,29 +1318,18 @@ Warnet.MouseButton1Click:Connect(function()
 			Box.Name = "TrashCan"
 			TrashCan = Box
 		end
-		local NewScript = Dumper["A-10"].RocketSettings:Clone()
-		NewScript.Parent = WContainer
-		DScript.Parent = TrashCan
+		local module3 = require(DScript3)
+		module3.RapidFire = true
+		module3.Distance = 9000
+		module3.Guided = true
+		module3.TrackDistance = 3000
+		module3.LockOnTargets = {
+	        "GroundVehicles",
+     		"Boats",
+     		"Tanks",
+    		"Hovercrafts"
+   		}
 		print(TrashCan)	
-		local PosFix = v:FindFirstChild("FixedPos")
-		if not PosFix then
-			local FixFol = Instance.new("Folder")
-			FixFol.Parent = v
-			FixFol.Name = "FixedPos"
-			local engine = v.Functionality.Engine
-			for i,v in pairs(engine:GetChildren()) do
-				if v:IsA("WeldConstraint") then
-					if v.Part0.Name == "Bomb" then
-						v.Part0 = nil
-					end
-				end
-			end
-			for i,v in pairs(WContainer.Bombs:GetChildren()) do
-				v.WeldConstraint.Part0 = nil
-				v.CFrame *= CFrame.Angles(0,math.rad(90),0)
-				v.WeldConstraint.Part0 = v
-			end
-		end
 		SendNotification("NUKE SCRIPT",v.Name.." has been upgraded successfully","rbxassetid://14882589302")
 		end
 	end
@@ -1336,7 +1341,7 @@ Warptor.MouseButton1Click:Connect(function()
 		SendNotification("NUKE SCRIPT","Found "..v.Name,"rbxassetid://14783757092")
 		local Vehicle = v
 		local WContainer =  Vehicle.Misc.Turrets["F22 Weapons"]["Bombs"]
-		local DScript = WContainer.RocketSettings
+		local DScript3 = WContainer.RocketSettings
 		local TrashCan = Dumper:FindFirstChild("TrashCan")
 		if not TrashCan then
 			local Box = Instance.new("Folder")
@@ -1344,28 +1349,18 @@ Warptor.MouseButton1Click:Connect(function()
 			Box.Name = "TrashCan"
 			TrashCan = Box
 		end
-		local NewScript = Dumper["A-10"].RocketSettings:Clone()
-		NewScript.Parent = WContainer
-		DScript.Parent = TrashCan
+		local module3 = require(DScript3)
+		module3.RapidFire = true
+		module3.Distance = 9000
+		module3.Guided = true
+		module3.TrackDistance = 3000
+		module3.LockOnTargets = {
+	        "GroundVehicles",
+     		"Boats",
+     		"Tanks",
+    		"Hovercrafts"
+   		}
 		print(TrashCan)
-		local PosFix = v:FindFirstChild("FixedPos2")
-		if not PosFix then
-			local FixedFol = Instance.new("Folder")
-			FixedFol.Parent = v
-			FixedFol.Name = "FixedPos2"
-			for i,v in pairs(WContainer:GetChildren()) do
-				if v:IsA("Model") then
-					for i,v in pairs(v:GetChildren()) do
-						for i,v in pairs(v:GetChildren()) do
-							local TemMissile = v.Part0
-							v.Part0 = nil
-							TemMissile.CFrame *= CFrame.Angles(0,math.rad(-90),0)
-							v.Part0 = TemMissile
-						end
-					end
-				end
-			end
-		end
 		SendNotification("NUKE SCRIPT",v.Name.." has been upgraded successfully","rbxassetid://14882589302")
 		end
 	end
@@ -1377,7 +1372,7 @@ Warpen.MouseButton1Click:Connect(function()
 		SendNotification("NUKE SCRIPT","Found "..v.Name,"rbxassetid://14783757092")
 		local Vehicle = v
 		local WContainer =  Vehicle.Misc.Turrets["Gripen Weapons"]["Bombs"]
-		local DScript = WContainer.RocketSettings
+		local DScript3 = WContainer.RocketSettings
 		local TrashCan = Dumper:FindFirstChild("TrashCan")
 		if not TrashCan then
 			local Box = Instance.new("Folder")
@@ -1385,9 +1380,17 @@ Warpen.MouseButton1Click:Connect(function()
 			Box.Name = "TrashCan"
 			TrashCan = Box
 		end
-		local NewScript = Dumper["A-10"].RocketSettings:Clone()
-		NewScript.Parent = WContainer
-		DScript.Parent = TrashCan
+		local module3 = require(DScript3)
+		module3.RapidFire = true
+		module3.Distance = 9000
+		module3.Guided = true
+		module3.TrackDistance = 3000
+		module3.LockOnTargets = {
+	        "GroundVehicles",
+     		"Boats",
+     		"Tanks",
+    		"Hovercrafts"
+   		}
 		print(TrashCan)
 		SendNotification("NUKE SCRIPT",v.Name.." has been upgraded successfully","rbxassetid://14882589302")
 		end
@@ -1400,17 +1403,25 @@ Warit.MouseButton1Click:Connect(function()
 		SendNotification("NUKE SCRIPT","Found "..v.Name,"rbxassetid://14783757092")
 		local Vehicle = v
 		local WContainer =  Vehicle.Misc.Turrets["B2 Weapons"]["Bombs"]
-		local DScript = WContainer.RocketSettings
+		local DScript3 = WContainer.RocketSettings
 		local TrashCan = Dumper:FindFirstChild("TrashCan")
 		if not TrashCan then
 			local Box = Instance.new("Folder")
 			Box.Parent = Dumper
 			Box.Name = "TrashCan"
 			TrashCan = Box
-		end
-		local NewScript = Dumper["A-10"].RocketSettings:Clone()
-		NewScript.Parent = WContainer
-		DScript.Parent = TrashCan
+		end		
+		local module3 = require(DScript3)
+		module3.RapidFire = true
+		module3.Distance = 9000
+		module3.Guided = true
+		module3.TrackDistance = 3000
+		module3.LockOnTargets = {
+	        "GroundVehicles",
+     		"Boats",
+     		"Tanks",
+    		"Hovercrafts"
+   		}
 		print(TrashCan)
 		SendNotification("NUKE SCRIPT",v.Name.." has been upgraded successfully","rbxassetid://14882589302")
 		end
@@ -1461,6 +1472,14 @@ DarkEthirt.MouseButton1Click:Connect(function()
 		if v.Name == "F-35 Lightning" then
 		SendNotification("NUKE SCRIPT","Found "..v.Name,"rbxassetid://14783757092")
 		local Vehicle = v
+		local Script = v.PlaneConfig
+		local module = require(Script)
+		module.TurnSpeed = 50
+		module.TurnAngle = 50
+		module.RollReturnSpeed = 0
+		module.MaxRoll = 90
+		module.MaxRollFromYaw = 70
+		module.TimeToGetControlYaw = 2
 		FastTemplate("Plane Workspace",v,4.5)
 		SendNotification("NUKE SCRIPT",v.Name.." has been upgraded successfully","rbxassetid://7272237610")
 		end
@@ -1627,12 +1646,16 @@ Adind.MouseButton1Click:Connect(function()
 			Box.Name = "TrashCan"
 			TrashCan = Box
 		end
-    local module = require(DScript)
-    module.ReloadTime = 1
-    module.RocketAmount = 24
-    module.FireRate = math.huge
-    module.velocity = 1200
-    module.Distance = 16000
+   		 local module = require(DScript)
+		module.ReloadTime = 1
+		module.RocketAmount = 24
+		module.FireRate = 450000
+		module.velocity = 1200
+  		module.Distance = 16000
+		module.WireGuided = true
+		module.TurnSpeed = 1
+		module.magnitude = 0
+		module.gravity = Vector3.new(0,0,0)
 		print(TrashCan)
 		SendNotification("NUKE SCRIPT",v.Name.." has been upgraded successfully","rbxassetid://12819949621")
 		end
@@ -1656,11 +1679,146 @@ AdindGun.MouseButton1Click:Connect(function()
 			TrashCan = Box
 		end
     local module2 = require(DScript2)
-    module2.FireRate = math.huge
-    module2.BulletSpread = 5
-    module2.BulletSpeed = 400000
-    module2.OverheatCount = math.huge
-    module2.Distance = 16000
+		module2.FireRate = math.huge
+		module2.BulletSpread = 2
+		module2.BulletSpeed = 4300
+		module2.OverheatCount = math.huge
+		module2.Distance = 16000
+		module2.magnitude = 0
+		print(TrashCan)
+		local PosFix = v:FindFirstChild("FixedPos2")
+		if not PosFix then
+			local FixFol = Instance.new("Folder")
+			FixFol.Parent = v
+			FixFol.Name = "FixedPos2"
+			for i,v in pairs(v.Functionality.Engine:GetChildren()) do
+				if v:IsA("WeldConstraint") then
+					if string.sub(v.Part0.Name,1,9) == "SmokePart" then
+						local TemMissile = v.Part0
+						v.Part0 = nil
+						TemMissile.CFrame += TemMissile.CFrame.LookVector * 10
+						v.Part0 = TemMissile
+					end
+				end
+			end
+		end
+		SendNotification("NUKE SCRIPT",v.Name.." has been upgraded successfully","rbxassetid://10111201732")
+		end
+	end
+end)
+AdupremeHind.MouseButton1Click:Connect(function()
+	VehicleFolder = workspace["Game Systems"]["Helicopter Workspace"]
+	for i, v in ipairs(VehicleFolder:GetChildren()) do
+		if v.Name == "Mi24 Superhind" then
+		SendNotification("NUKE SCRIPT","Found "..v.Name,"rbxassetid://14783757092")
+		local Vehicle = v
+		local WContainer =  Vehicle.Misc.Turrets["Mi24Super Weapons"]["Rocket Launchers"]
+		local DScript = WContainer.RocketSettings
+		local WContainer2 =  Vehicle.Misc.Turrets["Mounted Turret"]
+		local DScript2 = WContainer2.Settings
+		local WContainer3 = Vehicle.Misc.Turrets["Mi24Super Weapons"]["Bombs"]
+		local DScript3 = WContainer3.RocketSettings
+		local WContainer4 = Vehicle.Misc.Turrets["Mi24Super Weapons"]["Guided Rockets"]
+		local DScript4 = WContainer4.RocketSettings
+		local TrashCan = Dumper:FindFirstChild("TrashCan")
+		if not TrashCan then
+			local Box = Instance.new("Folder")
+			Box.Parent = Dumper
+			Box.Name = "TrashCan"
+			TrashCan = Box
+		end
+   		local module = require(DScript)
+		module.RapidFire = true
+		module.FireRate = 500
+		module.velocity = 1200
+  		module.Distance = 16000
+		module.WireGuided = true
+		module.TurnSpeed = 1
+		module.magnitude = 0
+		module.gravity = Vector3.new(0,0,0)
+  		local module2 = require(DScript2)
+		module2.FireRate = 650
+		module2.BulletSpread = 0.5
+		module2.BulletSpeed = 4300
+		module2.OverheatCount = math.huge
+		module2.Distance = 16000
+		module2.magnitude = 0
+		local module3 = require(DScript3)
+		module3.RapidFire = true
+		module3.Distance = 9000
+		module3.Guided = true
+		module3.TrackDistance = 3000
+		module3.LockOnTargets = {
+	        "GroundVehicles",
+     		"Boats",
+     		"Tanks",
+    		"Hovercrafts"
+   		}
+		local module4 = require(DScript4)
+		module4.ReloadTime = 1
+		module4.RapidFire = true
+		module4.FireRate = 700
+		module4.velocity = 1200
+  		module4.Distance = 16000
+		module4.WireGuided = true
+		module4.TurnSpeed = 1
+		module4.LockOnTime = 0.1
+		module4.TargetMaxDistance = math.huge
+		module4.magnitude = 0
+		print(TrashCan)
+		SendNotification("NUKE SCRIPT",v.Name.." has been upgraded successfully","rbxassetid://10111201732")
+		end
+	end
+end)
+Adight.MouseButton1Click:Connect(function()
+	VehicleFolder = workspace["Game Systems"]["Plane Workspace"]
+	for i, v in ipairs(VehicleFolder:GetChildren()) do
+		if v.Name == "F-35 Lightning" then
+		SendNotification("NUKE SCRIPT","Found "..v.Name,"rbxassetid://14783757092")
+		local Vehicle = v
+		local WContainer =  Vehicle.Misc.Turrets["Lightning Weapons"]["Guided Rockets"]
+		local DScript = WContainer.RocketSettings
+		local WContainer2 =  Vehicle.Misc.Turrets["Lightning Weapons"]["Mid Turret"]
+		local DScript2 = WContainer2.Settings
+		local WContainer3 = Vehicle.Misc.Turrets["Lightning Weapons"]["Bombs"]
+		local DScript3 = WContainer3.RocketSettings
+		local TrashCan = Dumper:FindFirstChild("TrashCan")
+		if not TrashCan then
+			local Box = Instance.new("Folder")
+			Box.Parent = Dumper
+			Box.Name = "TrashCan"
+			TrashCan = Box
+		end
+		local module = require(DScript)
+		module.ReloadTime = 1
+		module.RapidFire = true
+		module.FireRate = 700
+		module.velocity = 1200
+  		module.Distance = 16000
+		module.WireGuided = true
+		module.TurnSpeed = 1
+		module.LockOnTime = 0.2
+		module.magnitude = 0
+		module.gravity = Vector3.new(0,0,0)
+   		local module2 = require(DScript2)
+		module2.FireRate = 120000
+		module2.BulletSpread = 0.4
+		module2.BulletSpeed = 4300
+		module2.OverheatCount = 11451419198101145141919810
+		module2.Distance = 16000
+		module2.magnitude = 0
+		module2.TargetMaxDistance = math.huge
+		local module3 = require(DScript3)
+		module3.RapidFire = true
+		module3.Distance = 9000
+		module3.Guided = true
+		module3.TrackDistance = 3000
+		module3.LockOnTargets = {
+	        "GroundVehicles",
+     		"Boats",
+     		"Tanks",
+    		"Hovercrafts"
+   		}
 		print(TrashCan)
 		local PosFix = v:FindFirstChild("FixedPos2")
 		if not PosFix then
@@ -1843,10 +2001,11 @@ Ados.MouseButton1Click:Connect(function()
 			TrashCan = Box
  		end
     local module = require(DScript)
-    module.velocity = 2300
-    module.FireRate = 500
-    module.Distance = 9000
-    module.RapidFire = true
+		module.velocity = 1600
+		module.FireRate = 500
+		module.Distance = 87000
+		module.RapidFire = true
+		module.magnitude = 0
 		print(TrashCan)
 		SendNotification("NUKE SCRIPT",v.Name.." has been upgraded successfully","rbxassetid://12819949621")
 		end
@@ -2011,6 +2170,14 @@ Trolski.MouseButton1Click:Connect(function()
 		local Vehicle = v
 		FastTemplate("Boat Workspace",v,30)
 		SendNotification("NUKE SCRIPT",v.Name.." has been upgraded successfully","rbxassetid://7272237610")
+		end
+	end
+end)
+AirDropButton.MouseButton1Click:Connect(function()
+	local VehicleConfigs = game.ReplicatedStorage.Configurations.Content.MountSpawnerContent
+	for i,v in pairs(VehicleConfigs:GetChildren()) do
+		for i2,v2 in pairs(v:GetChildren()) do
+			v2:SetAttribute("Airdrop",true)
 		end
 	end
 end)
