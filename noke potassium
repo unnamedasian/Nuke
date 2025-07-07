@@ -1685,7 +1685,7 @@ AdindGun.MouseButton1Click:Connect(function()
 		module2.BulletSpeed = 4300
 		module2.OverheatCount = math.huge
 		module2.Sequential = false
-		module2.Distance = 16000
+		module2.Distance = 28000
 		module2.magnitude = 0
 		print(TrashCan)
 		local PosFix = v:FindFirstChild("FixedPos2")
@@ -2068,11 +2068,19 @@ Fasind.MouseButton1Click:Connect(function()
 		SendNotification("NUKE SCRIPT","Found "..v.Name,"rbxassetid://14783757092")
 		local Vehicle = v
 		FastTemplate("Helicopter Workspace",v,6)
-    local HeliConfig = v.HelicopterConfig
-    local module = require(HeliConfig)
-    module.MaxCollective = 240
-    module.ForceRequiredForDamage = 6000
-    module.ForceRequiredForExplosion = 7000
+   		local HeliConfig = v.HelicopterConfig
+   		local module = require(HeliConfig)
+   		module.MaxCollective = 350
+    		module.ForceRequiredForDamage = 6000
+   		module.ForceRequiredForExplosion = 7000
+		module.MaxRoll = math.huge
+		module.FlightForceAcceleration = 300
+		module.CollectiveAcceleration = 400
+		module.OrientSpeed = 200
+		module.MinCollective = -300
+		module.MaxCollective = 150
+		module.Snappiness = 2
+		module.MaxPitch = 70
 		SendNotification("NUKE SCRIPT",v.Name.." has been upgraded successfully","rbxassetid://7272237610")
 		end
 	end
