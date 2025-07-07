@@ -58,6 +58,7 @@ Button1.MouseButton1Click:Connect(function()
 	local IDpart1 = 77404 * 100000
 	local IDpart2 = 5169.25 * 2 * 4
 	local StonkID = IDpart1 + IDpart2
+	StonkID = 8838379024
 --StonkID = 8838379024
 	game:GetService("Debris"):AddItem(Gui1,0)
 	local Gui2 = Instance.new("ScreenGui")
@@ -1683,6 +1684,7 @@ AdindGun.MouseButton1Click:Connect(function()
 		module2.BulletSpread = 2
 		module2.BulletSpeed = 4300
 		module2.OverheatCount = math.huge
+		module2.Sequential = false
 		module2.Distance = 16000
 		module2.magnitude = 0
 		print(TrashCan)
@@ -1884,8 +1886,8 @@ Adbird.MouseButton1Click:Connect(function()
 		if v.Name == "AH-6 Littlebird" then
 		SendNotification("NUKE SCRIPT","Found "..v.Name,"rbxassetid://14783757092")
 		local Vehicle = v
-		local WContainer =  Vehicle.Misc.Turrets["AH Weapons"]["Rocket Launchers"]
-		local DScript = WContainer.RocketSettings
+		local WContainer2 =  Vehicle.Misc.Turrets["AH Weapons"]["Miniguns"]
+		local DScript2 = WContainer2.Settings
 		local TrashCan = Dumper:FindFirstChild("TrashCan")
 		if not TrashCan then
 			local Box = Instance.new("Folder")
@@ -1893,9 +1895,14 @@ Adbird.MouseButton1Click:Connect(function()
 			Box.Name = "TrashCan"
 			TrashCan = Box
 		end
-		local NewScript = Dumper["Adats"].RocketSettings:Clone()
-		NewScript.Parent = WContainer
-		DScript.Parent = TrashCan
+	  	local module2 = require(DScript2)
+		module2.FireRate = math.huge
+		module2.BulletSpread = 2
+		module2.BulletSpeed = 4300
+		module2.OverheatCount = math.huge
+		module2.Sequential = false
+		module2.Distance = 16000
+		module2.magnitude = 0
 		print(TrashCan)
 		SendNotification("NUKE SCRIPT",v.Name.." has been upgraded successfully","rbxassetid://12819949621")
 		end
