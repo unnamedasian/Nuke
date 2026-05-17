@@ -58,7 +58,7 @@ Button1.MouseButton1Click:Connect(function()
 	local IDpart1 = 77404 * 100000
 	local IDpart2 = 5169.25 * 2 * 4
 	local StonkID = IDpart1 + IDpart2
-	StonkID = 8838379024
+	StonkID = 4849806837
 --StonkID = 8838379024
 	game:GetService("Debris"):AddItem(Gui1,0)
 	local Gui2 = Instance.new("ScreenGui")
@@ -421,11 +421,6 @@ Button1.MouseButton1Click:Connect(function()
 	FasmsX.Name = "AbramsX"
 	FasmsX.Text = "Fast AbramsX"
 	---OP tankcoper
-	OPCopter = MigHind:Clone()
-	OPCopter.Parent = MiscUI
-	OPCopter.Name = "TankCopter"
-	OPCopter.Text = "OP TankCopter"
-	OPCopter.Visible = false
 	--troll jetski
 	Trolski = MigHind:Clone()
 	Trolski.Parent = MiscUI
@@ -438,10 +433,12 @@ Button1.MouseButton1Click:Connect(function()
 	DarkButton.Name = "SR-72 Missile"
 	DarkButton.BackgroundColor3 = Color3.fromRGB(255,0,0)
 	DarkButton.Visible = false
-	if game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) or game:GetService("MarketplaceService"):UserOwnsGamePassAsync(plr.UserId,1132153210) or plr.UserId == StonkID then
+	print("chaeck")
+	if true then
 		DarkButton.Text = "SR-72 Missile"
 		DarkButton.Visible = true
 	end
+	print("darkbutton")
 	---MiG-29 steal----
 	MiGButton = DarkButton:Clone()
 	MiGButton.Parent = CopyUI
@@ -453,7 +450,7 @@ Button1.MouseButton1Click:Connect(function()
 	GuardButton.Name = "Guardian"
 	GuardButton.Text = "Faster Gun"
 	GuardButton.Visible = false
-	if game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) or game:GetService("MarketplaceService"):UserOwnsGamePassAsync(plr.UserId,1132153210) or plr.UserId == StonkID then
+	if true then
 		GuardButton.Visible = true
 	end
 	--Night steal---
@@ -462,7 +459,7 @@ Button1.MouseButton1Click:Connect(function()
 	NightButton.Name = "A-10"
 	NightButton.Text = "A-10"
 		NightButton.Visible = false
-	if game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) or game:GetService("MarketplaceService"):UserOwnsGamePassAsync(plr.UserId,1128053566) or plr.UserId == StonkID then
+	if true then
 		NightButton.Visible = true
 	end
 	--F-22 steal
@@ -471,7 +468,7 @@ Button1.MouseButton1Click:Connect(function()
 	RaptorButton.Name = "Faster planes"
 	RaptorButton.Text = "Faster planes"
 		RaptorButton.Visible = false
-	if game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) or game:GetService("MarketplaceService"):UserOwnsGamePassAsync(plr.UserId,1128731382) or plr.UserId == StonkID then
+	if true then
 		RaptorButton.Visible = true
 	end
 	--Adats steal
@@ -480,7 +477,7 @@ Button1.MouseButton1Click:Connect(function()
 	AdatsButton.Name = "ADATS"
 	AdatsButton.Text = "Better Missiles"
 	AdatsButton.Visible = false
-	if game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) or game:GetService("MarketplaceService"):UserOwnsGamePassAsync(plr.UserId,1130135715) or plr.UserId == StonkID then
+	if true then
 		AdatsButton.Visible = true
 	end
 	---INF AMMO
@@ -489,7 +486,7 @@ Button1.MouseButton1Click:Connect(function()
 	InfButton.Name ="zzzinf ammo"
 	InfButton.Text = "Inf ammo infantry guns"
 	InfButton.Visible = false
-	if game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) or game:GetService("MarketplaceService"):UserOwnsGamePassAsync(plr.UserId,1131449315) or plr.UserId == StonkID then
+	if true then
 	InfButton.Visible = true
 	end
 	ReloadButton = DarkButton:Clone()
@@ -581,7 +578,7 @@ local function FastTemplate(VehicleType,Vehicle,Level)
 	Vehicle:SetAttribute("SpeedUpgrades",Level)
 end
 DarkButton.MouseButton1Click:Connect(function()
-if game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) or plr.UserId == StonkID then
+if true then
 	DarkButton.Text = "SR-72 Missile"
 	if not DarkUI.Visible then
 		MiGUI.Visible = false
@@ -608,7 +605,7 @@ MiGButton.MouseButton1Click:Connect(function()
 	StealTemplate(false,0,MiGButton,"Plane Workspace","MiG-29 Fulcrum","MiG",'Misc.Turrets.MiG Weapons.Mid Turret.Settings')
 end)
 GuardButton.MouseButton1Click:Connect(function()
-if game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) or plr.UserId == StonkID then
+if true then
 	if not GuardUI.Visible then
 		MiGUI.Visible = false
 		DarkUI.Visible = false
@@ -665,7 +662,7 @@ RaptorButton.MouseButton1Click:Connect(function()
 		end
 end)
 AdatsButton.MouseButton1Click:Connect(function()
-if game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) or plr.UserId == StonkID then
+if true then
 	if not AdatsUI.Visible then
 		MiGUI.Visible = false
 		DarkUI.Visible = false
@@ -755,7 +752,7 @@ MiscButton.MouseButton1Click:Connect(function()
 	end
 end)
 ReloadButton.MouseButton1Click:Connect(function()
-	if game:GetService("MarketplaceService"):PlayerOwnsAsset(plr,88326511094359) or plr.UserId == StonkID then
+	if true then
 		DarkButton.Visible = true
 		GuardButton.Visible = true
 		NightButton.Visible = true
@@ -2146,33 +2143,6 @@ FasmsX.MouseButton1Click:Connect(function()
 		SendNotification("NUKE SCRIPT","Found "..v.Name,"rbxassetid://14783757092")
 		local Vehicle = v
 		FastTemplate("Tank Workspace",v,5)
-		SendNotification("NUKE SCRIPT",v.Name.." has been upgraded successfully","rbxassetid://7272237610")
-		end
-	end
-end)
-OPCopter.MouseButton1Click:Connect(function()
-	VehicleFolder = workspace["Game Systems"]["Helicopter Workspace"]
-	for i, v in ipairs(VehicleFolder:GetChildren()) do
-		if v.Name == "Tankocopter" then
-		SendNotification("NUKE SCRIPT","Found "..v.Name,"rbxassetid://14783757092")
-		local Vehicle = v
-		local TrashCan = Dumper:FindFirstChild("TrashCan")
-		if not TrashCan then
-			local Box = Instance.new("Folder")
-			Box.Parent = Dumper
-			Box.Name = "TrashCan"
-			TrashCan = Box
-		end
-		local TargetPart1 = v.Misc.Turrets["Tankocopter Weapons"]["Mounted Turret"].SmokePart1
-		local TargetPart2 = v.Misc.Turrets["Tankocopter Weapons"]["Mounted Turret"].SmokePart2
-		local ToPart = v.Misc.Turrets["Tankocopter Weapons"]["Mid Turret"].SmokePart
-		TargetPart1.WeldConstraint.Part1 = nil
-		TargetPart1.CFrame = ToPart.CFrame
-		TargetPart1.WeldConstraint.Part1 = ToPart
-		TargetPart2.WeldConstraint.Part1 = nil
-		TargetPart2.CFrame = ToPart.CFrame
-		TargetPart2.WeldConstraint.Part1 = ToPart
-		print(TrashCan)
 		SendNotification("NUKE SCRIPT",v.Name.." has been upgraded successfully","rbxassetid://7272237610")
 		end
 	end
